@@ -10,6 +10,9 @@
     lazygit
     neovim
     ripgrep
+    z-lua
+    fzf
+    zsh
     python3
     socat
     tree
@@ -38,5 +41,13 @@
         showFileTree = false;
       };
     };
+  };
+  programs.z-lua = {
+    enable = true;
+    options = [ "enhanced" "once" "fzf" "echo" ];
+    enableAliases = true;
+  };
+  programs.zsh = {
+    enable = true;
   };
 }
