@@ -7,6 +7,7 @@
   home.homeDirectory = builtins.getEnv "HOME";
   home.packages = with pkgs; [
     elixir
+    lazygit
     neovim
     ripgrep
     python3
@@ -30,4 +31,12 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui = {
+        showFileTree = false;
+      };
+    };
+  };
 }
