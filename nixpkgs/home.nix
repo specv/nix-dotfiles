@@ -10,12 +10,18 @@
     lazygit
     neovim
     ripgrep
+    dust
+    caddy
     z-lua
     fzf
     zsh
     python3
     socat
     tree
+    lsd
+    bat
+    direnv
+    ranger
     vagrant
     tmuxinator
     nodejs
