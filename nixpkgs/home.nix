@@ -62,6 +62,10 @@
     enable = true;
   };
 
+  programs.direnv = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     defaultKeymap = "viins";
