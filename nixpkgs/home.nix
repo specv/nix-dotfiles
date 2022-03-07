@@ -97,13 +97,21 @@
       extended = true;
     };
     shellAliases = {
-      vi   = "nvim";
-      lg   = "lazygit";
+      # ls
       l    = "ls";
       ls   = "lsd";
       la   = "l -a";
       ll   = "l -la";
       tree = "l --tree";
+      
+      # git
+      gs   = "git status";
+      gl   = "git log";
+      gb   = "git branch";
+
+      # etc
+      vi   = "nvim";
+      lg   = "lazygit";
       cat  = "bat";
     };
     #plugins = [
