@@ -7,25 +7,19 @@
   home.homeDirectory = builtins.getEnv "HOME";
   home.packages = with pkgs; [
     elixir
-    lazygit
     neovim
     ripgrep
     dust
     caddy
-    z-lua
-    fzf
-    zsh
     python3
     socat
     lsd
     bat
-    direnv
     ranger
     vagrant
     tmuxinator
     nodejs
     yarn
-    starship
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
@@ -158,8 +152,8 @@
     enable = true;
     settings = {
       add_newline = true;
-      scan_timeout = 100;
-      command_timeout = 1000;
+      scan_timeout = 50;
+      command_timeout = 500;
     };
   };
 }
