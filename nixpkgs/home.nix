@@ -80,6 +80,52 @@
     initExtra = ''
       # profile
       source ~/.bash_profile
+
+      # fzf
+      # Ctrl-r history direct output
+      # https://github.com/junegunn/fzf/issues/477
+      fzf-history-widget() {
+        local selected num
+        setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
+        selected=( $(fc -rl 1 | /nix/store/1jqa5w6ah7ihbvmi7wv9zxw5n2bchsrp-perl-5.34.0/bin/perl -ne 'print if !$seen{(/^\s*[0-9]+\**\s+(.*)/, $1)}++' |
+          FZF_DEFAULT_OPTS="--height ''${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort,ctrl-z:ignore --expect=ctrl-f --expect=ctrl-g $FZF_CTRL_R_OPTS --query=''${(qqq)LBUFFER} +m" $(__fzfcmd)) )
+        local ret=$?
+        if [ -n "$selected" ]; then
+          local accept=0
+          if [[ $selected[1] = ctrl-f ]]; then
+            accept=1
+            shift selected
+          fi
+          if [[ $selected[1] = ctrl-g ]]; then
+            accept=1
+            shift selected
+            zle accept-line
+          fi
+          num=$selected[1]
+          if [ -n "$num" ]; then
+            zle vi-fetch-history -n $num
+            [[ $accept = 0 ]] && zle accept-line
+          fi
+        fi
+        zle reset-prompt
+        return $ret
+      }
+      zle     -N             fzf-file-widget
+      zle     -N             fzf-history-widget
+
+      # bindkey
+      # [zsh] Set up bindings for all three keymaps: emacs, vicmd, and viins
+      # https://github.com/junegunn/fzf/commit/5f385d88e0a786f20c4231b82f250945a6583a17
+      bindkey -M vicmd '^T'  fzf-cd-widget
+      bindkey -M viins '^T'  fzf-cd-widget
+      bindkey -M vicmd '^O'  fzf-file-widget
+      bindkey -M viins '^O'  fzf-file-widget
+      bindkey -M vicmd '^R'  fzf-history-widget
+      bindkey -M viins '^R'  fzf-history-widget
+      bindkey          '^K'  up-line-or-search
+      bindkey          '^J'  down-line-or-search
+      bindkey          '^F'  autosuggest-accept
+      bindkey          '^G'  autosuggest-execute
     '';
     history = {
       size = 10000000;
