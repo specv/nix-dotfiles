@@ -15,11 +15,14 @@
     socat
     lsd
     bat
+    pet
     ranger
     vagrant
     tmuxinator
     nodejs
+    sshuttle
     yarn
+    telnet
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
@@ -145,9 +148,11 @@
       tree = "l --tree";
       
       # git
-      gs   = "git status";
-      gl   = "git log";
+      ga   = "git commid --amend";
       gb   = "git branch";
+      gl   = "git log";
+      gp   = "git pull";
+      gs   = "git status";
 
       # etc
       vi   = "nvim";
