@@ -96,6 +96,7 @@
         if [ -n "$selected" ]; then
           local accept=0
           if [[ $selected[1] = ctrl-f ]]; then
+
             accept=1
             shift selected
           fi
@@ -148,7 +149,7 @@
       tree = "l --tree";
       
       # git
-      ga   = "git commid --amend";
+      ga   = "git commit --amend";
       gb   = "git branch";
       gl   = "git log";
       gp   = "git pull";
