@@ -1,5 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  comma = import ( pkgs.fetchFromGitHub {
+      owner = "nix-community";
+      repo = "comma";
+      rev = "4a62ec17e20ce0e738a8e5126b4298a73903b468";
+      sha256 = "sha256-IT7zlcM1Oh4sWeCJ1m4NkteuajPxTnNo1tbitG0eqlg=";
+  }) {};
+
+in
+
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -23,6 +33,7 @@
     sshuttle
     yarn
     telnet
+    comma
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
