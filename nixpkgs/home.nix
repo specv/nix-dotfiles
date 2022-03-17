@@ -73,8 +73,8 @@ in
         src = super.fetchFromGitHub {
           owner = "specv";
           repo = "fzf";
-          rev = "08f0c8132ed900e19e9071ea6e2e74ad6c023715";
-          sha256 = "sha256-WrBMTZ7g6Baaic86M0BRCoY18v7PUUkg3yjSsdwUrCw=";
+          rev = "7c888563b8be44cbccfb9a0ba8b187a263286afa";
+          sha256 = "sha256-gedt3dK7YkyBB4UvqzVHaFUCzC+9KKu35cmmNqALFE0=";
         };
       });
     })
