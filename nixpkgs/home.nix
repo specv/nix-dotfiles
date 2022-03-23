@@ -132,8 +132,10 @@ in
       tree = "l --tree";
       
       # git
+      g    = "git";
       ga   = "git commit --amend";
       gb   = "git branch";
+      gd   = "git diff";
       gl   = "git log";
       gp   = "git pull";
       gs   = "git status";
@@ -189,6 +191,57 @@ in
       add_newline = true;
       scan_timeout = 50;
       command_timeout = 500;
+    };
+  };
+
+  # location: ~/.config/git
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    aliases = {
+      a = "commit --amend";
+      b = "branch";
+      c = "commit";
+      d = "diff";
+      l = "log";
+      p = "pull";
+      s = "status";
+    };
+    ignores = [
+      # ide
+      ".idea" ".vs" ".vsc" ".vscode"
+      # python
+      "*.pyc" "__pycache__" ".ipynb_checkpoints"
+      # mac
+      ".DS_Store"
+      # direnv
+      ".envrc"
+    ];
+    extraConfig = {
+      delta = {
+        line-numbers = true;
+      };
+      diff = {
+        tool = "bcomp";
+      };
+      difftool = {
+        prompt = false;
+      };
+      "difftool \"bcomp\"" = {
+        cmd = "/usr/local/bin/bcomp $LOCAL $REMOTE";
+        trustExitCode = true;
+      };
+      merge = {
+        tool = "bcomp";
+      };
+      mergetool = {
+        prompt = false;
+        keepBackup = false;
+      };
+      "mergetool \"bcomp\"" = {
+        cmd = "/usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED";
+        trustExitCode = true;
+      };
     };
   };
 }
