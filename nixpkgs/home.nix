@@ -52,6 +52,7 @@ in
   home.homeDirectory = builtins.getEnv "HOME";
   home.packages = with pkgs; [
     elixir
+    erlang
     neovim
     ripgrep
     dust
