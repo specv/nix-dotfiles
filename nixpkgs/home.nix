@@ -8,6 +8,25 @@ let
       sha256 = "sha256-IT7zlcM1Oh4sWeCJ1m4NkteuajPxTnNo1tbitG0eqlg=";
   }) {};
 
+  # python3Packages.ipython is failing on x86_64-darwin
+  # https://github.com/NixOS/nixpkgs/issues/160133#issuecomment-1041327492
+  # This should be fixed in #159516, which is currently in staging
+  ipythonFix = self: super: {
+    python3 = super.python3.override {
+      packageOverrides = pySelf: pySuper: {
+        ipython = pySuper.ipython.overridePythonAttrs (old: {
+          preCheck = old.preCheck + super.lib.optionalString super.stdenv.isDarwin ''
+            echo '#!${pkgs.stdenv.shell}' > pbcopy
+            chmod a+x pbcopy
+            cp pbcopy pbpaste
+            export PATH="$(pwd)''${PATH:+":$PATH"}"
+          '';
+        });
+      };
+      self = self.python3;
+    };
+  };
+
 in
 
 {
@@ -34,6 +53,7 @@ in
     yarn
     telnet
     comma
+    mitmproxy
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
@@ -67,6 +87,7 @@ in
   };
 
   nixpkgs.overlays = [
+    ipythonFix
     (self: super:
     {
       fzf = super.fzf.overrideAttrs (oldAttrs: rec {
