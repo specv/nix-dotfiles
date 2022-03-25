@@ -1,12 +1,16 @@
 { config, pkgs, ... }:
 
 let
-  comma = import ( pkgs.fetchFromGitHub {
-      owner = "nix-community";
-      repo = "comma";
-      rev = "4a62ec17e20ce0e738a8e5126b4298a73903b468";
-      sha256 = "sha256-IT7zlcM1Oh4sWeCJ1m4NkteuajPxTnNo1tbitG0eqlg=";
-  }) {};
+  fzf = self: super: {
+    fzf = super.fzf.overrideAttrs (oldAttrs: rec {
+      src = super.fetchFromGitHub {
+        owner = "specv";
+        repo = "fzf";
+        rev = "7c888563b8be44cbccfb9a0ba8b187a263286afa";
+        sha256 = "sha256-gedt3dK7YkyBB4UvqzVHaFUCzC+9KKu35cmmNqALFE0=";
+      };
+    });
+  };
 
   # python3Packages.ipython is failing on x86_64-darwin
   # https://github.com/NixOS/nixpkgs/issues/160133#issuecomment-1041327492
@@ -27,9 +31,21 @@ let
     };
   };
 
+  # Comma runs software without installing it.
+  comma = import ( pkgs.fetchFromGitHub {
+    owner = "nix-community";
+    repo = "comma";
+    rev = "4a62ec17e20ce0e738a8e5126b4298a73903b468";
+    sha256 = "sha256-IT7zlcM1Oh4sWeCJ1m4NkteuajPxTnNo1tbitG0eqlg=";
+  }) {};
 in
 
 {
+  nixpkgs.overlays = [
+    fzf
+    ipythonFix
+  ];
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = builtins.getEnv "USER";
@@ -86,20 +102,6 @@ in
     enableAliases = true;
   };
 
-  nixpkgs.overlays = [
-    ipythonFix
-    (self: super:
-    {
-      fzf = super.fzf.overrideAttrs (oldAttrs: rec {
-        src = super.fetchFromGitHub {
-          owner = "specv";
-          repo = "fzf";
-          rev = "7c888563b8be44cbccfb9a0ba8b187a263286afa";
-          sha256 = "sha256-gedt3dK7YkyBB4UvqzVHaFUCzC+9KKu35cmmNqALFE0=";
-        };
-      });
-    })
-  ];
   programs.fzf = {
     enable = true;
   };
