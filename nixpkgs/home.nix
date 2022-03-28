@@ -103,6 +103,11 @@ in
           pager = "delta --dark --paging=never";
         };
       };
+      os = {
+        editCommand = "$EDITOR";
+        # specify a line number you are currently at when in the line-by-line mode.
+        editCommandTemplate = "{{editor}} +{{line}} {{filename}}";
+      };
     };
   };
 
@@ -126,8 +131,8 @@ in
     enableAutosuggestions = true;
     #enableSyntaxHighlighting = true;
     sessionVariables = {
-      EDITOR = "vi";
-      VISUAL = "vi";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
 
       # tmux
       TERM = "xterm-256color";
