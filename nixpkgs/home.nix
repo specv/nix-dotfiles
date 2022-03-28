@@ -175,7 +175,7 @@ in
       lg   = "lazygit";
       cat  = "bat";
     };
-    #plugins = [
+    plugins = [
     #  {
     #    # will source zsh-autosuggestions.plugin.zsh
     #    name = "zsh-autosuggestions";
@@ -186,7 +186,16 @@ in
     #      sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
     #    };
     #  }
-    #];
+       {
+         name = "fzf-tab";
+         src = pkgs.fetchFromGitHub {
+           owner = "Aloxaf";
+           repo = "fzf-tab";
+           rev = "8769fcbf2150fe5dad605da022036ed23c81368d";
+           sha256 = "sha256-/9An/C9rDLx1WsC/yYcYPVzA6fjsddMQaBT1DMAxYSI=";
+         };
+       }
+    ];
     #oh-my-zsh = {
     #  enable = true;
     #  plugins = [
