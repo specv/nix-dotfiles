@@ -57,7 +57,10 @@ in
     ripgrep
     dust
     caddy
+    htop
     python3
+    # darwin not supoort yet
+    #conda
     socat
     lsd
     bat
