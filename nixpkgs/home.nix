@@ -38,6 +38,7 @@ let
     rev = "4a62ec17e20ce0e738a8e5126b4298a73903b468";
     sha256 = "sha256-IT7zlcM1Oh4sWeCJ1m4NkteuajPxTnNo1tbitG0eqlg=";
   }) {};
+
 in
 
 {
@@ -63,6 +64,7 @@ in
     #conda
     socat
     lsd
+    exa
     bat
     pet
     ranger
@@ -151,6 +153,24 @@ in
       bindkey          '^J'  down-line-or-search
       bindkey          '^F'  autosuggest-accept
       bindkey          '^G'  autosuggest-execute
+
+      # fzf-tab
+      ## accept suggestion
+      zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept'
+      ## run suggestion
+      zstyle ':fzf-tab:*' accept-line 'ctrl-g'
+      ## unable to bind multiple keys
+      #zstyle ':fzf-tab:*' accept-line 'enter'
+      ## set descriptions format to enable group support
+      zstyle ':completion:*:descriptions' format '[%d]'
+      ## switch over different groups, `tab` for next, `btab` for previous
+      zstyle ':fzf-tab:*' switch-group 'btab' 'tab'
+      ## preview directory's content with exa when completing cd
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+      ## disable sort when completing `git checkout`
+      zstyle ':completion:*:git-checkout:*' sort false
+      ## continuous completion (accept the result and start another completion immediately)
+      zstyle ':fzf-tab:*' continuous-trigger 'space'
     '';
     history = {
       size = 10000000;
