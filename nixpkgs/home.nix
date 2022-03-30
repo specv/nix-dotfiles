@@ -309,11 +309,51 @@ in
       };
     };
   };
+
   programs.neovim = {
     enable = true;
     viAlias = true;
     plugins = with pkgs.vimPlugins; [
       vim-nix
+      nvim-treesitter
+      nvim-ts-rainbow
+      onedark-nvim
+      lualine-nvim
+      indent-blankline-nvim
     ];
+    extraConfig = ''
+      "useful for commands like `5j` `5>>`
+      set number relativenumber
+
+      lua << EOF
+        -- theme
+        require('onedark').setup {
+          style = 'deep'
+        }
+        require('onedark').load()
+
+        require('lualine').setup()
+
+        require('nvim-treesitter.configs').setup {
+          ensure_installed = "maintained",
+          highlight = {
+            enable = true
+          },
+          indent = { 
+            enable = true
+          },
+          rainbow = {
+            enable = true,
+            extended_mode = true,
+            max_file_lines = nil,
+          },
+        }
+
+        require('indent_blankline').setup {
+          show_current_context = true,
+          show_current_context_start = false,
+        }
+      EOF
+    '';
   };
 }
