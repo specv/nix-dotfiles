@@ -54,7 +54,6 @@ in
   home.packages = with pkgs; [
     elixir
     erlang
-    neovim
     ripgrep
     dust
     caddy
@@ -199,7 +198,6 @@ in
       gs   = "git status";
 
       # etc
-      vi   = "nvim";
       lg   = "lazygit";
       cat  = "bat";
     };
@@ -310,5 +308,12 @@ in
         trustExitCode = true;
       };
     };
+  };
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-nix
+    ];
   };
 }
