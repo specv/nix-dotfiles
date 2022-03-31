@@ -75,6 +75,8 @@ in
     telnet
     comma
     mitmproxy
+    just
+    doit
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
