@@ -104,6 +104,13 @@ in
   home.file = {
     ".ideavimrc".text = ''
       set number relativenumber
+
+      " easymotion + acejump
+      let mapleader=","
+      set easymotion
+      "" 2-character search, similar to vim-sneak
+      nmap s <Plug>(easymotion-s2)
+      nmap t <Plug>(easymotion-t2)
     '';
   };
 
@@ -338,10 +345,11 @@ in
       onedark-nvim
       lualine-nvim
       indent-blankline-nvim
+      (vimPlugin "ggandor/lightspeed.nvim")
       (vimPlugin "NoahTheDuke/vim-just")
     ];
     extraConfig = ''
-      "useful for commands like `5j` `5>>`
+      " useful for commands like `5j` `5>>`
       set number relativenumber
 
       lua << EOF
