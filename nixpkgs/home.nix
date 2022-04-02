@@ -101,6 +101,12 @@ in
   # changes in each release.
   home.stateVersion = "21.11";
 
+  home.file = {
+    ".ideavimrc".text = ''
+      set number relativenumber
+    '';
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
