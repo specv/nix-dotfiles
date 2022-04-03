@@ -289,13 +289,14 @@ in
     enable = true;
     delta.enable = true;
     aliases = {
-      a = "commit --amend";
-      b = "branch";
-      c = "commit";
-      d = "diff";
-      l = "log";
-      p = "pull";
-      s = "status";
+      a   = "commit --amend";
+      b   = "branch";
+      c   = "commit";
+      d   = "diff";
+      l   = "log";
+      p   = "pull";
+      s   = "status";
+      sh  = "show";
     };
     ignores = [
       # ide
@@ -339,36 +340,49 @@ in
     enable = true;
     viAlias = true;
     plugins = with pkgs.vimPlugins; [
+      # vim configuration files for Nix
       vim-nix
       nvim-treesitter
+      # rainbow parentheses using tree-sitter
       nvim-ts-rainbow
+      # onedark color scheme
       onedark-nvim
+      # blazing fast and easy to configure Neovim statusline written in Lua
       lualine-nvim
+      # adds indentation guides to all lines (including empty lines)
       indent-blankline-nvim
+      # cutting-edge motion plugin
       (vimPlugin "ggandor/lightspeed.nvim")
+      # syntax highlighting for Justfiles
       (vimPlugin "NoahTheDuke/vim-just")
     ];
     extraConfig = ''
       " useful for commands like `5j` `5>>`
       set number relativenumber
+      " disable search highlight
+      set nohlsearch
 
       lua << EOF
-        -- theme
+        -- onedark color theme
         require('onedark').setup {
           style = 'deep'
         }
         require('onedark').load()
 
+        -- blazing fast and easy to configure Neovim statusline written in Lua
         require('lualine').setup()
 
         require('nvim-treesitter.configs').setup {
           ensure_installed = "maintained",
+          -- consistent syntax highlighting (rainbow needs this option)
           highlight = {
             enable = true
           },
+          -- indentation based on treesitter for the `=` operator
           indent = { 
             enable = true
           },
+          -- nvim-ts-rainbow: rainbow parentheses using tree-sitter.
           rainbow = {
             enable = true,
             extended_mode = true,
@@ -376,6 +390,7 @@ in
           },
         }
 
+        -- adds indentation guides to all lines (including empty lines)
         require('indent_blankline').setup {
           show_current_context = true,
           show_current_context_start = false,
