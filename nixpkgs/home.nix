@@ -87,6 +87,9 @@ in
     mitmproxy
     just
     doit
+    shellcheck
+    asciinema
+    imagemagick
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
