@@ -366,11 +366,7 @@ in
       (vimPlugin "NoahTheDuke/vim-just")
     ];
     extraConfig = ''
-      " useful for commands like `5j` `5>>`
-      set number relativenumber
-      " disable search highlight
-      set nohlsearch
-
+      " load ~/.config/nvim/lua/init.lua
       lua require('init')
     '';
   };

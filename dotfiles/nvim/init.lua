@@ -1,3 +1,9 @@
+-- useful for commands like `5j` `5>>`
+vim.opt.number = true
+vim.opt.relativenumber = true
+-- disable search highlight
+vim.opt.hlsearch = false
+
 -- onedark color theme
 require('onedark').setup {
   style = 'deep'
