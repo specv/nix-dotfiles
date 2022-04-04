@@ -102,15 +102,36 @@ in
   home.stateVersion = "21.11";
 
   home.file = {
+    # more `ideavim` plugins, see also: https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
     ".ideavimrc".text = ''
       set number relativenumber
+      set ideajoin
 
       " easymotion + acejump
       let mapleader=","
-      set easymotion
-      "" 2-character search, similar to vim-sneak
+      Plug 'https://github.com/easymotion/vim-easymotion'
+      "" delete/change/add parentheses/quotes/XML-tags
+      Plug 'https://github.com/tpope/vim-surround'
+      "" comment stuff out
+      Plug 'https://github.com/tpope/vim-commentary'
+      "" true Sublime Text style multiple selections for Vim
+      Plug 'https://github.com/terryma/vim-multiple-cursors'
+      "" make the yanked region apparent
+      Plug 'https://github.com/machakann/vim-highlightedyank'
+
+      "" vim-easymotion: 2-character search, similar to vim-sneak
       nmap s <Plug>(easymotion-s2)
       nmap t <Plug>(easymotion-t2)
+      
+      "" vim-multiple-cursors: use `ctrl` instead of default `alt`
+      nmap <C-n> <Plug>NextWholeOccurrence
+      xmap <C-n> <Plug>NextWholeOccurrence
+      nmap g<C-n> <Plug>NextOccurrence
+      xmap g<C-n> <Plug>NextOccurrence
+      nmap <C-x> <Plug>SkipOccurrence
+      xmap <C-x> <Plug>SkipOccurrence
+      nmap <C-p> <Plug>RemoveOccurrence
+      xmap <C-p> <Plug>RemoveOccurrence
     '';
   };
 
@@ -342,6 +363,15 @@ in
     plugins = with pkgs.vimPlugins; [
       # vim configuration files for Nix
       vim-nix
+      # delete/change/add parentheses/quotes/XML-tags
+      vim-surround
+      # multiple cursors plugin for vim/neovim
+      vim-visual-multi
+      # make the yanked region apparent
+      vim-highlightedyank
+      # provides support for expanding abbreviations similar to emmet
+      emmet-vim
+      # nvim treesitter configurations and abstraction layer
       nvim-treesitter
       # rainbow parentheses using tree-sitter
       nvim-ts-rainbow
@@ -349,6 +379,8 @@ in
       onedark-nvim
       # blazing fast and easy to configure Neovim statusline written in Lua
       lualine-nvim
+      # smart and powerful comment plugin for neovim
+      comment-nvim
       # adds indentation guides to all lines (including empty lines)
       indent-blankline-nvim
       # cutting-edge motion plugin
@@ -395,6 +427,9 @@ in
           show_current_context = true,
           show_current_context_start = false,
         }
+
+        -- smart and powerful comment plugin for neovim
+        require('Comment').setup()
       EOF
     '';
   };
