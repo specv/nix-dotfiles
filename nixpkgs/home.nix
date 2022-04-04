@@ -108,6 +108,10 @@ in
     ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/ideavimrc;
   };
 
+  xdg.configFile = {
+    "nvim/lua/init.lua".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/nvim/init.lua;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -367,9 +371,7 @@ in
       " disable search highlight
       set nohlsearch
 
-      lua << EOF
-        ${lib.strings.fileContents ../dotfiles/init.lua}
-      EOF
+      lua require('init')
     '';
   };
 }
