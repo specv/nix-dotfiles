@@ -105,37 +105,7 @@ in
   home.stateVersion = "21.11";
 
   home.file = {
-    # more `ideavim` plugins, see also: https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
-    ".ideavimrc".text = ''
-      set number relativenumber
-      set ideajoin
-
-      " easymotion + acejump
-      let mapleader=","
-      Plug 'https://github.com/easymotion/vim-easymotion'
-      "" delete/change/add parentheses/quotes/XML-tags
-      Plug 'https://github.com/tpope/vim-surround'
-      "" comment stuff out
-      Plug 'https://github.com/tpope/vim-commentary'
-      "" true Sublime Text style multiple selections for Vim
-      Plug 'https://github.com/terryma/vim-multiple-cursors'
-      "" make the yanked region apparent
-      Plug 'https://github.com/machakann/vim-highlightedyank'
-
-      "" vim-easymotion: 2-character search, similar to vim-sneak
-      nmap s <Plug>(easymotion-s2)
-      nmap t <Plug>(easymotion-t2)
-      
-      "" vim-multiple-cursors: use `ctrl` instead of default `alt`
-      nmap <C-n> <Plug>NextWholeOccurrence
-      xmap <C-n> <Plug>NextWholeOccurrence
-      nmap g<C-n> <Plug>NextOccurrence
-      xmap g<C-n> <Plug>NextOccurrence
-      nmap <C-x> <Plug>SkipOccurrence
-      xmap <C-x> <Plug>SkipOccurrence
-      nmap <C-p> <Plug>RemoveOccurrence
-      xmap <C-p> <Plug>RemoveOccurrence
-    '';
+    ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/ideavimrc;
   };
 
   # Let Home Manager install and manage itself.
