@@ -49,6 +49,8 @@ let
     };
   };
 
+  pkgsUnstable = import <nixpkgs-unstable> {};
+
 in
 
 {
@@ -85,13 +87,13 @@ in
     telnet
     comma
     mitmproxy
-    just
     doit
     shellcheck
     asciinema
     imagemagick
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    pkgsUnstable.just
   ];
 
   # This value determines the Home Manager release that your
