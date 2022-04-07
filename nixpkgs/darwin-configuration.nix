@@ -25,4 +25,22 @@
 
   services.nix-daemon.enable = true;
   services.redis.enable = true;
+  # homebrew
+  homebrew = {
+    enable = true;
+    autoUpdate = false;
+    taps = [
+      "homebrew/bundle"
+      "homebrew/cask"
+      "homebrew/cask-fonts"
+      "homebrew/cask-versions"
+      "homebrew/core"
+      "homebrew/services"
+    ];
+    extraConfig = ''
+    '';
+    casks = [
+      "hammerspoon" 
+    ];
+  };
 }
