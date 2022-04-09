@@ -30,12 +30,12 @@
   services.yabai = {
     enable = true;
     package = pkgs.yabai;
+    # enable yabai's scripting-addition. SIP must be disabled for this to work.
+    enableScriptingAddition = true;
     # `builtins.readFile` can't handle symbolic link, `.` == `~/.nixpkgs`
     # `.yabairc` generated from `home-manager` via `mkOutOfStoreSymlink`
-    extraConfig = builtins.readFile ../.yabairc;
+    extraConfig = builtins.readFile ~/.config/yabai/yabairc;
   };
-
-  services.skhd.enable = true;
 
   # homebrew
   homebrew = {

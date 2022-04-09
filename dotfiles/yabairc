@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+# window
+yabai -m config mouse_follows_focus          on
+yabai -m config focus_follows_mouse          autoraise
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               on
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 on
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                resize
+yabai -m config mouse_action2                move
+yabai -m mouse_drop_action stack
+## opacity
+yabai -m config window_opacity               on
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.8
+## border
+yabai -m config window_border                on
+yabai -m config window_border_width          1
+yabai -m config active_window_border_color   0xffbfff00 # limelight
+yabai -m config normal_window_border_color   0x00000000
+yabai -m config insert_feedback_color        0xaad75f5f
+## shadow
+yabai -m config window_shadow                off
+
+# layout
+yabai -m config layout                       bsp
+yabai -m config top_padding                  0
+yabai -m config bottom_padding               0
+yabai -m config left_padding                 0
+yabai -m config right_padding                0
+yabai -m config window_gap                   0
+yabai -m config external_bar                 off:45:0
