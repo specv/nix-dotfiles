@@ -24,7 +24,19 @@
   # nix.package = pkgs.nix;
 
   services.nix-daemon.enable = true;
+
   services.redis.enable = true;
+
+  services.yabai = {
+    enable = true;
+    package = pkgs.yabai;
+    # `builtins.readFile` can't handle symbolic link, `.` == `~/.nixpkgs`
+    # `.yabairc` generated from `home-manager` via `mkOutOfStoreSymlink`
+    extraConfig = builtins.readFile ../.yabairc;
+  };
+
+  services.skhd.enable = true;
+
   # homebrew
   homebrew = {
     enable = true;

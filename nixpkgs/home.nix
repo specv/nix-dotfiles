@@ -110,6 +110,10 @@ in
     ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/ideavimrc;
   };
 
+  home.file = {
+    ".yabairc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/yabairc;
+  };
+
   xdg.configFile = {
     "nvim/lua/init.lua".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/nvim/init.lua;
   };
