@@ -32,6 +32,42 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
+  # See also: https://github.com/mathiasbynens/dotfiles/blob/main/.macos
+  # Note that some of these changes require a logout/restart to take effect.
+  system.defaults = {
+    spaces = {
+      # Displays have separate Spaces
+      # false = each physical display has a separate space (Mac default)
+      # true = one space spans across all physical displays
+      # System Preferences > Mission Control > Displays have seperate Spaces
+      spans-displays = false;
+    };
+    dock = {
+      # Automatically hide and show the Dock
+      autohide = true;
+      # Remove the auto-hiding Dock delay
+      autohide-delay = "0";
+      # Remove the animation when hiding/showing the Dock
+      autohide-time-modifier = "0";
+      # Don’t automatically rearrange Spaces based on most recent use
+      # System Preferences > Mission Control > Automatically rearrange Spaces based on most recent use
+      mru-spaces = false;
+      # Don’t show recent applications in Dock
+      show-recents = false;
+      # Sets the speed of the Mission Control animations
+      expose-animation-duration = "0.1";
+      # Change minimize/maximize window effect
+      mineffect = "scale";
+      # Speed up Mission Control animations
+      # System Preferences > Accessibility > Display > Reduce Motion
+      # TODO
+    };
+    NSGlobalDomain = {
+      # Sets the speed speed of window resizing.
+      NSWindowResizeTime = "0.001";
+    };
+  };
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [
