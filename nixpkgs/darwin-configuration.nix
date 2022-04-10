@@ -100,6 +100,11 @@
     extraConfig = builtins.readFile ~/.config/yabai/yabairc;
   };
 
+  services.skhd = {
+    enable = true;
+    skhdConfig = builtins.readFile ~/.config/skhd/skhdrc;
+  };
+
   # homebrew
   homebrew = {
     enable = true;

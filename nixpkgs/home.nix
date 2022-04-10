@@ -91,6 +91,7 @@ in
     shellcheck
     asciinema
     imagemagick
+    jq
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     pkgsUnstable.just
@@ -113,6 +114,7 @@ in
   xdg.configFile = {
     "nvim/lua/init.lua".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/nvim/init.lua;
     "yabai/yabairc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/yabairc;
+    "skhd/skhdrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/skhdrc;
   };
 
   # Let Home Manager install and manage itself.
