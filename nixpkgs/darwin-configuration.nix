@@ -1,6 +1,33 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.overlays = [
+
+    (final: prev: {
+      # yabai 4.0
+      # see also: https://github.com/DieracDelta/flakes/blob/flakes/flake.nix#L343
+      yabai =
+        let
+          buildSymlinks = prev.runCommand "build-symlinks" { } ''
+            mkdir -p $out/bin
+            ln -s /usr/bin/xcrun /usr/bin/xcodebuild /usr/bin/tiffutil /usr/bin/qlmanage $out/bin
+          '';
+        in
+        prev.yabai.overrideAttrs (old: {
+          src = prev.fetchFromGitHub {
+            owner = "koekeishiya";
+            repo = "yabai";
+            rev = "v4.0.0";
+            sha256 = "sha256-rllgvj9JxyYar/DTtMn5QNeBTdGkfwqDr7WT3MvHBGI=";
+          };
+          buildInputs = with prev.darwin.apple_sdk.frameworks; [ Carbon Cocoa ScriptingBridge prev.xxd SkyLight ];
+          nativeBuildInputs = [ buildSymlinks ];
+        });
+
+    })
+
+  ];
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
