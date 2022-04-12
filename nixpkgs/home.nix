@@ -82,8 +82,8 @@ in
     vagrant
     tmuxinator
     nodejs
-    sshuttle
     yarn
+    sshuttle
     telnet
     comma
     mitmproxy
@@ -92,6 +92,7 @@ in
     asciinema
     imagemagick
     jq
+    graphviz
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     pkgsUnstable.just
