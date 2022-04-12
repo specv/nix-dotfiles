@@ -285,6 +285,10 @@ in
       add_newline = true;
       scan_timeout = 50;
       command_timeout = 500;
+      status = {
+        disabled = false;
+        format = "[$int]($style) ";
+      };
     };
   };
 
