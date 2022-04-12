@@ -289,6 +289,11 @@ in
         disabled = false;
         format = "[$int]($style) ";
       };
+      sudo = {
+        disabled = false;
+        style = "bold green";
+        symbol = "🧙 ";
+      };
     };
   };
 
