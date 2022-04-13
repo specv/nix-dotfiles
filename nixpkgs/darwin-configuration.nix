@@ -105,6 +105,12 @@
     skhdConfig = builtins.readFile ~/.config/skhd/skhdrc;
   };
 
+  services.spacebar = {
+    enable = true;
+    package = pkgs.spacebar;
+    extraConfig = builtins.readFile ~/.config/spacebar/spacebarrc;
+  };
+
   # homebrew
   homebrew = {
     enable = true;

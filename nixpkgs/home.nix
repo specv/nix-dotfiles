@@ -116,6 +116,7 @@ in
     "nvim/lua/init.lua".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/nvim/init.lua;
     "yabai/yabairc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/yabairc;
     "skhd/skhdrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/skhdrc;
+    "spacebar/spacebarrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/spacebarrc;
   };
 
   # Let Home Manager install and manage itself.
@@ -384,5 +385,16 @@ in
       " load ~/.config/nvim/lua/init.lua
       lua require('init')
     '';
+  };
+
+  programs.kitty = {
+    enable = true;
+    darwinLaunchOptions = [
+      "--class=kitty"
+      "--name=kitty"
+      "--title=Kitty"
+    ];
+    settings = {
+    };
   };
 }

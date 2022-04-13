@@ -41,7 +41,7 @@ yabai -m config bottom_padding               0
 yabai -m config left_padding                 0
 yabai -m config right_padding                0
 yabai -m config window_gap                   0
-yabai -m config external_bar                 off:45:0
+yabai -m config external_bar                 main:26:0
 yabai -m config --space code layout          stack
 yabai -m config --space browser layout       stack
 
