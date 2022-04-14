@@ -287,7 +287,7 @@ in
       scan_timeout = 50;
       command_timeout = 500;
       status = {
-        disabled = false;
+        disabled = true;
         format = "[$int]($style) ";
       };
       sudo = {
