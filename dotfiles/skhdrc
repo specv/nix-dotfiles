@@ -1,30 +1,30 @@
-# window
+# window (leader key: lcmd)
 ## focus window
-cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+lcmd - h : yabai -m window --focus west
+lcmd - j : yabai -m window --focus south
+lcmd - k : yabai -m window --focus north
+lcmd - l : yabai -m window --focus east
 
 ## move window
-shift + cmd - h : yabai -m window --warp west
-shift + cmd - j : yabai -m window --warp south
-shift + cmd - k : yabai -m window --warp north
-shift + cmd - l : yabai -m window --warp east
+shift + lcmd - h : yabai -m window --warp west
+shift + lcmd - j : yabai -m window --warp south
+shift + lcmd - k : yabai -m window --warp north
+shift + lcmd - l : yabai -m window --warp east
 
 ## resize window
 ## [Resizing like in chunkwm](https://github.com/koekeishiya/yabai/issues/200)
-ctrl + cmd - left  : yabai -m window --resize left:-20:0 ; yabai -m window --resize right:-20:0
-ctrl + cmd - down  : yabai -m window --resize bottom:0:20 ; yabai -m window --resize top:0:20
-ctrl + cmd - up    : yabai -m window --resize top:0:-20 ; yabai -m window --resize bottom:0:-20
-ctrl + cmd - right : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0
+ctrl + lcmd - left  : yabai -m window --resize left:-20:0  ; yabai -m window --resize right:-20:0
+ctrl + lcmd - down  : yabai -m window --resize bottom:0:20 ; yabai -m window --resize top:0:20
+ctrl + lcmd - up    : yabai -m window --resize top:0:-20   ; yabai -m window --resize bottom:0:-20
+ctrl + lcmd - right : yabai -m window --resize right:20:0  ; yabai -m window --resize left:20:0
 
 ## fullscreen
-ctrl + cmd - return         : yabai -m window --toggle zoom-fullscreen && yabai -m window --toggle border
+ctrl + lcmd - return        : yabai -m window --toggle zoom-fullscreen && yabai -m window --toggle border
 shift + ctrl + cmd - return : yabai -m window --toggle native-fullscreen
 
 
 
-# desktop
+# desktop (leader key: alt)
 ## create desktop and focus
 ctrl + alt - n : yabai -m space --create && yabai -m space --focus $(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')
 
@@ -67,22 +67,22 @@ ctrl + alt - 9 : yabai -m window --space 9      && yabai -m space --focus 9
 ctrl + alt - 0 : yabai -m window --space 10     && yabai -m space --focus 10
 
 
-# monitor
+# monitor (leader key: rcmd)
 ## focus monitor
-shift + alt - r : yabai -m display --focus recent
-shift + alt - h : yabai -m display --focus prev
-shift + alt - l : yabai -m display --focus next
-shift + alt - 1 : yabai -m display --focus 1
-shift + alt - 2 : yabai -m display --focus 2
-shift + alt - 3 : yabai -m display --focus 3
+rcmd - r : yabai -m display --focus recent
+rcmd - h : yabai -m display --focus prev
+rcmd - l : yabai -m display --focus next
+rcmd - 1 : yabai -m display --focus 1
+rcmd - 2 : yabai -m display --focus 2
+rcmd - 3 : yabai -m display --focus 3
 
 ## send window to monitor and follow focus
-shift + ctrl + alt - r  : yabai -m window --display recent && yabai -m display --focus recent
-shift + ctrl + alt - h  : yabai -m window --display prev   && yabai -m display --focus prev
-shift + ctrl + alt - l  : yabai -m window --display next   && yabai -m display --focus next
-shift + ctrl + alt - 1  : yabai -m window --display 1      && yabai -m display --focus 1
-shift + ctrl + alt - 2  : yabai -m window --display 2      && yabai -m display --focus 2
-shift + ctrl + alt - 3  : yabai -m window --display 3      && yabai -m display --focus 3
+ctrl + rcmd - r : yabai -m window --display recent && yabai -m display --focus recent
+ctrl + rcmd - h : yabai -m window --display prev   && yabai -m display --focus prev
+ctrl + rcmd - l : yabai -m window --display next   && yabai -m display --focus next
+ctrl + rcmd - 1 : yabai -m window --display 1      && yabai -m display --focus 1
+ctrl + rcmd - 2 : yabai -m window --display 2      && yabai -m display --focus 2
+ctrl + rcmd - 3 : yabai -m window --display 3      && yabai -m display --focus 3
 
 
 # float / unfloat window and center on screen
