@@ -93,8 +93,10 @@ in
     imagemagick
     jq
     graphviz
+    kitty
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    jetbrains-mono
     pkgsUnstable.just
   ];
 
@@ -389,12 +391,37 @@ in
 
   programs.kitty = {
     enable = true;
+    # file location: `~/.config/kitty/macos-launch-services-cmdline`
     darwinLaunchOptions = [
-      "--class=kitty"
-      "--name=kitty"
-      "--title=Kitty"
+      "--single-instance"
+      "--directory ~"
     ];
+    environment = {
+      "LS_COLORS" = "1";
+    };
     settings = {
+      # font
+      font_size        = 12;
+      ## List available fonts: `kitty +list-fonts --psnames`
+      font_family      = "JetBrains Mono Medium";
+      bold_font        = "JetBrains Mono Bold";
+      italic_font      = "JetBrains Mono Italic";
+      bold_italic_font = "JetBrains Mono Bold Italic";
+
+      # shell
+      shell_integration enabled
+
+      # window
+      ## with Shell integration enabled, using negative values means windows sitting at a shell prompt are not counted
+      confirm_os_window_close = -1;
+      hide_window_decorations = true;
+
+      # cursor
+      cursor_blink_interval = 0;
+    };
+    keybindings = {
+      # [Scrollback search](https://github.com/kovidgoyal/kitty/issues/893)
+      "cmd+f" = "show_scrollback";
     };
   };
 }

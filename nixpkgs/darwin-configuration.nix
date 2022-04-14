@@ -102,7 +102,12 @@
 
   services.skhd = {
     enable = true;
-    skhdConfig = builtins.readFile ~/.config/skhd/skhdrc;
+    skhdConfig = ''
+      # Shortcut
+      cmd - n : ${pkgs.kitty}/Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory ~ &> /dev/null
+
+      ${builtins.readFile ~/.config/skhd/skhdrc}
+    '';
   };
 
   services.spacebar = {
