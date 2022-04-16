@@ -223,6 +223,7 @@ in
     "yabai/yabairc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/yabairc;
     "skhd/skhdrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/skhdrc;
     "spacebar/spacebarrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/spacebarrc;
+    "git/alias".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/git/alias;
   };
 
   # Let Home Manager install and manage itself.
@@ -260,6 +261,13 @@ in
 
   programs.direnv = {
     enable = true;
+  };
+
+  programs.bash = {
+    enable = false;
+    initExtra = builtins.concatStringsSep "\n" [
+      (builtins.readFile ../etc/git-alias)
+    ];
   };
 
   programs.zsh = {
@@ -418,7 +426,7 @@ in
       b   = "branch";
       c   = "commit";
       d   = "diff";
-      l   = "log";
+      l   = "!bash --rcfile ~/.config/git/alias -ic fzf-log";
       p   = "pull";
       s   = "status";
       sh  = "show";
