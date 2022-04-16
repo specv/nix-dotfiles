@@ -76,7 +76,7 @@ in
 
     # Terminal
     ## a modern, hackable, featureful, OpenGL based terminal emulator
-    kitty
+    #kitty
 
     # Package Manager
     ## Fast, reliable, and secure dependency management for javascript
@@ -119,7 +119,7 @@ in
 
     # Theme
     ## a minimal, blazing fast, and extremely customizable prompt for any shell
-    starship 
+    #starship 
     ## colorize paths using LS_COLORS
     lscolors
     ## a themeable LS_COLORS generator
@@ -173,23 +173,23 @@ in
     ## slice and dice logs on the command line
     angle-grinder
     ## a new cd command that helps you navigate faster by learning your habits
-    z-lua
+    #z-lua
     ## a command-line fuzzy finder written in Go
-    fzf
+    #fzf
     ## a shell extension that manages your environment
     direnv
     ## Bourne-Again Shell
-    bash
+    #bash
     ## The Z shell
-    zsh
+    #zsh
     ## distributed version control system
-    git
-    ## vim text editor fork focused on extensibility and agility
-    neovim
-    ## a lightweight and flexible command-line JSON processor
-    jq
+    #git
     ## simple terminal UI for git commands
     lazygit 
+    ## vim text editor fork focused on extensibility and agility
+    #neovim
+    ## a lightweight and flexible command-line JSON processor
+    jq
     ## fast, cross-platform HTTP/2 web server with automatic HTTPS
     caddy
     ## darwin not supoort yet
