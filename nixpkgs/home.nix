@@ -64,44 +64,144 @@ in
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
   home.packages = with pkgs; [
-    elixir
-    erlang
-    ripgrep
-    dust
-    caddy
-    htop
+    # Language
+    ## a high-level dynamically-typed programming language
     python3
-    # darwin not supoort yet
-    #conda
-    socat
-    lsd
-    exa
-    bat
-    pet
-    ranger
-    vagrant
-    tmuxinator
+    ## a functional, meta-programming aware language built on top of the Erlang VM
+    elixir
+    ## programming language used for massively scalable soft real-time systems
+    erlang
+    ## event-driven I/O framework for the V8 JavaScript engine
     nodejs
-    yarn
-    sshuttle
-    telnet
-    comma
-    mitmproxy
-    doit
-    shellcheck
-    asciinema
-    imagemagick
-    jq
-    graphviz
+
+    # Terminal
+    ## a modern, hackable, featureful, OpenGL based terminal emulator
     kitty
-    # https://nixos.wiki/wiki/Fonts
+
+    # Package Manager
+    ## Fast, reliable, and secure dependency management for javascript
+    yarn
+
+    # File Manager
+    ## a VIM-inspired filemanager for the console
+    ranger
+    ## the unorthodox terminal file manager
+    nnn
+
+    # VM / Ccontainer
+    ## a tool for building complete development environments
+    vagrant
+
+    # Font
+    ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
+    ## https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    ## a typeface made for developers
     jetbrains-mono
-    # colorize paths using LS_COLORS
-    lscolors
-    # a themeable LS_COLORS generator
-    vivid
+
+    # Networking
+    ## Utility for bidirectional data transfer between two independent data channels
+    socat
+    ## transparent proxy server that works as a poor man's VPN
+    sshuttle
+    ## interactive communication with another host using the TELNET protocol
+    telnet
+    ## a CLI utility for displaying current network utilization
+    bandwhich
+    ## man-in-the-middle proxy
+    pkgsUnstable.mitmproxy
+
+    # Command Runner
+    ## a command runner and partial replacement for `make`
     pkgsUnstable.just
+    ## task management & automation tool
+    doit
+
+    # Theme
+    ## a minimal, blazing fast, and extremely customizable prompt for any shell
+    starship 
+    ## colorize paths using LS_COLORS
+    lscolors
+    ## a themeable LS_COLORS generator
+    vivid
+
+    # Doc
+    ## a very fast implementation of `tldr` in rust
+    tealdeer
+    ## an interactive cheatsheet tool for the command-line and application launchers
+    navi
+
+    # graphic
+    ## terminal session recorder and the best companion of asciinema.org
+    asciinema
+    ## a software suite to create, edit, compose, or convert bitmap images
+    imagemagick
+    ## graph visualization tools
+    graphviz
+
+    # Utility
+    ## a utility that combines the usability of The Silver Searcher with the raw speed of `grep`
+    ripgrep
+    ## ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc
+    ripgrep-all
+    ## a program that allows you to count your code, quickly
+    tokei
+    ## command-line benchmarking tool
+    hyperfine
+    ## a better 'df' alternative
+    duf
+    ## a more intuitive version of `du` in rust
+    dust
+    ## cat clone
+    bat
+    ## a modern replacement for `ls`.
+    exa
+    ## the next gen `ls` command
+    lsd
+    ## an interactive process viewer for Linux
+    htop
+    ## vidir, sponge, ts, parallel, see also:
+    ##   https://joeyh.name/code/moreutils/ 
+    ##   https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/
+    moreutils
+    ## tool for monitoring the progress of data through a pipeline
+    pv
+    ## the Ultimate Plumber
+    up
+    ## autocorrect command line errors
+    thefuck
+    ## slice and dice logs on the command line
+    angle-grinder
+    ## a new cd command that helps you navigate faster by learning your habits
+    z-lua
+    ## a command-line fuzzy finder written in Go
+    fzf
+    ## a shell extension that manages your environment
+    direnv
+    ## Bourne-Again Shell
+    bash
+    ## The Z shell
+    zsh
+    ## distributed version control system
+    git
+    ## vim text editor fork focused on extensibility and agility
+    neovim
+    ## a lightweight and flexible command-line JSON processor
+    jq
+    ## simple terminal UI for git commands
+    lazygit 
+    ## fast, cross-platform HTTP/2 web server with automatic HTTPS
+    caddy
+    ## darwin not supoort yet
+    #conda
+    ## simple command-line snippet manager
+    pet
+    ## manage complex tmux sessions easily
+    tmuxinator
+    ## comma runs software without installing it
+    comma
+    ## shell script analysis tool
+    shellcheck
   ];
 
   # This value determines the Home Manager release that your
