@@ -97,6 +97,10 @@ in
     # https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     jetbrains-mono
+    # colorize paths using LS_COLORS
+    lscolors
+    # a themeable LS_COLORS generator
+    vivid
     pkgsUnstable.just
   ];
 
@@ -174,6 +178,9 @@ in
       # make sure check iTerm2's "Set locale variables automatically" off also
       LC_ALL = "en_US.UTF-8";
       LANG = "en_US.UTF-8";
+
+      # vivid is a themeable LS_COLORS generator
+      LS_COLORS = "$(vivid generate molokai)";
     };
     initExtra = ''
       # profile
@@ -196,6 +203,8 @@ in
       zstyle ':completion:*:descriptions' format '[%d]'
       ## switch over different groups, `tab` for next, `btab` for previous
       zstyle ':fzf-tab:*' switch-group 'btab' 'tab'
+      # set list-colors to enable filename colorizing
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
       ## preview directory's content with exa when completing cd
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
       ## disable sort when completing `git checkout`
@@ -397,7 +406,6 @@ in
       "--directory ~"
     ];
     environment = {
-      "LS_COLORS" = "1";
     };
     settings = {
       # font
