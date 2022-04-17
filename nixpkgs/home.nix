@@ -233,7 +233,9 @@ in
     enable = true;
     settings = {
       gui = {
+        scrollHeight = 10;
         showFileTree = false;
+        expandFocusedSidePanel = false;
       };
       git = {
         paging = {
@@ -332,9 +334,9 @@ in
     shellAliases = {
       # ls
       l    = "ls";
-      ls   = "lsd";
-      la   = "l -a";
-      ll   = "l -la";
+      ls   = "lsd -F --group-dirs first";
+      la   = "l -lA";
+      ll   = "l -l";
       tree = "l --tree";
       
       # git
@@ -428,6 +430,7 @@ in
       d   = "diff";
       l   = "!bash --rcfile ~/.config/git/alias -ic fzf-log";
       p   = "pull";
+      rl  = "reflog --pretty='%Cred%h%Creset -%C(auto)%d%Creset %gs %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
       s   = "status";
       sh  = "show";
     };
@@ -444,9 +447,13 @@ in
     extraConfig = {
       delta = {
         line-numbers = true;
+        # use `n` and `N` to move between diff sections
+        navigate = true;
+
       };
       diff = {
         tool = "bcomp";
+        colorMoved = "default";
       };
       difftool = {
         prompt = false;
