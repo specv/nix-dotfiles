@@ -3,6 +3,10 @@
 # git commit browser (enter for show, ctrl-d for diff, ` toggles sort)
 # https://github.com/junegunn/dotfiles/blob/c6959cd4f/bashrc#L285
 fzf-log() {
+  export GIT_PAGER='delta --paging always'
+  export PAGER="less -R"
+  export LESS="-R"
+
   local out shas sha q k
   while out=$(
     git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)- %an %cr" "$@" |
