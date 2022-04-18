@@ -9,6 +9,11 @@ switch-darwin:
 
 switch-all: switch-home switch-darwin
 
+rollback-home step="1":
+    #!/usr/bin/env bash
+    gen=$(home-manager generations | head -n $(( {{ step }} + 1 )) | tail -n 1 | awk '{print $7"/activate"}')
+    echo Switch to $gen && ${gen}
+
 yabai-start:
     launchctl load ~/Library/LaunchAgents/org.nixos.yabai.plist
     @ echo -n "Started pid..."
