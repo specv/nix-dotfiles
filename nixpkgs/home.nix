@@ -125,6 +125,12 @@ in
     ## a themeable LS_COLORS generator
     vivid
 
+    # Editor
+    ## vim text editor fork focused on extensibility and agility
+    #neovim
+    ## the extensible, customizable GNU text editor
+    emacs
+
     # Doc
     ## a very fast implementation of `tldr` in rust
     tealdeer
@@ -186,8 +192,6 @@ in
     #git
     ## simple terminal UI for git commands
     lazygit 
-    ## vim text editor fork focused on extensibility and agility
-    #neovim
     ## a lightweight and flexible command-line JSON processor
     jq
     ## fast, cross-platform HTTP/2 web server with automatic HTTPS
@@ -216,6 +220,15 @@ in
 
   home.file = {
     ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/ideavimrc;
+    ".emacs.d" = {
+      source = pkgs.fetchFromGitHub {
+        owner = "syl20bnr";
+        repo = "spacemacs";
+        rev = "b3e67aafe2451ca91e2d310d29879616e10981d0";
+        sha256 = "sha256-q+LYBpHyiqe1kmLUlgewjxys94O1okfnhrcYYFHCB8Q=";
+      };
+      recursive = true;
+    };
   };
 
   xdg.configFile = {
