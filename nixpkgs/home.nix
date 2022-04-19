@@ -219,7 +219,11 @@ in
   home.stateVersion = "21.11";
 
   home.file = {
-    ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/ideavimrc;
+    ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.ideavimrc;
+    ".config" = {
+      source = ../dotfiles/.config;
+      recursive = true;
+    };
     ".emacs.d" = {
       source = pkgs.fetchFromGitHub {
         owner = "syl20bnr";
@@ -229,14 +233,6 @@ in
       };
       recursive = true;
     };
-  };
-
-  xdg.configFile = {
-    "nvim/lua/init.lua".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/nvim/init.lua;
-    "yabai/yabairc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/yabairc;
-    "skhd/skhdrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/skhdrc;
-    "spacebar/spacebarrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/spacebarrc;
-    "git/alias".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/git/alias;
   };
 
   # Let Home Manager install and manage itself.
