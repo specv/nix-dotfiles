@@ -499,6 +499,8 @@ in
       vim-highlightedyank
       # provides support for expanding abbreviations similar to emmet
       emmet-vim
+      # a file explorer tree for neovim written in lua
+      nvim-tree-lua
       # nvim treesitter configurations and abstraction layer
       nvim-treesitter
       # rainbow parentheses using tree-sitter
@@ -515,6 +517,9 @@ in
       (vimPlugin "ggandor/lightspeed.nvim")
       # syntax highlighting for Justfiles
       (vimPlugin "NoahTheDuke/vim-just")
+      # `vidir` alternative
+      # a file manager for Neovim which lets you edit your filesystem like you edit text
+      (vimPlugin "elihunter173/dirbuf.nvim")
     ];
     extraConfig = ''
       " load ~/.config/nvim/lua/init.lua
