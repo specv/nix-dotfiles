@@ -62,6 +62,10 @@
       # System Preferences > Accessibility > Display > Reduce Motion
       # TODO
     };
+    finder = {
+      # Allow quitting of the Finder
+      QuitMenuItem = true;
+    };
     NSGlobalDomain = {
       # Sets the speed speed of window resizing.
       NSWindowResizeTime = "0.001";
