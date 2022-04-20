@@ -540,13 +540,15 @@ in
       # font
       font_size        = 12;
       ## List available fonts: `kitty +list-fonts --psnames`
-      font_family      = "JetBrains Mono Medium";
-      bold_font        = "JetBrains Mono Bold";
-      italic_font      = "JetBrains Mono Italic";
-      bold_italic_font = "JetBrains Mono Bold Italic";
+      font_family      = "JetBrains Mono Bold";
+      bold_font        = "JetBrains Mono ExtraBold";
+      italic_font      = "JetBrains Mono Bold Italic";
+      bold_italic_font = "JetBrains Mono ExtraBold Italic";
 
       # shell
-      shell_integration enabled
+      shell_integration = "enabled";
+      macos_quit_when_last_window_closed = true;
+      copy_on_select = true;
 
       # window
       ## with Shell integration enabled, using negative values means windows sitting at a shell prompt are not counted
@@ -558,7 +560,9 @@ in
     };
     keybindings = {
       # [Scrollback search](https://github.com/kovidgoyal/kitty/issues/893)
-      "cmd+f" = "show_scrollback";
+      "cmd+f"            = "show_scrollback";
+      "shift+cmd+n"      = "new_os_window_with_cwd";
+      "shift+ctrl+cmd+n" = "new_window_with_cwd";
     };
   };
 }
