@@ -444,6 +444,8 @@ in
       sh  = "show";
     };
     ignores = [
+      # git
+      ".git"
       # ide
       ".idea" ".vs" ".vsc" ".vscode"
       # python
