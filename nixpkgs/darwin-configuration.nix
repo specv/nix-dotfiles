@@ -92,8 +92,6 @@
 
   services.nix-daemon.enable = true;
 
-  services.redis.enable = true;
-
   services.yabai = {
     enable = true;
     package = pkgs.yabai;
@@ -134,6 +132,9 @@
     ];
     extraConfig = ''
     '';
+    brews = [
+      "redis"
+    ];
     casks = [
       "hammerspoon" 
     ];

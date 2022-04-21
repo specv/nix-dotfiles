@@ -1,3 +1,10 @@
+install:
+    # homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+services-list:
+    brew services list
+
 symlink:
     ln -sfn {{ absolute_path("nixpkgs") }} ~/.nixpkgs
 
