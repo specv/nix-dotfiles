@@ -67,6 +67,7 @@ in
     # Language
     ## a high-level dynamically-typed programming language
     python3
+    python2
     ## a functional, meta-programming aware language built on top of the Erlang VM
     elixir
     ## programming language used for massively scalable soft real-time systems
@@ -125,11 +126,31 @@ in
     ## a themeable LS_COLORS generator
     vivid
 
-    # Editor
+    # Editor / Text Proceesor
     ## vim text editor fork focused on extensibility and agility
     #neovim
     ## the extensible, customizable GNU text editor
     emacs
+    ## a utility that combines the usability of The Silver Searcher with the raw speed of `grep`
+    ripgrep
+    ## a simple, fast and user-friendly alternative to `find`
+    fd
+    ## ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc
+    ripgrep-all
+    ## a program that allows you to count your code, quickly
+    tokei
+    ## cat clone
+    bat
+
+    # vcs
+    ## distributed version control system
+    #git
+    ## simple terminal UI for git commands
+    lazygit 
+    ## a syntax-highlighting pager for git
+    delta
+    ## a diff that understands syntax
+    difftastic
 
     # Doc
     ## a very fast implementation of `tldr` in rust
@@ -146,20 +167,12 @@ in
     graphviz
 
     # Utility
-    ## a utility that combines the usability of The Silver Searcher with the raw speed of `grep`
-    ripgrep
-    ## ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc
-    ripgrep-all
-    ## a program that allows you to count your code, quickly
-    tokei
     ## command-line benchmarking tool
     hyperfine
     ## a better 'df' alternative
     duf
     ## a more intuitive version of `du` in rust
     dust
-    ## cat clone
-    bat
     ## a modern replacement for `ls`.
     exa
     ## the next gen `ls` command
@@ -188,10 +201,6 @@ in
     #bash
     ## The Z shell
     #zsh
-    ## distributed version control system
-    #git
-    ## simple terminal UI for git commands
-    lazygit 
     ## a lightweight and flexible command-line JSON processor
     jq
     ## fast, cross-platform HTTP/2 web server with automatic HTTPS
@@ -256,6 +265,64 @@ in
         editCommand = "$EDITOR";
         # specify a line number you are currently at when in the line-by-line mode.
         editCommandTemplate = "{{editor}} +{{line}} {{filename}}";
+      };
+    };
+  };
+
+  # location: ~/.config/git
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    aliases = {
+      a   = "commit --amend";
+      b   = "branch";
+      c   = "commit";
+      d   = "diff";
+      l   = "!bash --rcfile ~/.config/git/alias -ic fzf-log";
+      p   = "pull";
+      rl  = "reflog --pretty='%Cred%h%Creset -%C(auto)%d%Creset %gs %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
+      s   = "status";
+      sh  = "show";
+    };
+    ignores = [
+      # git
+      ".git"
+      # ide
+      ".idea" ".vs" ".vsc" ".vscode"
+      # python
+      "*.pyc" "__pycache__" ".ipynb_checkpoints"
+      # mac
+      ".DS_Store"
+      # direnv
+      ".envrc"
+    ];
+    extraConfig = {
+      delta = {
+        line-numbers = true;
+        # use `n` and `N` to move between diff sections
+        navigate = true;
+      };
+      diff = {
+        tool = "bcomp";
+        colorMoved = "default";
+      };
+      difftool = {
+        prompt = false;
+      };
+      "difftool \"bcomp\"" = {
+        cmd = "/usr/local/bin/bcomp $LOCAL $REMOTE";
+        trustExitCode = true;
+      };
+      merge = {
+        tool = "bcomp";
+      };
+      mergetool = {
+        prompt = false;
+        keepBackup = false;
+      };
+      "mergetool \"bcomp\"" = {
+        cmd = "/usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED";
+        trustExitCode = true;
       };
     };
   };
@@ -424,65 +491,6 @@ in
         disabled = false;
         style = "bold green";
         symbol = "🧙 ";
-      };
-    };
-  };
-
-  # location: ~/.config/git
-  programs.git = {
-    enable = true;
-    delta.enable = true;
-    aliases = {
-      a   = "commit --amend";
-      b   = "branch";
-      c   = "commit";
-      d   = "diff";
-      l   = "!bash --rcfile ~/.config/git/alias -ic fzf-log";
-      p   = "pull";
-      rl  = "reflog --pretty='%Cred%h%Creset -%C(auto)%d%Creset %gs %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
-      s   = "status";
-      sh  = "show";
-    };
-    ignores = [
-      # git
-      ".git"
-      # ide
-      ".idea" ".vs" ".vsc" ".vscode"
-      # python
-      "*.pyc" "__pycache__" ".ipynb_checkpoints"
-      # mac
-      ".DS_Store"
-      # direnv
-      ".envrc"
-    ];
-    extraConfig = {
-      delta = {
-        line-numbers = true;
-        # use `n` and `N` to move between diff sections
-        navigate = true;
-
-      };
-      diff = {
-        tool = "bcomp";
-        colorMoved = "default";
-      };
-      difftool = {
-        prompt = false;
-      };
-      "difftool \"bcomp\"" = {
-        cmd = "/usr/local/bin/bcomp $LOCAL $REMOTE";
-        trustExitCode = true;
-      };
-      merge = {
-        tool = "bcomp";
-      };
-      mergetool = {
-        prompt = false;
-        keepBackup = false;
-      };
-      "mergetool \"bcomp\"" = {
-        cmd = "/usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED";
-        trustExitCode = true;
       };
     };
   };
