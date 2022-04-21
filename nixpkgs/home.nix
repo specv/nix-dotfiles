@@ -78,6 +78,8 @@ in
     # Terminal
     ## a modern, hackable, featureful, OpenGL based terminal emulator
     #kitty
+    ## a cross-platform, GPU-accelerated terminal emulator
+    #alacritty
 
     # Package Manager
     ## Fast, reliable, and secure dependency management for javascript
@@ -565,6 +567,33 @@ in
       "cmd+f"            = "show_scrollback";
       "shift+cmd+n"      = "new_os_window_with_cwd";
       "shift+ctrl+cmd+n" = "new_window_with_cwd";
+    };
+  };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      color = {
+        primary.background = "#000000";
+      };
+      # not support ligatures yet
+      ## [Support for ligatures](https://github.com/alacritty/alacritty/issues/50)
+      # not support fallback fonts list yet
+      ## [Font Configuration](https://github.com/alacritty/alacritty/issues/957)
+      font = {
+        size               = 12;
+        normal.family      = "FiraCode Nerd Font";
+        normal.style       = "Regular";
+        bold.family        = "FiraCode Nerd Font";
+        bold.style         = "Bold";
+        italic.family      = "FiraCode Nerd Font";
+        italic.style       = "Italic";
+        bold_italic.family = "FiraCode Nerd Font";
+        bold_italic.style  = "Bold Italic";
+      };
+      window = {
+        decorations        = "None";
+      };
     };
   };
 }
