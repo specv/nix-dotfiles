@@ -414,17 +414,9 @@ in
       la   = "l -lA";
       ll   = "l -l";
       tree = "l --tree";
-      
-      # git
-      g    = "git";
-      ga   = "git commit --amend";
-      gb   = "git branch";
-      gd   = "git diff";
-      gl   = "git log";
-      gp   = "git pull";
-      gs   = "git status";
 
       # etc
+      g    = "git";
       lg   = "lazygit";
       cat  = "bat";
     };
