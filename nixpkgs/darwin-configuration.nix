@@ -136,6 +136,7 @@
       "redis"
     ];
     casks = [
+      "nvalt"
       "hammerspoon" 
     ];
   };
