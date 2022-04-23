@@ -571,8 +571,41 @@ in
   programs.alacritty = {
     enable = true;
     settings = {
-      color = {
-        primary.background = "#000000";
+      # base on Smoooooth (iTerm 2) color theme
+      # https://github.com/eendroroy/alacritty-theme/blob/master/themes/smoooooth.yml
+      colors = {
+        primary = {
+          foreground = "0xdbdbdb";
+          background = "0x000000";
+        };
+        normal = {
+          black      = "0x14191e";
+          red        = "0xf92672";
+          green      = "0x00c200";
+          yellow     = "0xc7c400";
+          blue       = "0x2743c7";
+          magenta    = "0xbf3fbd";
+          cyan       = "0x00c5c7";
+          white      = "0xc7c7c7";
+        };
+        bright = {
+          black      = "0x676767";
+          red        = "0xfc92b8";
+          green      = "0x57e690";
+          yellow     = "0xece100";
+          blue       = "0xa6aaf1";
+          magenta    = "0xe07de0";
+          cyan       = "0x5ffdff";
+          white      = "0xfeffff";
+        };
+        cursor = {
+          text       = "0x000000";
+          cursor     = "0xfefffe";
+        };
+        selection = {
+          text       = "0x000000";
+          background = "0xb3d7ff";
+        };
       };
       # not support ligatures yet
       ## [Support for ligatures](https://github.com/alacritty/alacritty/issues/50)
