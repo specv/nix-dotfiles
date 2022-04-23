@@ -98,9 +98,7 @@ in
     # Font
     ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
     ## https://nixos.wiki/wiki/Fonts
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    ## a typeface made for developers
-    jetbrains-mono
+    (nerdfonts.override { fonts = [ "JetBrainsMono"]; })
 
     # Networking
     ## Utility for bidirectional data transfer between two independent data channels
@@ -544,10 +542,10 @@ in
       # font
       font_size        = 12;
       ## List available fonts: `kitty +list-fonts --psnames`
-      font_family      = "JetBrains Mono Bold";
-      bold_font        = "JetBrains Mono ExtraBold";
-      italic_font      = "JetBrains Mono Bold Italic";
-      bold_italic_font = "JetBrains Mono ExtraBold Italic";
+      font_family      = "JetBrainsMono Nerd Font Bold";
+      bold_font        = "JetBrainsMono Nerd Font Extra Bold";
+      italic_font      = "JetBrainsMono Nerd Font Bold Italic";
+      bold_italic_font = "JetBrainsMono Nerd Font Extra Bold Italic";
 
       # shell
       shell_integration = "enabled";
@@ -582,13 +580,13 @@ in
       ## [Font Configuration](https://github.com/alacritty/alacritty/issues/957)
       font = {
         size               = 12;
-        normal.family      = "FiraCode Nerd Font";
+        normal.family      = "JetBrainsMono Nerd Font";
         normal.style       = "Regular";
-        bold.family        = "FiraCode Nerd Font";
+        bold.family        = "JetBrainsMono Nerd Font";
         bold.style         = "Bold";
-        italic.family      = "FiraCode Nerd Font";
+        italic.family      = "JetBrainsMono Nerd Font";
         italic.style       = "Italic";
-        bold_italic.family = "FiraCode Nerd Font";
+        bold_italic.family = "JetBrainsMono Nerd Font";
         bold_italic.style  = "Bold Italic";
       };
       window = {
