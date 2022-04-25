@@ -373,6 +373,9 @@ in
 
       # vivid is a themeable LS_COLORS generator
       LS_COLORS = "$(vivid generate molokai)";
+
+      # like `batman`, used in case like `git checkout --help`
+      MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'";
     };
     initExtra = ''
       # profile
