@@ -141,6 +141,12 @@ in
     tokei
     ## cat clone
     bat
+    bat-extras.batgrep
+    bat-extras.batman
+    bat-extras.batwatch
+    bat-extras.batdiff
+    bat-extras.prettybat
+    #bat-extras.batpipe
 
     # vcs
     ## distributed version control system
@@ -415,10 +421,14 @@ in
       ll   = "l -l";
       tree = "l --tree";
 
+      # bat
+      cat     = "bat";
+      man     = "batman";
+      diff    = "batdiff";
+
       # etc
-      g    = "git";
-      lg   = "lazygit";
-      cat  = "bat";
+      g       = "git";
+      lg      = "lazygit";
     };
     plugins = [
     #  {
