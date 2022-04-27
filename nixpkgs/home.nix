@@ -358,7 +358,7 @@ in
     enable = true;
     defaultKeymap = "viins";
     enableAutosuggestions = true;
-    #enableSyntaxHighlighting = true;
+    enableSyntaxHighlighting = true;
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
