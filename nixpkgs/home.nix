@@ -487,7 +487,7 @@ in
     settings = {
       add_newline = true;
       scan_timeout = 50;
-      command_timeout = 500;
+      command_timeout = 100;
       status = {
         disabled = true;
         format = "[$int]($style) ";
