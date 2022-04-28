@@ -134,9 +134,13 @@
     '';
     brews = [
       "redis"
+      # the Git interface you've been missing all your life has finally arrived
+      "gitup"
     ];
     casks = [
+      # note taking app (`Notational Velocit` alternative)
       "nvalt"
+      # desktop automation app
       "hammerspoon" 
     ];
   };
