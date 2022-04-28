@@ -106,7 +106,12 @@
     enable = true;
     skhdConfig = ''
       # Shortcut
-      cmd - n : ${pkgs.kitty}/Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory ~ &> /dev/null
+      ## alacritty
+      cmd - t : alacritty msg create-window || open -n ${pkgs.alacritty}/Applications/Alacritty.app &> /dev/null
+      ## iterm
+      # cmd - t : open -n /Applications/iTerm.app
+      ## kitty
+      # cmd - t : ${pkgs.kitty}/Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory ~ &> /dev/null
 
       ${builtins.readFile ~/.config/skhd/skhdrc}
     '';
