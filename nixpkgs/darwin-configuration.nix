@@ -139,8 +139,6 @@
     '';
     brews = [
       "redis"
-      # the Git interface you've been missing all your life has finally arrived
-      "gitup"
     ];
     casks = [
       # note taking app (`Notational Velocit` alternative)
@@ -149,6 +147,8 @@
       "hammerspoon" 
       # an archive unpacker program
       "the-unarchiver"
+      # git interface focused on visual interaction
+      "gitup"
     ];
   };
 }
