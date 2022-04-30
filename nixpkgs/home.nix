@@ -221,6 +221,8 @@ in
     comma
     ## shell script analysis tool
     shellcheck
+    ## command line version of The Unarchiver
+    unar
   ];
 
   # This value determines the Home Manager release that your

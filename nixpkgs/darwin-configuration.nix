@@ -147,6 +147,8 @@
       "nvalt"
       # desktop automation app
       "hammerspoon" 
+      # an archive unpacker program
+      "the-unarchiver"
     ];
   };
 }
