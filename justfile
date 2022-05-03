@@ -43,3 +43,4 @@ skhd-stop:
     - launchctl unload ~/Library/LaunchAgents/org.nixos.skhd.plist
 
 skhd-restart: skhd-stop skhd-start
+
