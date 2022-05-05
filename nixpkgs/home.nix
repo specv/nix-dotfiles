@@ -646,5 +646,40 @@ in
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      eamodio.gitlens
+      asvetliakov.vscode-neovim
+      zhuangtongfa.material-theme  # one dark pro
+      pkief.material-icon-theme
+      bbenoist.nix
+      jakebecker.elixir-ls
+      yzhang.markdown-all-in-one
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "path-intellisense";
+        publisher = "christian-kohler";
+        version = "2.8.0";
+        sha256 = "sha256-VPzy9o0DeYRkNwTGphC51vzBTNgQwqKg+t7MpGPLahM=";
+      }
+      {
+        name = "intellij-idea-keybindings";
+        publisher = "k--kato";
+        version = "1.5.1";
+        sha256 = "sha256-X+q43p455J9SHBEvin1Umr4UfQVCI8vnIkoH5/vUUJs=";
+      }
+    ];
+    userSettings = {
+      workbench.colorTheme                       = "One Dark Pro";
+      workbench.iconTheme                        = "material-icon-theme";
+
+      terminal.integrated.fontFamily             = "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace";
+      editor.fontFamily                          = "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace";
+      editor.fontSize                            = 12;
+      editor.fontLigatures                       = true;
+      editor.bracketPairColorization.enabled     = true;
+
+      vscode-neovim.neovimExecutablePaths.darwin = "${pkgs.neovim}/bin/nvim";
+      vscode-neovim.neovimInitPath               = "~/.config/nvim/init.vim";
+    };
   };
 }
