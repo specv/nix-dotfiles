@@ -640,6 +640,25 @@ in
       window = {
         decorations        = "None";
       };
+      # see also:
+      # https://github.com/alacritty/alacritty/issues/62
+      key_bindings = [
+        {
+          key   = "F";
+          mods  = "Alt";
+          chars = "\\x1bf";
+        }
+        {
+          key   = "B";
+          mods  = "Alt";
+          chars = "\\x1bb";
+        }
+        {
+          key   = "Period";
+          mods  = "Alt";
+          chars = "\\x1b.";
+        }
+      ];
     };
   };
 
