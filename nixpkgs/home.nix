@@ -389,6 +389,18 @@ in
       bindkey          '^F'  autosuggest-accept
       bindkey          '^G'  autosuggest-execute
 
+      bindkey -M vicmd '\ef' emacs-forward-word
+      bindkey -M viins '\ef' emacs-forward-word
+      bindkey -M vicmd '\e.' insert-last-word
+      bindkey -M viins '\e.' insert-last-word
+
+      ## user contrib widgets
+      ## https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#index-edit_002dcommand_002dline
+      autoload -U edit-command-line
+      zle -N edit-command-line
+      bindkey -M vicmd '^x^e' edit-command-line
+      bindkey -M viins '^x^e' edit-command-line
+
       # fzf-tab
       ## accept suggestion
       zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept'
