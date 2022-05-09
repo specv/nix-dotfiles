@@ -6,24 +6,71 @@
 
 ### Global
 
-- `cmd - t`: New Terminal(alacritty)
+- `cmd-t`:  New Terminal(alacritty)
 
-- `cmd - n`: Show / Hide nvALT
+- `cmd-n`:  Show / Hide nvALT
 
 
 ### Terminal
 
-- `ctrl - c`: Shell interrupt
+- `ctrl-c`: Shell interrupt
 
-- `ctrl - f`: Accept input
+- `ctrl-f`: Accept input
 
-- `ctrl - g`: Accept & Execute input
+- `ctrl-g`: Accept & Execute input
 
-- `ctrl - r`: FXF history
+- `ctrl-r`: FXF history
 
-- `ctrl - e`: FZF ripgrep
+- `ctrl-e`: FZF ripgrep
 
-- `ctrl - o`: FZF open file
+- `ctrl-o`: FZF open file
 
-- `ctrl - t`: FZF cd
+- `ctrl-t`: FZF cd
 
+
+### Emacs readline
+
+#### [Commands For Moving](https://www.gnu.org/software/bash/manual/html_node/Commands-For-Moving.html)
+
+- `ctrl-a`: Move to the start of the current line
+
+- `ctrl-e`: Move to the end of the line
+
+- `ctrl-f`: Move forward a character
+
+- `ctrl-b`: Move back a character
+
+- `alt-f` : Move forward to the end of the next word
+
+- `alt-b` : Move back to the start of the current or previous word
+
+
+#### [Killing And Yanking](https://www.gnu.org/software/bash/manual/html_node/Commands-For-Killing.html)
+
+- `ctrl-w`: Kill the word behind point
+
+- `ctrl-k`: Kill the text from point to the end of the line
+
+- `ctrl-u`: Kill backward from the cursor to the beginning of the current line
+
+- `ctrl-h`: Backspace
+
+- `ctrl-j`: Enter
+
+- `ctrl-p`: Previous history
+
+- `ctrl-n`: Next hisotry
+
+#### etc
+
+- `fc`:     Fix command
+
+- `alt-.`:  Insert last argument to the previous command (the last word of the previous history entry)
+
+- `ctrl-x ctrl-e`: Invoke an editor on the current command line, and execute the result as shell commands
+
+  - mysql:   `\e` `edit`
+
+  - pry:     `edit`
+
+  - ipython: `edit`
