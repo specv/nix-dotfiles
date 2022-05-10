@@ -149,6 +149,8 @@
       "the-unarchiver"
       # git interface focused on visual interaction
       "gitup"
+      # translate & OCR
+      "bob"
     ];
   };
 }
