@@ -151,6 +151,8 @@
       "gitup"
       # translate & OCR
       "bob"
+      # E-books management software
+      "calibre"
     ];
   };
 }

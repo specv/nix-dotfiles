@@ -223,6 +223,8 @@ in
     shellcheck
     ## command line version of The Unarchiver
     unar
+    ## Web app for Calibre
+    calibre-web
   ];
 
   # This value determines the Home Manager release that your
@@ -446,6 +448,7 @@ in
       # etc
       g       = "git";
       lg      = "lazygit";
+      calibre-web = "calibre-web -p ~/Documents/Calibre\\ Library/cw.db -g ~/Documents/Calibre\\ Library/gd.db";
     };
     plugins = [
     #  {
