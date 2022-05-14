@@ -113,6 +113,8 @@ in
     bandwhich
     ## man-in-the-middle proxy
     pkgsUnstable.mitmproxy
+    ## proxifier for SOCKS proxies
+    #pkgsUnstable.proxychains-ng
 
     # Command Runner
     ## a command runner and partial replacement for `make`
