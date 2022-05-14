@@ -84,6 +84,8 @@ in
     # Package Manager
     ## Fast, reliable, and secure dependency management for javascript
     yarn
+    ## Install and Run Python Applications in Isolated Environments
+    python39Packages.pipx
 
     # File Manager
     ## a VIM-inspired filemanager for the console
