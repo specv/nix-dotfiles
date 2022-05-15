@@ -115,6 +115,8 @@ in
     pkgsUnstable.mitmproxy
     ## proxifier for SOCKS proxies
     #pkgsUnstable.proxychains-ng
+    ## an offline tool for querying IP geographic information and CDN provider
+    nali
 
     # Command Runner
     ## a command runner and partial replacement for `make`
