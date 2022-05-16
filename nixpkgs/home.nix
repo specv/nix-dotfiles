@@ -664,6 +664,14 @@ in
       # see also:
       # https://github.com/alacritty/alacritty/issues/62
       key_bindings = [
+        # workaround for inline input method, remove this after https://github.com/alacritty/alacritty/pull/5790 merged
+        # see also: [macOS: unexpected characters get deleted when using backspace in Pinyin input method](https://github.com/alacritty/alacritty/issues/1606#issuecomment-579754834)
+        {
+          key   = "Back";
+          action = "ReceiveChar";
+        }
+        # emacs readline key bindings
+        # see also: [Allow remapping modifier keys in the config](https://github.com/alacritty/alacritty/issues/62#issuecomment-347552058)
         {
           key   = "F";
           mods  = "Alt";
