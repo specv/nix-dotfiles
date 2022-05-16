@@ -153,6 +153,8 @@
       "bob"
       # E-books management software
       "calibre"
+      # rime input method engine
+      "squirrel"
     ];
   };
 }
