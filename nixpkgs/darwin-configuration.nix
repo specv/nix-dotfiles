@@ -65,6 +65,23 @@
     finder = {
       # Allow quitting of the Finder
       QuitMenuItem = true;
+      # Show path bar
+      ShowPathbar = true;
+      # Show status bar
+      ShowStatusBar = false;
+      # Show hidden files by default
+      AppleShowAllFiles = true;
+      # Show all filename extensions
+      AppleShowAllExtensions = true;
+      # Disable the warning when changing a file extension
+      FXEnableExtensionChangeWarning = false;
+      # Use list view in all Finder windows by default
+      # Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
+      FXPreferredViewStyle = "Nlsv";
+      # When performing a search, search the current folder by default
+      FXDefaultSearchScope = "SCcf";
+      # Display full POSIX path as Finder window title
+      _FXShowPosixPathInTitle = true;
     };
     NSGlobalDomain = {
       # Sets the speed speed of window resizing.
