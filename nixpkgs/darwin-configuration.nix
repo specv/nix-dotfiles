@@ -72,6 +72,13 @@
     };
   };
 
+  system.activationScripts.extraUserActivation.text = ''
+    # change `Preferences...` menu default shortcut from `cmd-,` to `cmd+shift-,`
+    # add entry to "Keyboard => Shortcuts => App Shortcuts"
+    defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "NSGlobalDomain"
+    defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Preferences..." "@$,"
+  '';
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [
