@@ -7,8 +7,8 @@ let
       src = super.fetchFromGitHub {
         owner = "specv";
         repo = "fzf";
-        rev = "9e766ecc22a96da50cf6f9bba2b0acbaba2f4341";
-        sha256 = "sha256-tI5s4tq4O6j0NZjECpZQSVqYsGzA2Yzz7MQz9yXdws8=";
+        rev = "ea0979a8b52e1261cddd88883b609f60ccd0f209";
+        sha256 = "sha256-/7DgJU3bVBgtPHhmWHAqxCHf6Pm7VXOAuW+8kDLr/n8=";
       };
     });
   };
