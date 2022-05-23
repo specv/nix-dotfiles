@@ -217,6 +217,8 @@ in
     jq
     ## serializes the output of popular command line tools and filetypes to structured JSON output
     jc
+    ## terminal JSON viewer
+    fx
     ## fast, cross-platform HTTP/2 web server with automatic HTTPS
     caddy
     ## darwin not supoort yet
