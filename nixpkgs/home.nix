@@ -178,6 +178,9 @@ in
     ## graph visualization tools
     graphviz
 
+    # ops
+    ansible
+
     # Utility
     ## command-line benchmarking tool
     hyperfine
