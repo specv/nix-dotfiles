@@ -180,6 +180,13 @@ in
 
     # ops
     ansible
+    # virtualization
+    ## container runtimes on MacOS with minimal setup
+    colima
+    ## pack, ship and run any application as a lightweight container
+    docker
+    ## multi-container orchestration for Docker
+    docker-compose
 
     # Utility
     ## command-line benchmarking tool
