@@ -185,8 +185,10 @@ in
     pkgsUnstable.earthly
 
     # virtualization
+    ## linux virtual machines (on macOS, in most cases)
+    pkgsUnstable.lima
     ## container runtimes on MacOS with minimal setup
-    colima
+    pkgsUnstable.colima
     ## pack, ship and run any application as a lightweight container
     docker
     ## multi-container orchestration for Docker
