@@ -179,7 +179,11 @@ in
     graphviz
 
     # ops
+    ## radically simple IT automation
     ansible
+    ## build automation for the container era
+    pkgsUnstable.earthly
+
     # virtualization
     ## container runtimes on MacOS with minimal setup
     colima
@@ -572,6 +576,8 @@ in
       # `vidir` alternative
       # a file manager for Neovim which lets you edit your filesystem like you edit text
       (vimPlugin "elihunter173/dirbuf.nvim")
+      # Earthfile syntax highlighting for vim
+      (vimPlugin "earthly/earthly.vim")
     ];
     extraConfig = ''
       " load ~/.config/nvim/lua/init.lua
