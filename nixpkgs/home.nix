@@ -190,9 +190,9 @@ in
     ## container runtimes on MacOS with minimal setup
     pkgsUnstable.colima
     ## pack, ship and run any application as a lightweight container
-    docker
+    #docker
     ## multi-container orchestration for Docker
-    docker-compose
+    #docker-compose
 
     # Utility
     ## command-line benchmarking tool

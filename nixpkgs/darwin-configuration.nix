@@ -179,6 +179,9 @@
       "calibre"
       # rime input method engine
       "squirrel"
+      # pack, ship and run any application as a lightweight container 
+      # use `colima` instead until [issue](https://github.com/abiosoft/colima/issues/83) resovled
+      "docker"
     ];
   };
 }
