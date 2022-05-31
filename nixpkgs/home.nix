@@ -74,6 +74,8 @@ in
     erlang
     ## event-driven I/O framework for the V8 JavaScript engine
     nodejs
+    ## the Go programming language
+    go
 
     # Terminal
     ## a modern, hackable, featureful, OpenGL based terminal emulator
