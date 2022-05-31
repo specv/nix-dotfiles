@@ -183,6 +183,8 @@ in
     ansible
     ## build automation for the container era
     pkgsUnstable.earthly
+    ## a toolkit to automate & enhance your workflow
+    nodePackages.gulp
 
     # virtualization
     ## linux virtual machines (on macOS, in most cases)
