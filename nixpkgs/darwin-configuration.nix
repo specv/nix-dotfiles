@@ -184,6 +184,8 @@
       "docker"
       # controls and monitors all fans on Apple computers
       "macs-fan-control"
+      # web browser focusing on security
+      "tor-browser"
     ];
   };
 }
