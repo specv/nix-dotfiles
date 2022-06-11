@@ -199,6 +199,8 @@ in
     #docker-compose
     ## managing pods, containers and container images
     podman
+    ## a simple terminal UI for both docker and docker-compose
+    lazydocker
 
     # Utility
     ## command-line benchmarking tool
