@@ -197,6 +197,8 @@ in
     #docker
     ## multi-container orchestration for Docker
     #docker-compose
+    ## managing pods, containers and container images
+    podman
 
     # Utility
     ## command-line benchmarking tool
