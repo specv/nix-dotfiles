@@ -163,6 +163,8 @@
     '';
     brews = [
       "redis"
+      # daemonless container engine for developing, managing, and running OCI Containers
+      "podman"
     ];
     casks = [
       # note taking app (`Notational Velocit` alternative)
