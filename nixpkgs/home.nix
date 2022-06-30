@@ -98,6 +98,8 @@ in
     # VM / Ccontainer
     ## a tool for building complete development environments
     vagrant
+    ## define your dev environment as code
+    tilt
 
     # Font
     ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
