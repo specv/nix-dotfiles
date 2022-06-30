@@ -21,6 +21,9 @@ rollback-home step="1":
     gen=$(home-manager generations | head -n $(( {{ step }} + 1 )) | tail -n 1 | awk '{print $7"/activate"}')
     echo Switch to $gen && ${gen}
 
+nix-gc:
+    nix-collect-garbage -d
+
 yabai-start:
     launchctl load ~/Library/LaunchAgents/org.nixos.yabai.plist
     @ echo -n "Started pid..."
