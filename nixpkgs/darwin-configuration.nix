@@ -163,6 +163,7 @@
     '';
     brews = [
       "redis"
+      "postgresql"
       # daemonless container engine for developing, managing, and running OCI Containers
       "podman"
     ];
