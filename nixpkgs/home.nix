@@ -204,6 +204,13 @@ in
     ## a simple terminal UI for both docker and docker-compose
     lazydocker
 
+    # Nix
+    ## comma runs software without installing it
+    comma
+    ## interactively browse a Nix store paths dependencies
+    nix-tree
+    ## shell script analysis tool
+
     # Utility
     ## command-line benchmarking tool
     hyperfine
@@ -253,9 +260,6 @@ in
     pet
     ## manage complex tmux sessions easily
     tmuxinator
-    ## comma runs software without installing it
-    comma
-    ## shell script analysis tool
     shellcheck
     ## command line version of The Unarchiver
     unar
