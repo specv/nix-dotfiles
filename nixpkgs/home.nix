@@ -88,6 +88,8 @@ in
     yarn
     ## Install and Run Python Applications in Isolated Environments
     python39Packages.pipx
+    ## Python dependency management and packaging made easy
+    poetry
 
     # File Manager
     ## a VIM-inspired filemanager for the console
