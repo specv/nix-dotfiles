@@ -150,7 +150,7 @@
   # homebrew
   homebrew = {
     enable = true;
-    autoUpdate = false;
+    onActivation.autoUpdate = false;
     taps = [
       "homebrew/bundle"
       "homebrew/cask"

@@ -67,7 +67,6 @@ in
     # Language
     ## a high-level dynamically-typed programming language
     python3
-    python2
     ## a functional, meta-programming aware language built on top of the Erlang VM
     elixir
     ## programming language used for massively scalable soft real-time systems
@@ -114,7 +113,7 @@ in
     ## transparent proxy server that works as a poor man's VPN
     sshuttle
     ## interactive communication with another host using the TELNET protocol
-    telnet
+    inetutils
     ## a CLI utility for displaying current network utilization
     bandwhich
     ## man-in-the-middle proxy
@@ -208,7 +207,7 @@ in
     ## comma runs software without installing it
     comma
     ## interactively browse a Nix store paths dependencies
-    nix-tree
+    #nix-tree
     ## shell script analysis tool
 
     # Utility
@@ -217,7 +216,7 @@ in
     ## a better 'df' alternative
     duf
     ## a more intuitive version of `du` in rust
-    dust
+    du-dust
     ## a modern replacement for `ls`.
     exa
     ## the next gen `ls` command
