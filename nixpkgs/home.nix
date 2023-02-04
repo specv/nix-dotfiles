@@ -2,17 +2,6 @@
 
 let
 
-  fzf = self: super: {
-    fzf = super.fzf.overrideAttrs (oldAttrs: rec {
-      src = super.fetchFromGitHub {
-        owner = "specv";
-        repo = "fzf";
-        rev = "ea0979a8b52e1261cddd88883b609f60ccd0f209";
-        sha256 = "sha256-/7DgJU3bVBgtPHhmWHAqxCHf6Pm7VXOAuW+8kDLr/n8=";
-      };
-    });
-  };
-
   # python3Packages.ipython is failing on x86_64-darwin
   # https://github.com/NixOS/nixpkgs/issues/160133#issuecomment-1041327492
   # This should be fixed in #159516, which is currently in staging
@@ -55,7 +44,6 @@ in
 
 {
   nixpkgs.overlays = [
-    fzf
     ipythonFix
   ];
 
@@ -291,6 +279,15 @@ in
       };
       recursive = true;
     };
+    ".fzf" = {
+      source = pkgs.fetchFromGitHub {
+        owner = "specv";
+        repo = "fzf";
+        rev = "ea0979a8b52e1261cddd88883b609f60ccd0f209";
+        sha256 = "sha256-/7DgJU3bVBgtPHhmWHAqxCHf6Pm7VXOAuW+8kDLr/n8=";
+      };
+      recursive = true;
+    };
   };
 
   # Let Home Manager install and manage itself.
@@ -423,6 +420,9 @@ in
     initExtra = ''
       # profile
       source ~/.bash_profile
+
+      # fzf keybindings
+      source ~/.fzf/shell/key-bindings.zsh
 
       # bindkey
       bindkey          '^K'  up-line-or-search
