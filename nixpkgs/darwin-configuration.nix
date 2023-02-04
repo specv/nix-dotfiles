@@ -189,6 +189,8 @@
       "macs-fan-control"
       # web browser focusing on security
       "tor-browser"
+      # a new command line scriptable shell for MySQL
+      "mysql-shell"
     ];
   };
 }
