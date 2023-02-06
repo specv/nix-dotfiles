@@ -110,6 +110,8 @@ in
     #pkgsUnstable.proxychains-ng
     ## an offline tool for querying IP geographic information and CDN provider
     nali
+    # a free and open source utility for network discovery and security auditing
+    nmap
 
     # Command Runner
     ## a command runner and partial replacement for `make`
