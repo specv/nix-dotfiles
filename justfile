@@ -9,12 +9,19 @@ symlink:
     ln -sfn {{ absolute_path("nixpkgs") }} ~/.nixpkgs
 
 switch-home:
-    home-manager switch
+    NIXPKGS_ALLOW_UNFREE=1 home-manager switch
+
+switch-home-debug:
+    NIXPKGS_ALLOW_UNFREE=1 home-manager switch --debug --show-trace
 
 switch-darwin:
     darwin-rebuild switch
 
 switch-all: switch-home switch-darwin
+
+update-channel-home: 
+    nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager
+    nix-channel --update home-manager
 
 rollback-home step="1":
     #!/usr/bin/env bash
