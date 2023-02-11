@@ -209,6 +209,8 @@ in
     duf
     ## a more intuitive version of `du` in rust
     du-dust
+    ## remove unnecessary files from your computer
+    # czkawka
     ## a modern replacement for `ls`.
     exa
     ## the next gen `ls` command
