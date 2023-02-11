@@ -180,6 +180,8 @@ in
     pkgsUnstable.earthly
     ## a toolkit to automate & enhance your workflow
     nodePackages.gulp
+    ## the logfile navigator
+    lnav
 
     # virtualization
     ## linux virtual machines (on macOS, in most cases)
