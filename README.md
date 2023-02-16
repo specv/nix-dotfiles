@@ -17,15 +17,29 @@
 
 - `ctrl-f`: Accept input
 
-- `ctrl-g`: Accept & Execute input
+- `ctrl-g`: Accept input & Execute
 
-- `ctrl-r`: FXF history
+- `ctrl-r`: FZF history
 
-- `ctrl-e`: FZF ripgrep
+- `ctrl-e`: FZF ripgrep (edit)
 
-- `ctrl-o`: FZF open file
+- `ctrl-o`: FZF open file (open)
 
-- `ctrl-t`: FZF cd
+- `ctrl-t`: FZF cd (target)
+
+- `ctrl-k`: Previous history
+
+- `ctrl-j`: Next history
+
+
+### Vim
+
+
+### Pycharm
+
+#### Custom
+
+- `cmd-,` + `d`: Go To Database Object
 
 
 ### Emacs readline
@@ -60,6 +74,7 @@
 - `ctrl-p`: Previous history
 
 - `ctrl-n`: Next hisotry
+
 
 #### etc
 
