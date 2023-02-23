@@ -96,8 +96,10 @@ in
     (nerdfonts.override { fonts = [ "JetBrainsMono"]; })
 
     # Networking
-    ## Utility for bidirectional data transfer between two independent data channels
+    ## utility for bidirectional data transfer between two independent data channels
     socat
+    ## command-line client for websockets
+    websocat
     ## transparent proxy server that works as a poor man's VPN
     sshuttle
     ## interactive communication with another host using the TELNET protocol
