@@ -77,6 +77,8 @@ in
     python39Packages.pipx
     ## Python dependency management and packaging made easy
     poetry
+    ## version manager with support for Ruby, Node.js, Erlang
+    asdf-vm
 
     # File Manager
     ## a VIM-inspired filemanager for the console
