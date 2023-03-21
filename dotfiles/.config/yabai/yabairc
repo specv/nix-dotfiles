@@ -35,23 +35,25 @@ yabai -m space 5  --label file
 yabai -m space 6  --label message
 yabai -m space 7  --label client
 
-yabai -m config layout                       bsp
+yabai -m config layout                       float
 yabai -m config top_padding                  0
 yabai -m config bottom_padding               0
 yabai -m config left_padding                 0
 yabai -m config right_padding                0
 yabai -m config window_gap                   0
 yabai -m config external_bar                 off:26:0
-yabai -m config --space code layout          stack
+yabai -m config --space code    layout       stack
 yabai -m config --space browser layout       stack
+yabai -m config --space shell   layout       bsp
 
 
 # rules
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^uTools$"             manage=off
-yabai -m rule --add app="^PyCharm$"                                  space=code 
+yabai -m rule --add app="^PyCharm$"                                  space=code
 yabai -m rule --add app="^Visual Studio Code$"                       space=code
 yabai -m rule --add app="^iTerm$"                                    space=shell
+yabai -m rule --add app="^Alacritty$"                                space=shell
 yabai -m rule --add app="^Google Chrome$"                            space=browser
 yabai -m rule --add app="^Safari$"                                   space=browser
 yabai -m rule --add app="^Notes$"                                    space=note
