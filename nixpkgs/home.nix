@@ -98,6 +98,8 @@ in
     (nerdfonts.override { fonts = [ "JetBrainsMono"]; })
 
     # Networking
+    ## tool for retrieving files using HTTP, HTTPS, and FTP
+    wget
     ## utility for bidirectional data transfer between two independent data channels
     socat
     ## command-line client for websockets
