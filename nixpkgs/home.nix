@@ -295,7 +295,7 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "specv";
         repo = "fzf";
-        rev = "ea0979a8b52e1261cddd88883b609f60ccd0f209";
+        rev = "c578fc1a154bc27e36334cbc8a603dea948d2d34";
         sha256 = "sha256-/7DgJU3bVBgtPHhmWHAqxCHf6Pm7VXOAuW+8kDLr/n8=";
       };
       recursive = true;
