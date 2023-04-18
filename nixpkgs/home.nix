@@ -436,6 +436,33 @@ in
       # fzf keybindings
       source ~/.fzf/shell/key-bindings.zsh
 
+      function portgrep() {
+          {
+              echo "Port,Process ID,Process Name"
+              for port in "$@"; do
+                  pids=$(lsof -i:$port -t)
+                  for pid in $pids; do
+                      name=$(ps -p $pid -o comm=)
+                      echo "$port,$pid,$name"
+                  done
+              done
+          } | column -t -s ','
+      }
+
+      function portkill() {
+          {
+              echo "Port,Process ID,Process Name"
+              for port in "$@"; do
+                  pids=$(lsof -i:$port -t)
+                  for pid in $pids; do
+                      name=$(ps -p $pid -o comm=)
+                      echo "$port,$pid,$name"
+                      kill -15 "$pid"
+                  done
+              done
+          } | column -t -s ','
+      }
+
       # bindkey
       bindkey          '^K'  up-line-or-search
       bindkey          '^J'  down-line-or-search
