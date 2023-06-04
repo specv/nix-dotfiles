@@ -6,9 +6,9 @@
 
 ### Global
 
-- `cmd-t`:  New Terminal(alacritty)
+- `cmd+ctrl-t`:  New Terminal(alacritty), or `ctrl-n` if alacritty activated
 
-- `cmd-n`:  Show / Hide nvALT
+- `cmd+ctrl-n`:  Show / Hide nvALT
 
 
 ### Terminal

@@ -131,11 +131,11 @@
     skhdConfig = ''
       # Shortcut
       ## alacritty
-      cmd - t : alacritty msg create-window || open -n ${pkgs.alacritty}/Applications/Alacritty.app &> /dev/null
+      lcmd + ctrl - t : alacritty msg create-window || open -n ${pkgs.alacritty}/Applications/Alacritty.app &> /dev/null
       ## iterm
-      # cmd - t : open -n /Applications/iTerm.app
+      # lcmd + ctrl - t : open -n /Applications/iTerm.app
       ## kitty
-      # cmd - t : ${pkgs.kitty}/Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory ~ &> /dev/null
+      # lcmd + ctrl - t : ${pkgs.kitty}/Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory ~ &> /dev/null
 
       ${builtins.readFile ~/.config/skhd/skhdrc}
     '';
