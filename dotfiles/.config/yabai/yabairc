@@ -2,7 +2,7 @@
 
 # window
 yabai -m config mouse_follows_focus          off
-yabai -m config focus_follows_mouse          autoraise
+yabai -m config focus_follows_mouse          off
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
 yabai -m config split_ratio                  0.50
@@ -24,6 +24,13 @@ yabai -m config normal_window_border_color   0x00bfff00
 yabai -m config insert_feedback_color        0xaad75f5f
 ## shadow
 yabai -m config window_shadow                off
+
+
+# display
+## please refer to the `display` section of `skhdrc`. 
+## When switching displays, `mouse_follows_focus` will temporarily be enabled, allowing the mouse to follow to another display.
+yabai -m signal --add event=display_changed action="yabai -m config mouse_follows_focus off"
+
 
 # layout
 # mission-control desktop labels
