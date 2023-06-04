@@ -737,6 +737,10 @@ in
       };
       # see also:
       # https://github.com/alacritty/alacritty/issues/62
+      mouse = {
+        # the cursor is temporarily hidden when typing
+        hide_when_typing   = true;
+      };
       key_bindings = [
         # workaround for inline input method, remove this after https://github.com/alacritty/alacritty/pull/5790 merged
         # see also: [macOS: unexpected characters get deleted when using backspace in Pinyin input method](https://github.com/alacritty/alacritty/issues/1606#issuecomment-579754834)
