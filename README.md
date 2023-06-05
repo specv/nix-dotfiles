@@ -6,7 +6,7 @@
 
 ### Global
 
-- `cmd+ctrl-t`:  New Terminal(alacritty), or `ctrl-n` if alacritty activated
+- `cmd+ctrl-t`:  New Terminal(alacritty), or `ctrl-n`(multiple app icons) if alacritty activated
 
 - `cmd+ctrl-n`:  Show / Hide nvALT
 
