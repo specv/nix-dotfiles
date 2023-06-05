@@ -25,71 +25,76 @@ lcmd + ctrl - return         : yabai -m window --toggle zoom-fullscreen
 lcmd + ctrl + shift - return : yabai -m window --toggle native-fullscreen
 
 
-# space (leader key: lcmd + shift)
+# space (leader key: rcmd)
 ## create space and focus
-lcmd + shift - n : yabai -m space --create && yabai -m space --focus $(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')
+rcmd - n      : yabai -m space --create && yabai -m space --focus $(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')
 
 ## destroy space
-lcmd + shift - d : yabai -m space --destroy
+rcmd - d      : yabai -m space --destroy
 
 ## change space layout
-lcmd + shift - f : yabai -m space --layout float
-lcmd + shift - b : yabai -m space --layout bsp
-lcmd + shift - s : yabai -m space --layout stack
+rcmd - f      : yabai -m space --layout float
+rcmd - b      : yabai -m space --layout bsp
+rcmd - s      : yabai -m space --layout stack
 ### float / unfloat window and center on space
-lcmd + shift - return    : yabai -m window --toggle float && yabai -m window --grid 20:20:1:1:18:18
-lcmd + shift - c : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
+rcmd - return : yabai -m window --toggle float && yabai -m window --grid 20:20:1:1:18:18
+rcmd - c      : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
 ### layout for view mode
-lcmd + shift - v : yabai -m window --toggle sticky && yabai -m window --grid 4:1:4:4:0:0
+rcmd - v      : yabai -m window --toggle sticky && yabai -m window --grid 4:1:4:4:0:0
 
 ## focus space
-lcmd + shift - r : yabai -m space --focus recent
-lcmd + shift - h : yabai -m space --focus prev
-lcmd + shift - l : yabai -m space --focus next
-lcmd + shift - 1 : yabai -m space --focus 1
-lcmd + shift - 2 : yabai -m space --focus 2
-lcmd + shift - 3 : yabai -m space --focus 3
-lcmd + shift - 4 : yabai -m space --focus 4
-lcmd + shift - 5 : yabai -m space --focus 5
-lcmd + shift - 6 : yabai -m space --focus 6
-lcmd + shift - 7 : yabai -m space --focus 7
-lcmd + shift - 8 : yabai -m space --focus 8
-lcmd + shift - 9 : yabai -m space --focus 9
-lcmd + shift - 0 : yabai -m space --focus 10
+rcmd - r : yabai -m space --focus recent
+rcmd - k : yabai -m space --focus prev
+rcmd - j : yabai -m space --focus next
+rcmd - 1 : yabai -m space --focus 1
+rcmd - 2 : yabai -m space --focus 2
+rcmd - 3 : yabai -m space --focus 3
+rcmd - 4 : yabai -m space --focus 4
+rcmd - 5 : yabai -m space --focus 5
+rcmd - 6 : yabai -m space --focus 6
+rcmd - 7 : yabai -m space --focus 7
+rcmd - 8 : yabai -m space --focus 8
+rcmd - 9 : yabai -m space --focus 9
+rcmd - 0 : yabai -m space --focus 10
 
 ## send window to space and follow focus
-lcmd + shift + ctrl - r : yabai -m window --space recent && yabai -m space --focus recent
-lcmd + shift + ctrl - h : yabai -m window --space prev   && yabai -m space --focus prev
-lcmd + shift + ctrl - l : yabai -m window --space next   && yabai -m space --focus next
-lcmd + shift + ctrl - 1 : yabai -m window --space 1      && yabai -m space --focus 1
-lcmd + shift + ctrl - 2 : yabai -m window --space 2      && yabai -m space --focus 2
-lcmd + shift + ctrl - 3 : yabai -m window --space 3      && yabai -m space --focus 3
-lcmd + shift + ctrl - 4 : yabai -m window --space 4      && yabai -m space --focus 4
-lcmd + shift + ctrl - 5 : yabai -m window --space 5      && yabai -m space --focus 5
-lcmd + shift + ctrl - 6 : yabai -m window --space 6      && yabai -m space --focus 6
-lcmd + shift + ctrl - 7 : yabai -m window --space 7      && yabai -m space --focus 7
-lcmd + shift + ctrl - 8 : yabai -m window --space 8      && yabai -m space --focus 8
-lcmd + shift + ctrl - 9 : yabai -m window --space 9      && yabai -m space --focus 9
-lcmd + shift + ctrl - 0 : yabai -m window --space 10     && yabai -m space --focus 10
+rcmd + shift - r : yabai -m window --space recent && yabai -m space --focus recent
+rcmd + shift - k : yabai -m window --space prev   && yabai -m space --focus prev
+rcmd + shift - j : yabai -m window --space next   && yabai -m space --focus next
+rcmd + shift - 1 : yabai -m window --space 1      && yabai -m space --focus 1
+rcmd + shift - 2 : yabai -m window --space 2      && yabai -m space --focus 2
+rcmd + shift - 3 : yabai -m window --space 3      && yabai -m space --focus 3
+rcmd + shift - 4 : yabai -m window --space 4      && yabai -m space --focus 4
+rcmd + shift - 5 : yabai -m window --space 5      && yabai -m space --focus 5
+rcmd + shift - 6 : yabai -m window --space 6      && yabai -m space --focus 6
+rcmd + shift - 7 : yabai -m window --space 7      && yabai -m space --focus 7
+rcmd + shift - 8 : yabai -m window --space 8      && yabai -m space --focus 8
+rcmd + shift - 9 : yabai -m window --space 9      && yabai -m space --focus 9
+rcmd + shift - 0 : yabai -m window --space 10     && yabai -m space --focus 10
 
 
-# display (leader key: rcmd)
+# display (leader key: lcmd + ctrl)
 ## focus display
 ## This is a workaround to temporarily enable mouse_follows_focus when switching displays.
 ## You need to add `yabai -m signal --add event=display_changed action="yabai -m config mouse_follows_focus off"` in `yabairc` for coordinated use.
 ## Because if you directly add yabai -m config mouse_follows_focus off to the end of the command, there is a chance that the mouse will not follow.
-rcmd - r : yabai -m config mouse_follows_focus on && yabai -m display --focus recent
-rcmd - k : yabai -m config mouse_follows_focus on && yabai -m display --focus prev
-rcmd - j : yabai -m config mouse_follows_focus on && yabai -m display --focus next
-rcmd - 1 : yabai -m config mouse_follows_focus on && yabai -m display --focus 1
-rcmd - 2 : yabai -m config mouse_follows_focus on && yabai -m display --focus 2
-rcmd - 3 : yabai -m config mouse_follows_focus on && yabai -m display --focus 3
+lcmd + ctrl - r : yabai -m config mouse_follows_focus on && yabai -m display --focus recent
+#lcmd + ctrl - k : yabai -m config mouse_follows_focus on && yabai -m display --focus prev
+#lcmd + ctrl - j : yabai -m config mouse_follows_focus on && yabai -m display --focus next
+lcmd + ctrl - 1 : yabai -m config mouse_follows_focus on && yabai -m display --focus 1
+lcmd + ctrl - 2 : yabai -m config mouse_follows_focus on && yabai -m display --focus 2
+lcmd + ctrl - 3 : yabai -m config mouse_follows_focus on && yabai -m display --focus 3
+lcmd + ctrl - 7 : yabai -m config mouse_follows_focus on && yabai -m display --focus 1
+lcmd + ctrl - 8 : yabai -m config mouse_follows_focus on && yabai -m display --focus 2
+lcmd + ctrl - 9 : yabai -m config mouse_follows_focus on && yabai -m display --focus 3
 
 ## send window to display and follow focus
-rcmd + shift - r : yabai -m config mouse_follows_focus on && yabai -m window --display recent && yabai -m display --focus recent
-rcmd + shift - k : yabai -m config mouse_follows_focus on && yabai -m window --display prev   && yabai -m display --focus prev
-rcmd + shift - j : yabai -m config mouse_follows_focus on && yabai -m window --display next   && yabai -m display --focus next
-rcmd + shift - 1 : yabai -m config mouse_follows_focus on && yabai -m window --display 1      && yabai -m display --focus 1
-rcmd + shift - 2 : yabai -m config mouse_follows_focus on && yabai -m window --display 2      && yabai -m display --focus 2
-rcmd + shift - 3 : yabai -m config mouse_follows_focus on && yabai -m window --display 3      && yabai -m display --focus 3
-
+lcmd + ctrl + shift - r : yabai -m config mouse_follows_focus on && yabai -m window --display recent && yabai -m display --focus recent
+#lcmd + ctrl + shift - k : yabai -m config mouse_follows_focus on && yabai -m window --display prev   && yabai -m display --focus prev
+#lcmd + ctrl + shift - j : yabai -m config mouse_follows_focus on && yabai -m window --display next   && yabai -m display --focus next
+lcmd + ctrl + shift - 1 : yabai -m config mouse_follows_focus on && yabai -m window --display 1      && yabai -m display --focus 1
+lcmd + ctrl + shift - 2 : yabai -m config mouse_follows_focus on && yabai -m window --display 2      && yabai -m display --focus 2
+lcmd + ctrl + shift - 3 : yabai -m config mouse_follows_focus on && yabai -m window --display 3      && yabai -m display --focus 3
+lcmd + ctrl + shift - 7 : yabai -m config mouse_follows_focus on && yabai -m window --display 1      && yabai -m display --focus 1
+lcmd + ctrl + shift - 8 : yabai -m config mouse_follows_focus on && yabai -m window --display 2      && yabai -m display --focus 2
+lcmd + ctrl + shift - 9 : yabai -m config mouse_follows_focus on && yabai -m window --display 3      && yabai -m display --focus 3
