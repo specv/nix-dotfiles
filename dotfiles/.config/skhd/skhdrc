@@ -1,9 +1,11 @@
 # window (leader key: lcmd + ctrl)
 ## focus window
-lcmd + ctrl - h : yabai -m window --focus west
-lcmd + ctrl - j : yabai -m window --focus south
-lcmd + ctrl - k : yabai -m window --focus north
-lcmd + ctrl - l : yabai -m window --focus east
+lcmd + ctrl - h : [[ $(yabai -m query --spaces --space | jq -re '.type') = "bsp" ]] && yabai -m window --focus west  || yabai -m window --focus stack.prev
+lcmd + ctrl - j : [[ $(yabai -m query --spaces --space | jq -re '.type') = "bsp" ]] && yabai -m window --focus south || yabai -m window --focus stack.prev
+lcmd + ctrl - k : [[ $(yabai -m query --spaces --space | jq -re '.type') = "bsp" ]] && yabai -m window --focus north || yabai -m window --focus stack.next
+lcmd + ctrl - l : [[ $(yabai -m query --spaces --space | jq -re '.type') = "bsp" ]] && yabai -m window --focus east  || yabai -m window --focus stack.next
+## create stack layout
+lcmd + ctrl - s : yabai -m window --stack next
 
 ## move window
 lcmd + ctrl - left  : yabai -m window --warp west
