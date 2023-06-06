@@ -158,7 +158,6 @@
       "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
-      "FelixKratz/formulae" # sketchybar
     ];
     extraConfig = ''
     '';
@@ -167,12 +166,8 @@
       "postgresql"
       # daemonless container engine for developing, managing, and running OCI Containers
       "podman"
-      # a highly customizable macOS status bar replacement
-      "sketchybar"
     ];
     casks = [
-      "font-hack-nerd-font" # sketchybar
-      "sf-symbols"
       # note taking app (`Notational Velocit` alternative)
       "nvalt"
       # desktop automation app
