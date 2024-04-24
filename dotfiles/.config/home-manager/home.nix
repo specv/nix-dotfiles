@@ -35,9 +35,17 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    # VCS
+    ## distributed version control system
+    ## git
+    ## simple terminal UI for git commands
+    ## lazygit 
+    ## a syntax-highlighting pager for git
+    delta
+
     # Terminal
     ## a cross-platform, GPU-accelerated terminal emulator
-    alacritty
+    ## alacritty
 
     # Editor / Text Processor
     ## vim text editor fork focused on extensibility and agility
@@ -85,6 +93,85 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    aliases = {
+      a   = "commit --amend";
+      b   = "branch";
+      c   = "commit";
+      d   = "diff";
+      l   = "!bash --rcfile ~/.config/git/alias -ic fzf-log";
+      p   = "pull";
+      rl  = "reflog --pretty='%Cred%h%Creset -%C(auto)%d%Creset %gs %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
+      s   = "status";
+      sh  = "show";
+    };
+    ignores = [
+      # git
+      ".git"
+      # ide
+      ".idea" ".vs" ".vsc" ".vscode"
+      # python
+      "*.pyc" "__pycache__" ".ipynb_checkpoints"
+      # mac
+      ".DS_Store"
+      # direnv
+      ".envrc"
+    ];
+    extraConfig = {
+      delta = {
+        line-numbers = true;
+        # use `n` and `N` to move between diff sections
+        navigate = true;
+      };
+      diff = {
+        tool = "bcomp";
+        colorMoved = "default";
+      };
+      difftool = {
+        prompt = false;
+      };
+      "difftool \"bcomp\"" = {
+        cmd = "/usr/local/bin/bcomp $LOCAL $REMOTE";
+        trustExitCode = true;
+      };
+      merge = {
+        tool = "bcomp";
+      };
+      mergetool = {
+        prompt = false;
+        keepBackup = false;
+      };
+      "mergetool \"bcomp\"" = {
+        cmd = "/usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED";
+        trustExitCode = true;
+      };
+    };
+  };
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui = {
+        scrollHeight = 10;
+        showFileTree = false;
+        expandFocusedSidePanel = false;
+      };
+      git = {
+        paging = {
+          colorArg = "always";
+          pager = "delta --dark --paging=never";
+        };
+      };
+      os = {
+        editCommand = "$EDITOR";
+        # specify a line number you are currently at when in the line-by-line mode.
+        editCommandTemplate = "{{editor}} +{{line}} {{filename}}";
+      };
+    };
+  };
 
   programs.neovim = {
     enable = true;
