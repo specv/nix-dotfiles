@@ -54,6 +54,8 @@
     lsd
 
     # Theme
+    ## a minimal, blazing fast, and extremely customizable prompt for any shell
+    ## starship 
     ## a themeable LS_COLORS generator
     vivid
     ## colorize paths using LS_COLORS
@@ -181,6 +183,26 @@
         editCommand = "$EDITOR";
         # specify a line number you are currently at when in the line-by-line mode.
         editCommandTemplate = "{{editor}} +{{line}} {{filename}}";
+      };
+    };
+  };
+
+  # The conda module shows the current Conda (opens new window)environment, if $CONDA_DEFAULT_ENV is set.
+  # This does not suppress conda's own prompt modifier, you may want to run conda config --set changeps1 False.
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = true;
+      scan_timeout = 50;
+      command_timeout = 100;
+      status = {
+        disabled = true;
+        format = "[$int]($style) ";
+      };
+      sudo = {
+        disabled = false;
+        style = "bold green";
+        symbol = "🧙 ";
       };
     };
   };
