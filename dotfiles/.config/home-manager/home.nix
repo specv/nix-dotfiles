@@ -46,6 +46,18 @@
     # Terminal
     ## a cross-platform, GPU-accelerated terminal emulator
     ## alacritty
+    ## The Z shell
+    ## zsh
+    ## a modern, maintained replacement for `ls`.
+    eza
+    ## the next gen `ls` command
+    lsd
+
+    # Theme
+    ## a themeable LS_COLORS generator
+    vivid
+    ## colorize paths using LS_COLORS
+    lscolors
 
     # Editor / Text Processor
     ## vim text editor fork focused on extensibility and agility
@@ -299,5 +311,164 @@
         }
       ];
     };
+  };
+
+  programs.zsh = {
+    enable = true;
+    defaultKeymap = "viins";
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+
+      # locale
+      # make sure check iTerm2's "Set locale variables automatically" off also
+      LC_ALL = "en_US.UTF-8";
+      LANG = "en_US.UTF-8";
+
+      # vivid is a themeable LS_COLORS generator
+      LS_COLORS = "$(~/.nix-profile/bin/vivid generate molokai)";
+
+      # like `batman`, used in case like `git checkout --help`
+      MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'";
+    };
+    initExtra = ''
+      function portgrep() {
+          {
+              echo "Port,Process ID,Process Name"
+              for port in "$@"; do
+                  pids=$(lsof -i:$port -t)
+                  for pid in $pids; do
+                      name=$(ps -p $pid -o comm=)
+                      echo "$port,$pid,$name"
+                  done
+              done
+          } | column -t -s ','
+      }
+
+      function portkill() {
+          {
+              echo "Port,Process ID,Process Name"
+              for port in "$@"; do
+                  pids=$(lsof -i:$port -t)
+                  for pid in $pids; do
+                      name=$(ps -p $pid -o comm=)
+                      echo "$port,$pid,$name"
+                      kill -15 "$pid"
+                  done
+              done
+          } | column -t -s ','
+      }
+
+      # bindkey
+      bindkey          '^K'  up-line-or-search
+      bindkey          '^J'  down-line-or-search
+      bindkey          '^F'  autosuggest-accept
+      bindkey          '^G'  autosuggest-execute
+
+      bindkey -M vicmd '\ef' emacs-forward-word
+      bindkey -M viins '\ef' emacs-forward-word
+      bindkey -M vicmd '\e.' insert-last-word
+      bindkey -M viins '\e.' insert-last-word
+
+      ## user contrib widgets
+      ## https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#index-edit_002dcommand_002dline
+      autoload -U edit-command-line
+      zle -N edit-command-line
+      bindkey -M vicmd '^x^e' edit-command-line
+      bindkey -M viins '^x^e' edit-command-line
+
+      # fzf-tab
+      ## accept suggestion
+      zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept'
+      ## run suggestion
+      zstyle ':fzf-tab:*' accept-line 'ctrl-g'
+      ## unable to bind multiple keys
+      #zstyle ':fzf-tab:*' accept-line 'enter'
+      ## set descriptions format to enable group support
+      zstyle ':completion:*:descriptions' format '[%d]'
+      ## switch over different groups, `tab` for next, `btab` for previous
+      zstyle ':fzf-tab:*' switch-group 'btab' 'tab'
+      # set list-colors to enable filename colorizing
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+      ## preview directory's content with eza when completing cd
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+      ## disable sort when completing `git checkout`
+      zstyle ':completion:*:git-checkout:*' sort false
+      ## continuous completion (accept the result and start another completion immediately)
+      zstyle ':fzf-tab:*' continuous-trigger 'space'
+    '';
+    history = {
+      size = 10000000;
+      save = 10000000;
+      ignoreDups = true;
+      ignoreSpace = false;
+      expireDuplicatesFirst = true;
+      share = true;
+      extended = true;
+    };
+    shellAliases = {
+      # ls
+      l    = "ls";
+      ls   = "lsd -F --group-dirs first";
+      la   = "l -lA";
+      ll   = "l -l";
+      tree = "l --tree";
+
+      # bat
+      cat     = "bat";
+      man     = "batman";
+      diff    = "batdiff";
+
+      # etc
+      g       = "git";
+      lg      = "lazygit";
+    };
+    plugins = [
+    #  {
+    #    # will source zsh-autosuggestions.plugin.zsh
+    #    name = "zsh-autosuggestions";
+    #    src = pkgs.fetchFromGitHub {
+    #      owner = "zsh-users";
+    #      repo = "zsh-autosuggestions";
+    #      rev = "v0.7.0";
+    #      sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
+    #    };
+    #  }
+       {
+         name = "fzf-tab";
+         src = pkgs.fetchFromGitHub {
+           owner = "Aloxaf";
+           repo = "fzf-tab";
+           rev = "8769fcbf2150fe5dad605da022036ed23c81368d";
+           sha256 = "sha256-/9An/C9rDLx1WsC/yYcYPVzA6fjsddMQaBT1DMAxYSI=";
+         };
+       }
+    ];
+    #oh-my-zsh = {
+    #  enable = true;
+    #  plugins = [
+    #    "git"
+    #    "ssh-agent"
+    #  ];
+    #};
+    #prezto = {
+    #  enable = true;
+    #  caseSensitive = false;
+    #  utility.safeOps = true;
+    #  editor = {
+    #    dotExpansion = true;
+    #    keymap = "vi";
+    #  };
+    #  pmodules = [
+    #    "autosuggestions"
+    #    "completion"
+    #    "directory"
+    #    "editor"
+    #    "git"
+    #    "terminal"
+    #  ];
+    #};
   };
 }
