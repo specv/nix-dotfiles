@@ -39,6 +39,10 @@
     ## a cross-platform, GPU-accelerated terminal emulator
     alacritty
 
+    # Editor / Text Processor
+    ## vim text editor fork focused on extensibility and agility
+    ## neovim
+
     # Font
     ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
     ## https://nixos.wiki/wiki/Fonts
@@ -81,6 +85,37 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      # vim configuration files for Nix
+      vim-nix
+      # delete/change/add parentheses/quotes/XML-tags
+      vim-surround
+      # multiple cursors plugin for vim/neovim
+      vim-visual-multi
+      # make the yanked region apparent
+      vim-highlightedyank
+      # provides support for expanding abbreviations similar to emmet
+      emmet-vim
+      # a file explorer tree for neovim written in lua
+      nvim-tree-lua
+      # nvim treesitter configurations and abstraction layer
+      nvim-treesitter
+      # rainbow parentheses using tree-sitter
+      # nvim-ts-rainbow
+      # onedark color scheme
+      onedark-nvim
+      # blazing fast and easy to configure Neovim statusline written in Lua
+      lualine-nvim
+      # smart and powerful comment plugin for neovim
+      comment-nvim
+      # adds indentation guides to all lines (including empty lines)
+      indent-blankline-nvim
+    ];
+  };
 
   programs.alacritty = {
     enable = true;
