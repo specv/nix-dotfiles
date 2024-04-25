@@ -52,6 +52,12 @@
     eza
     ## the next gen `ls` command
     lsd
+    ## a new cd command that helps you navigate faster by learning your habits
+    ## z-lua
+    ## a command-line fuzzy finder written in Go
+    ## fzf
+    ## a shell extension that manages your environment
+    ## direnv
 
     # Theme
     ## a minimal, blazing fast, and extremely customizable prompt for any shell
@@ -64,6 +70,24 @@
     # Editor / Text Processor
     ## vim text editor fork focused on extensibility and agility
     ## neovim
+    ## cat clone
+    bat
+    bat-extras.batgrep
+    bat-extras.batman
+    bat-extras.batwatch
+    bat-extras.batdiff
+    bat-extras.prettybat
+    #bat-extras.batpipe
+
+    # Package Manager
+    ## version manager with support for Ruby, Node.js, Erlang
+    asdf-vm
+
+    # Command Runner
+    ## a command runner and partial replacement for `make`
+    just
+    ## task management & automation tool
+    doit
 
     # Font
     ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
@@ -185,6 +209,20 @@
         editCommandTemplate = "{{editor}} +{{line}} {{filename}}";
       };
     };
+  };
+
+  programs.z-lua = {
+    enable = true;
+    options = [ "enhanced" "once" "fzf" "echo" ];
+    enableAliases = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+  };
+
+  programs.direnv = {
+    enable = true;
   };
 
   # The conda module shows the current Conda (opens new window)environment, if $CONDA_DEFAULT_ENV is set.
