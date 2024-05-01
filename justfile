@@ -5,11 +5,10 @@ install:
 services-list:
     brew services list
 
-symlink:
-    ln -sfn {{ absolute_path("nixpkgs") }} ~/.nixpkgs
-
 switch-home:
-    NIXPKGS_ALLOW_UNFREE=1 home-manager switch
+    ln -sfn {{ absolute_path("dotfiles/.config/home-manager/home.nix") }} ~/.config/home-manager/home.nix
+    #NIXPKGS_ALLOW_UNFREE=1 home-manager switch
+    home-manager switch
 
 switch-home-debug:
     NIXPKGS_ALLOW_UNFREE=1 home-manager switch --debug --show-trace

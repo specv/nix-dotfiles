@@ -108,6 +108,11 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../../.ideavimrc;
+    ".config" = {
+      source = ../../.config;
+      recursive = true;
+    };
   };
 
   # Home Manager can also manage your environment variables through
