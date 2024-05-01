@@ -209,9 +209,9 @@
         };
       };
       os = {
-        editCommand = "$EDITOR";
+        edit = "$EDITOR";
         # specify a line number you are currently at when in the line-by-line mode.
-        editCommandTemplate = "{{editor}} +{{line}} {{filename}}";
+        editAtLine = "{{editor}} +{{line}} {{filename}}";
       };
     };
   };
