@@ -46,16 +46,16 @@
       # Automatically hide and show the Dock
       autohide = true;
       # Remove the auto-hiding Dock delay
-      autohide-delay = "0";
+      autohide-delay = 0.0;
       # Remove the animation when hiding/showing the Dock
-      autohide-time-modifier = "0";
+      autohide-time-modifier = 0.00;
       # Don’t automatically rearrange Spaces based on most recent use
       # System Preferences > Mission Control > Automatically rearrange Spaces based on most recent use
       mru-spaces = false;
       # Don’t show recent applications in Dock
       show-recents = false;
       # Sets the speed of the Mission Control animations
-      expose-animation-duration = "0.1";
+      expose-animation-duration = 0.1;
       # Change minimize/maximize window effect
       mineffect = "scale";
       # Speed up Mission Control animations
@@ -85,7 +85,7 @@
     };
     NSGlobalDomain = {
       # Sets the speed speed of window resizing.
-      NSWindowResizeTime = "0.001";
+      NSWindowResizeTime = 0.001;
     };
   };
 
