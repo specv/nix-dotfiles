@@ -16,12 +16,12 @@ yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.8
-## border
-yabai -m config window_border                off
-yabai -m config window_border_width          1
-yabai -m config active_window_border_color   0xffbfff00 # limelight
-yabai -m config normal_window_border_color   0x00bfff00
-yabai -m config insert_feedback_color        0xaad75f5f
+## border (Window borders (and all related options/properties) have been removed)
+# yabai -m config window_border                off
+# yabai -m config window_border_width          1
+# yabai -m config active_window_border_color   0xffbfff00 # limelight
+# yabai -m config normal_window_border_color   0x00bfff00
+# yabai -m config insert_feedback_color        0xaad75f5f
 ## shadow
 yabai -m config window_shadow                off
 
@@ -60,7 +60,7 @@ yabai -m rule --add app="^uTools$"             manage=off
 yabai -m rule --add app="^PyCharm$"                        space=code 
 yabai -m rule --add app="^Visual Studio Code$"             space=code
 yabai -m rule --add app="^iTerm$"                          space=shell
-yabai -m rule --add app="^Alacritty$"                      space=shell    border=on
+yabai -m rule --add app="^Alacritty$"                      space=shell
 yabai -m rule --add app="^Google Chrome$"                  space=browser
 yabai -m rule --add app="^Safari$"                         space=browser
 yabai -m rule --add app="^Notes$"                          space=note
