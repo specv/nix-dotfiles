@@ -158,12 +158,16 @@
       "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
+      # JankyBorders
+      "FelixKratz/formulae"
     ];
     extraConfig = ''
     '';
     brews = [
       "redis"
       "postgresql"
+      # JankyBorders: A lightweight window border system for macOS
+      "borders"
       # daemonless container engine for developing, managing, and running OCI Containers
       "podman"
     ];
