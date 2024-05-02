@@ -1,7 +1,3 @@
-install:
-    # homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 services-list:
     brew services list
 
@@ -13,7 +9,15 @@ switch-home:
 switch-home-debug:
     NIXPKGS_ALLOW_UNFREE=1 home-manager switch --debug --show-trace
 
+install-darwin:
+    ln -sfn {{ absolute_path("nixpkgs/darwin-configuration.nix") }} ~/.nixpkgs/darwin-configuration.nix
+    if [ ! -d "/tmp/nix-darwin/result" ]; then \
+      mkdir -p /tmp/nix-darwin && cd /tmp/nix-darwin && nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer; \
+    fi
+    yes | /tmp/nix-darwin/result/bin/darwin-installer
+
 switch-darwin:
+    ln -sfn {{ absolute_path("nixpkgs/darwin-configuration.nix") }} ~/.nixpkgs/darwin-configuration.nix
     darwin-rebuild switch
 
 switch-all: switch-home switch-darwin
