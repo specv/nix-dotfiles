@@ -28,6 +28,11 @@
     # # fonts?
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
+    # Font
+    ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
+    ## https://nixos.wiki/wiki/Fonts
+    (nerdfonts.override { fonts = [ "CascadiaCode"]; })
+
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -100,11 +105,6 @@
     just
     ## task management & automation tool
     doit
-
-    # Font
-    ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
-    ## https://nixos.wiki/wiki/Fonts
-    (nerdfonts.override { fonts = [ "JetBrainsMono"]; })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -346,14 +346,14 @@
       # not support fallback fonts list yet
       ## [Font Configuration](https://github.com/alacritty/alacritty/issues/957)
       font = {
-        size               = 12;
-        normal.family      = "JetBrainsMono Nerd Font";
+        size               = 14;
+        normal.family      = "CaskaydiaCove Nerd Font";
         normal.style       = "Regular";
-        bold.family        = "JetBrainsMono Nerd Font";
+        bold.family        = "CaskaydiaCove Nerd Font";
         bold.style         = "Bold";
-        italic.family      = "JetBrainsMono Nerd Font";
+        italic.family      = "CaskaydiaCove Nerd Font";
         italic.style       = "Italic";
-        bold_italic.family = "JetBrainsMono Nerd Font";
+        bold_italic.family = "CaskaydiaCove Nerd Font";
         bold_italic.style  = "Bold Italic";
       };
       window = {
