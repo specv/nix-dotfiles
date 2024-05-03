@@ -78,8 +78,18 @@
     bat-extras.batdiff
     bat-extras.prettybat
     #bat-extras.batpipe
+    ## a utility that combines the usability of The Silver Searcher with the raw speed of `grep`
+    ripgrep
+    ## ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc
+    ripgrep-all
+    ## a simple, fast and user-friendly alternative to `find`
+    fd
     ## a lightweight and flexible command-line JSON processor
     jq
+    ## serializes the output of popular command line tools and filetypes to structured JSON output
+    jc
+    ## terminal JSON viewer
+    fx
 
     # Package Manager
     ## version manager with support for Ruby, Node.js, Erlang
@@ -113,6 +123,15 @@
     ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../../.ideavimrc;
     ".config" = {
       source = ../../.config;
+      recursive = true;
+    };
+    ".fzf" = {
+      source = pkgs.fetchFromGitHub {
+        owner = "specv";
+        repo = "fzf";
+        rev = "c578fc1a154bc27e36334cbc8a603dea948d2d34";
+        sha256 = "sha256-OAuBhiL7mI03FPLctP92YNimMTjm3I6fM7FjLGzCqN0=";
+      };
       recursive = true;
     };
   };
@@ -401,6 +420,9 @@
       MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'";
     };
     initExtra = ''
+      # fzf keybindings
+      source ~/.fzf/shell/key-bindings.zsh
+
       function portgrep() {
           {
               echo "Port,Process ID,Process Name"
