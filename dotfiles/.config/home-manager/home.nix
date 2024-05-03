@@ -78,6 +78,8 @@
     bat-extras.batdiff
     bat-extras.prettybat
     #bat-extras.batpipe
+    ## a lightweight and flexible command-line JSON processor
+    jq
 
     # Package Manager
     ## version manager with support for Ruby, Node.js, Erlang

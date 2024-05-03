@@ -25,11 +25,11 @@ lcmd + ctrl - return         : yabai -m window --toggle zoom-fullscreen
 lcmd + ctrl + shift - return : yabai -m window --toggle native-fullscreen
 
 
-# space (leader key: rcmd)
+# space (leader key: rcmd, SIP)
 ## create space and focus
 rcmd - n      : yabai -m space --create && yabai -m space --focus $(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')
 
-## destroy space
+## destroy space (SIP)
 rcmd - d      : yabai -m space --destroy
 
 ## change space layout
@@ -42,7 +42,7 @@ rcmd - c      : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1
 ### layout for view mode
 rcmd - v      : yabai -m window --toggle sticky && yabai -m window --grid 4:1:4:4:0:0
 
-## focus space
+## focus space (SIP)
 rcmd - r : yabai -m space --focus recent
 rcmd - k : yabai -m space --focus prev
 rcmd - j : yabai -m space --focus next
