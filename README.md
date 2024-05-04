@@ -31,6 +31,11 @@
 
 - `ctrl-j`: Next history
 
+### Alacritty
+
+- `ctrl+shift-space`: Vi Mode
+
+- `cmd-f`: Search
 
 ### Vim
 

@@ -395,6 +395,9 @@ in
       env = {
         TERM = "xterm-256color";
       };
+      selection = {
+        save_to_clipboard = true;
+      };
       keyboard.bindings = [
         # workaround for inline input method, remove this after https://github.com/alacritty/alacritty/pull/5790 merged
         # see also: [macOS: unexpected characters get deleted when using backspace in Pinyin input method](https://github.com/alacritty/alacritty/issues/1606#issuecomment-579754834)
