@@ -2,14 +2,16 @@
 
 let
 
-    vimPlugin = repo: pkgs.vimUtils.buildVimPlugin {
-      pname = "${lib.strings.sanitizeDerivationName repo}";
-      version = "HEAD";
-      src = builtins.fetchGit {
-        url = "https://github.com/${repo}.git";
-        ref = "HEAD";
-      };
+  vimPlugin = repo: pkgs.vimUtils.buildVimPlugin {
+    pname = "${lib.strings.sanitizeDerivationName repo}";
+    version = "HEAD";
+    src = builtins.fetchGit {
+      url = "https://github.com/${repo}.git";
+      ref = "HEAD";
     };
+  };
+
+  pkgsUnstable = import <nixpkgs-unstable> {};
 
 in
 
@@ -541,26 +543,26 @@ in
       g       = "git";
       lg      = "lazygit";
     };
-    plugins = [
-    #  {
-    #    # will source zsh-autosuggestions.plugin.zsh
-    #    name = "zsh-autosuggestions";
-    #    src = pkgs.fetchFromGitHub {
-    #      owner = "zsh-users";
-    #      repo = "zsh-autosuggestions";
-    #      rev = "v0.7.0";
-    #      sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
-    #    };
-    #  }
-       {
-         name = "fzf-tab";
-         src = pkgs.fetchFromGitHub {
-           owner = "Aloxaf";
-           repo = "fzf-tab";
-           rev = "8769fcbf2150fe5dad605da022036ed23c81368d";
-           sha256 = "sha256-/9An/C9rDLx1WsC/yYcYPVzA6fjsddMQaBT1DMAxYSI=";
-         };
-       }
+    plugins = with pkgs; [
+      #{
+      #  # will source zsh-autosuggestions.plugin.zsh
+      #  name = "zsh-autosuggestions";
+      #  src = pkgs.fetchFromGitHub {
+      #    owner = "zsh-users";
+      #    repo = "zsh-autosuggestions";
+      #    rev = "v0.7.0";
+      #    sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
+      #  };
+      #}
+      {
+        name = "fzf-tab";
+        src = pkgs.fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "c7fb028ec0bbc1056c51508602dbd61b0f475ac3";
+          sha256 = "sha256-Qv8zAiMtrr67CbLRrFjGaPzFZcOiMVEFLg1Z+N6VMhg=";
+        };
+      }
     ];
     #oh-my-zsh = {
     #  enable = true;
