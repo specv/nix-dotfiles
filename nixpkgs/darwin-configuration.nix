@@ -1,33 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  nixpkgs.overlays = [
-
-    (final: prev: {
-      # yabai 4.0
-      # see also: https://github.com/DieracDelta/flakes/blob/flakes/flake.nix#L343
-      yabai =
-        let
-          buildSymlinks = prev.runCommand "build-symlinks" { } ''
-            mkdir -p $out/bin
-            ln -s /usr/bin/xcrun /usr/bin/xcodebuild /usr/bin/tiffutil /usr/bin/qlmanage $out/bin
-          '';
-        in
-        prev.yabai.overrideAttrs (old: {
-          src = prev.fetchFromGitHub {
-            owner = "koekeishiya";
-            repo = "yabai";
-            rev = "v4.0.0";
-            sha256 = "sha256-rllgvj9JxyYar/DTtMn5QNeBTdGkfwqDr7WT3MvHBGI=";
-          };
-          buildInputs = with prev.darwin.apple_sdk.frameworks; [ Carbon Cocoa ScriptingBridge prev.xxd SkyLight ];
-          nativeBuildInputs = [ buildSymlinks ];
-        });
-
-    })
-
-  ];
-
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
@@ -92,14 +65,15 @@
   system.activationScripts.extraUserActivation.text = ''
     # change `Preferences...` menu default shortcut from `cmd-,` to `cmd+shift-,`
     # add entry to "Keyboard => Shortcuts => App Shortcuts"
-    defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "NSGlobalDomain"
+    #defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "NSGlobalDomain"
+    defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Settings..." "@$,"
     defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Preferences..." "@$,"
   '';
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [
-    pkgs.vim
+    #pkgs.vim
   ];
 
   # Use a custom configuration.nix location.
@@ -111,10 +85,12 @@
   # programs.fish.enable = true;
 
   # Auto upgrade nix package and the daemon service.
-  # services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
-
+  # Nix daemon, which is a required component in multi-user Nix installations. 
+  # It runs build tasks and other operations on the Nix store on behalf of non-root users.
+  # Usually you don't run the daemon directly; instead it's managed by a service management 
+  # framework such as systemd on Linux, or launchctl on Darwin.
   services.nix-daemon.enable = true;
+  # nix.package = pkgs.nix;
 
   services.yabai = {
     enable = true;
@@ -153,10 +129,12 @@
     onActivation.autoUpdate = false;
     taps = [
       "homebrew/bundle"
-      "homebrew/cask"
+      # Tapping homebrew/cask is no longer typically necessary.
+      # "homebrew/cask"
       "homebrew/cask-fonts"
       "homebrew/cask-versions"
-      "homebrew/core"
+      # Homebrew Bundle failed! 2 Brewfile dependencies failed to install.
+      # "homebrew/core"
       "homebrew/services"
       # JankyBorders
       "FelixKratz/formulae"
@@ -165,36 +143,38 @@
     '';
     brews = [
       "redis"
-      "postgresql"
+      "postgresql@14"
       # JankyBorders: A lightweight window border system for macOS
       "borders"
       # daemonless container engine for developing, managing, and running OCI Containers
-      "podman"
+      #"podman"
     ];
     casks = [
       # note taking app (`Notational Velocit` alternative)
-      "nvalt"
+      #"nvalt"
       # desktop automation app
-      "hammerspoon" 
+      #"hammerspoon" 
       # an archive unpacker program
       "the-unarchiver"
       # git interface focused on visual interaction
-      "gitup"
+      #"gitup"
       # translate & OCR
-      "bob"
+      #"bob"
       # E-books management software
-      "calibre"
+      #"calibre"
       # rime input method engine
-      "squirrel"
+      #"squirrel"
       # pack, ship and run any application as a lightweight container 
       # use `colima` instead until [issue](https://github.com/abiosoft/colima/issues/83) resovled
-      "docker"
+      #"docker"
       # controls and monitors all fans on Apple computers
-      "macs-fan-control"
+      #"macs-fan-control"
       # web browser focusing on security
-      "tor-browser"
+      #"tor-browser"
       # a new command line scriptable shell for MySQL
-      "mysql-shell"
+      #"mysql-shell"
+      # fast, light, powerful way to run containers
+      "orbstack"
     ];
   };
 }
