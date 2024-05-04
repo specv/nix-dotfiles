@@ -1,4 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+let
+
+    vimPlugin = repo: pkgs.vimUtils.buildVimPlugin {
+      pname = "${lib.strings.sanitizeDerivationName repo}";
+      version = "HEAD";
+      src = builtins.fetchGit {
+        url = "https://github.com/${repo}.git";
+        ref = "HEAD";
+      };
+    };
+
+in
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -274,6 +287,7 @@
   programs.neovim = {
     enable = true;
     viAlias = true;
+    vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       # vim configuration files for Nix
       vim-nix
@@ -288,18 +302,31 @@
       # a file explorer tree for neovim written in lua
       nvim-tree-lua
       # nvim treesitter configurations and abstraction layer
-      nvim-treesitter
-      # rainbow parentheses using tree-sitter
-      # nvim-ts-rainbow
+      nvim-treesitter.withAllGrammars
+      # adds indentation guides to all lines (including empty lines)
+      indent-blankline-nvim
+      # rainbow delimiters for Neovim with Tree-sitter
+      rainbow-delimiters-nvim
       # onedark color scheme
       onedark-nvim
       # blazing fast and easy to configure Neovim statusline written in Lua
       lualine-nvim
       # smart and powerful comment plugin for neovim
       comment-nvim
-      # adds indentation guides to all lines (including empty lines)
-      indent-blankline-nvim
+      # cutting-edge motion plugin
+      lightspeed-nvim
+      # `vidir` alternative
+      # a file manager for Neovim which lets you edit your filesystem like you edit text
+      dirbuf-nvim
+      # syntax highlighting for Justfiles
+      vim-just
+      # Earthfile syntax highlighting for vim
+      (vimPlugin "earthly/earthly.vim")
     ];
+    extraConfig = ''
+      " load ~/.config/nvim/lua/init.lua
+      lua require('init')
+    '';
   };
 
   programs.alacritty = {

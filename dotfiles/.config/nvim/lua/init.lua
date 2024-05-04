@@ -3,9 +3,43 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 -- disable search highlight
 vim.opt.hlsearch = false
--- disable netrw
+-- disable netrw(builtin file explorer)
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
+
+-- indent_blankline: adds indentation guides to all lines (including empty lines)
+-- rainbow-delimiters.nvim integration
+local highlight = {
+  "RainbowRed",
+  "RainbowYellow",
+  "RainbowBlue",
+  "RainbowOrange",
+  "RainbowGreen",
+  "RainbowViolet",
+  "RainbowCyan",
+}
+local hooks = require "ibl.hooks"
+-- create the highlight groups in the highlight setup hook, so they are reset
+-- every time the colorscheme changes
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+  vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+  vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+  vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+  vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+  vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+  vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+  vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+end)
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+require('rainbow-delimiters.setup').setup { highlight = highlight }
+require('ibl').setup {
+  -- Scope requires treesitter to be set up.
+  scope = {
+    show_start = false,
+    show_end = false,
+    highlight = highlight,
+  },
+}
 
 -- onedark color theme
 require('onedark').setup {
@@ -17,8 +51,7 @@ require('onedark').load()
 require('lualine').setup()
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "maintained",
-  -- consistent syntax highlighting (rainbow needs this option)
+  -- consistent syntax highlighting
   highlight = {
     enable = true
   },
@@ -26,18 +59,6 @@ require('nvim-treesitter.configs').setup {
   indent = { 
     enable = true
   },
-  -- nvim-ts-rainbow: rainbow parentheses using tree-sitter.
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
-  },
-}
-
--- adds indentation guides to all lines (including empty lines)
-require('indent_blankline').setup {
-  show_current_context = true,
-  show_current_context_start = false,
 }
 
 -- smart and powerful comment plugin for neovim
@@ -45,43 +66,33 @@ require('Comment').setup()
 
 -- a file manager for Neovim which lets you edit your filesystem like you edit text
 require("dirbuf").setup {
-    hash_padding = 2,
-    show_hidden = true,
-    sort_order = "default",
-    write_cmd = "DirbufSync",
+  hash_padding = 2,
+  show_hidden = true,
+  sort_order = "default",
+  write_cmd = "DirbufSync",
 }
 
 -- a file explorer tree for neovim written in lua
 require("nvim-tree").setup {
-  update_to_buf_dir = { enable = true },
+  hijack_directories = { enable = true },
   auto_reload_on_write = true,
   disable_netrw = false,
-  hide_root_folder = false,
   hijack_cursor = false,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
-  ignore_buffer_on_setup = false,
-  open_on_setup = false,
-  open_on_setup_file = false,
   open_on_tab = false,
   sort_by = "name",
   update_cwd = false,
   view = {
     width = 30,
-    height = 30,
     side = "left",
     preserve_window_proportions = false,
     number = false,
     relativenumber = false,
     signcolumn = "yes",
-    mappings = {
-      custom_only = false,
-      list = {
-        -- user mappings go here
-      },
-    },
   },
   renderer = {
+    root_folder_label = false,
     indent_markers = {
       enable = false,
       icons = {
@@ -100,7 +111,6 @@ require("nvim-tree").setup {
     update_cwd = false,
     ignore_list = {},
   },
-  ignore_ft_on_setup = {},
   system_open = {
     cmd = nil,
     args = {},
