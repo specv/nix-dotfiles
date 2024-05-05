@@ -234,6 +234,8 @@ in
   programs.lazygit = {
     enable = true;
     settings = {
+      # [Skip "press enter to return to lazygit"](https://github.com/jesseduffield/lazygit/discussions/1462)
+      promptToReturnFromSubprocess = false;
       gui = {
         scrollHeight = 10;
         showFileTree = false;
