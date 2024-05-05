@@ -230,6 +230,7 @@ in
     };
   };
 
+  # ~/Library/Application\ Support/lazygit/config.yml
   programs.lazygit = {
     enable = true;
     settings = {
@@ -245,9 +246,9 @@ in
         };
       };
       os = {
-        edit = "$EDITOR";
+        edit = "$EDITOR {{filename}}";
         # specify a line number you are currently at when in the line-by-line mode.
-        editAtLine = "{{editor}} +{{line}} {{filename}}";
+        editAtLine = "$EDITOR +{{line}} {{filename}}";
       };
     };
   };
