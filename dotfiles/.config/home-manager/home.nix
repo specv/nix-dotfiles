@@ -277,6 +277,8 @@ in
       add_newline = true;
       scan_timeout = 50;
       command_timeout = 100;
+      # [Change position of the Time module](https://github.com/starship/starship/issues/1660)
+      format = "$all$time$line_break$jobs$battery$status$os$container$shell$character";
       status = {
         disabled = true;
         format = "[$int]($style) ";
@@ -285,6 +287,14 @@ in
         disabled = false;
         style = "bold green";
         symbol = "🧙 ";
+      };
+      time = {
+        disabled = false;
+        format = "at [$time]($style) ";
+        style = "dimmed bold green";
+      };
+      line_break = {
+        disabled = false;
       };
     };
   };
