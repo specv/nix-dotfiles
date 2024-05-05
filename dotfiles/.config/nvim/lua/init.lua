@@ -7,7 +7,7 @@ vim.opt.hlsearch = false
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
 
--- indent_blankline: adds indentation guides to all lines (including empty lines)
+-- Indent Blankline: adds indentation guides to all lines (including empty lines)
 -- rainbow-delimiters.nvim integration
 local highlight = {
   "RainbowRed",
@@ -18,7 +18,7 @@ local highlight = {
   "RainbowViolet",
   "RainbowCyan",
 }
-local hooks = require "ibl.hooks"
+local hooks = require("ibl.hooks")
 -- create the highlight groups in the highlight setup hook, so they are reset
 -- every time the colorscheme changes
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
@@ -31,8 +31,8 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
   vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 end)
 hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-require('rainbow-delimiters.setup').setup { highlight = highlight }
-require('ibl').setup {
+require("rainbow-delimiters.setup").setup { highlight = highlight }
+require("ibl").setup {
   -- Scope requires treesitter to be set up.
   scope = {
     show_start = false,
@@ -42,15 +42,15 @@ require('ibl').setup {
 }
 
 -- onedark color theme
-require('onedark').setup {
-  style = 'deep'
+require("onedark").setup {
+  style = "deep"
 }
-require('onedark').load()
+require("onedark").load()
 
 -- blazing fast and easy to configure Neovim statusline written in Lua
-require('lualine').setup()
+require("lualine").setup()
 
-require('nvim-treesitter.configs').setup {
+require("nvim-treesitter.configs").setup {
   -- consistent syntax highlighting
   highlight = {
     enable = true
@@ -62,7 +62,7 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- smart and powerful comment plugin for neovim
-require('Comment').setup()
+require("Comment").setup()
 
 -- a file manager for Neovim which lets you edit your filesystem like you edit text
 require("dirbuf").setup {
