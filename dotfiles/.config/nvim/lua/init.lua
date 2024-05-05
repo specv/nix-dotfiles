@@ -1,8 +1,21 @@
 -- useful for commands like `5j` `5>>`
 vim.opt.number = true
 vim.opt.relativenumber = true
--- disable search highlight
-vim.opt.hlsearch = false
+-- disable vim automatic visual mode on mouse select
+vim.opt.mouse = ""
+-- yanking/pasting on system clipboard directly
+vim.opt.clipboard = "unnamedplus"
+-- highlight search
+vim.opt.hlsearch = true
+-- incremental search
+vim.opt.incsearch = true
+-- case-insensitive search by default. i.e. `/foo\c`
+vim.opt.ignorecase = true
+-- mixed-case search. lower case for case-insensitive, upper case for case-sensitive
+-- use \C to force the pattern to be case-sensitive. \C can go anywhere in the search. e.g. `/\Cinclude` `/include\C`
+vim.opt.smartcase = true
+-- highlight current line
+vim.opt.cursorline = true
 -- disable netrw(builtin file explorer)
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
@@ -63,6 +76,9 @@ require("nvim-treesitter.configs").setup {
 
 -- smart and powerful comment plugin for neovim
 require("Comment").setup()
+
+-- auto insert matching brackets, parens, quotes
+require("nvim-autopairs").setup()
 
 -- a file manager for Neovim which lets you edit your filesystem like you edit text
 require("dirbuf").setup {

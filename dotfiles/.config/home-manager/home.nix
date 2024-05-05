@@ -336,6 +336,10 @@ in
       dirbuf-nvim
       # syntax highlighting for Justfiles
       vim-just
+      # automatically adjusts indent ('shiftwidth' and 'expandtab')
+      vim-sleuth
+      # auto insert matching brackets, parens, quotes
+      nvim-autopairs
       # Earthfile syntax highlighting for vim
       (vimPlugin "earthly/earthly.vim")
     ];
