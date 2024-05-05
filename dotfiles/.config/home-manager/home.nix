@@ -135,6 +135,7 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".vimrc".source = config.lib.file.mkOutOfStoreSymlink ../../.vimrc;
     ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../../.ideavimrc;
     ".config" = {
       source = ../../.config;
