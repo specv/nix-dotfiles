@@ -60,6 +60,10 @@
       # Sets the speed speed of window resizing.
       NSWindowResizeTime = 0.001;
     };
+    ".GlobalPreferences" = {
+      # disable mouse acceleration
+      "com.apple.mouse.scaling" = -1.0;
+    };
   };
 
   system.activationScripts.extraUserActivation.text = ''
