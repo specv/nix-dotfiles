@@ -329,8 +329,8 @@ in
       lualine-nvim
       # smart and powerful comment plugin for neovim
       comment-nvim
-      # cutting-edge motion plugin
-      lightspeed-nvim
+      # neovim's answer to the mouse
+      leap-nvim
       # `vidir` alternative
       # a file manager for Neovim which lets you edit your filesystem like you edit text
       dirbuf-nvim

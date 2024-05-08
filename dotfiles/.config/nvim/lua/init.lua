@@ -80,6 +80,9 @@ require("Comment").setup()
 -- auto insert matching brackets, parens, quotes
 require("nvim-autopairs").setup()
 
+-- lightspeed.nvim: neovim's answer to the mouse
+require('leap').create_default_mappings()
+
 -- a file manager for Neovim which lets you edit your filesystem like you edit text
 require("dirbuf").setup {
   hash_padding = 2,
