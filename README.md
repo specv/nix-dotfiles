@@ -4,6 +4,14 @@
 ## Key bindings
 
 
+### Mac
+
+- `cmd-f1`: Mirror the main display
+
+- `alt-f1`: Open up display settings
+
+- `right_shift`: Switch input method
+
 ### Global
 
 - `cmd+ctrl-t`:  New Terminal(alacritty), or `ctrl-n`(multiple app icons) if alacritty activated
