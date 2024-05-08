@@ -37,6 +37,17 @@
 
 - `cmd-f`: Search
 
+#### hints
+
+- `ctrl+shift-u`: open [u]rl
+
+- `ctrl+shift-w`: copy [w]ord
+
+- `ctrl+shift-s`: copy [s]ymbol(email, hash, ip ...)
+
+- `ctrl+shift-r`: copy [r]ow
+
+
 ### Vim
 
 

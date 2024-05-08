@@ -446,6 +446,87 @@ in
           chars = "\\u001bj";
         }
       ];
+      hints = {
+        enabled = [
+          # open [u]rl
+          {
+            command = "open";       # On macOS
+            # command = "xdg-open"; # On Linux/BSD
+            # command = { program = "cmd", args = [ "/c", "start", "" ] }; # On Windows
+            hyperlinks = true;
+            post_processing = true;
+            persist = false;
+            mouse.enabled = true;
+            binding = { 
+              mods = "Control|Shift";
+              key = "U";
+            };
+            regex = ''(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>"\\s{-}\\^⟨⟩`]+'';
+          }
+          # copy [w]ord. like vim-easymotion
+          {
+            action = "Copy";
+            hyperlinks = false;
+            post_processing = false;
+            persist = false;
+            mouse.enabled = false;
+            binding = {
+              key = "W";
+              mods = "Control|Shift";
+            };
+            regex = ''[\\w'-]+'';
+          }
+          # copy [r]ow
+          {
+            action = "Copy";
+            hyperlinks = false;
+            post_processing = false;
+            persist = false;
+            mouse.enabled = false;
+            binding = {
+              key = "R";
+              mods = "Control|Shift";
+            };
+            regex = ".*";
+          }
+          # copy [s]ymbol
+          {
+            action = "Copy";
+            hyperlinks = false;
+            post_processing = false;
+            persist = false;
+            mouse.enabled = false;
+            binding = {
+              key = "S";
+              mods = "Control|Shift";
+            };
+            # `(?-u:\b)`: for ASCII word boundary in Rust. otherwise we get an error:
+            #        could not compile hint regex: unsupported regex feature for DFAs: cannot build lazy DFAs for regexes with Unicode word boundaries; 
+            #        switch to ASCII word boundaries, or heuristically enable Unicode word boundaries or use a different regex engine
+            # `''`: this style string in nix will not do escape, but we still need extra slash in the generated toml file
+            regex = lib.strings.concatStringsSep "|" [
+              # email
+              ''((?-u:\\b)[^@]+@[^@]+\\.[^@](?-u:\\b))''
+              # git short hash
+              # rust: error: look-around, including look-ahead and look-behind, is not supported
+              # ''((?-u:\\b)(?=[a-f])([a-f0-9]{7,8})(?-u:\\b))''
+              ''((?-u:\\b)[a-f0-9]{7,8}(?-u:\\b))''
+              # git long hash
+              ''((?-u:\\b)[a-f0-9]{40}(?-u:\\b))''
+              # sha256
+              ''((?-u:\\b)[a-fA-F0-9]{64}(?-u:\\b))''
+              # md5
+              ''((?-u:\\b)[a-fA-F0-9]{32}(?-u:\\b))''
+              # uuid
+              ''((?-u:\\b)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}(?-u:\\b))''
+              # mac address
+              ''((?-u:\\b)[a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5}(?-u:\\b))''
+              # ipv4
+              ''((?-u:\\b)(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}(?-u:\\b))''
+            ];
+          }
+        ];
+      };
     };
   };
 
