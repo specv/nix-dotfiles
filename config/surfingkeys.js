@@ -1,3 +1,206 @@
+/*
+Usage: Surfingkeys options => Advanced mode => Load settings from => paste `https://github.com/specv/nix-dotfiles/blob/main/config/surfingkeys.js` => save
+*/
+
+const {
+  map,
+  unmap,
+  mapkey,
+  vmap,
+  vunmap,
+  cmap,
+  addSearchAlias,
+  removeSearchAlias,
+} = api;
+
+/* Map */
+//// Search
+// baidu
+removeSearchAlias('b');
+// bing
+removeSearchAlias('w');
+// google
+map('<Space>sg', 'og');
+unmap('og');
+map('<Space>sG', 'sG');
+unmap('sG');
+map('<Space>Sg', 'sg');
+unmap('sg');
+// duckduckgo
+map('<Space>sd', 'od');
+unmap('od');
+map('<Space>sD', 'sD');
+unmap('sD');
+map('<Space>Sd', 'sd');
+unmap('sd');
+// wikipedia
+map('<Space>sw', 'oe');
+unmap('oe');
+map('<Space>sW', 'sE');
+unmap('sE');
+map('<Space>Sw', 'se');
+unmap('se');
+// github (default mapping `oh` conflict with `Open url from history`)
+addSearchAlias('gh', 'github', 'https://github.com/search?q=', 's', 'https://api.github.com/search/repositories?order=desc&q=', function(response) {
+    var res = JSON.parse(response.text)['items'];
+    return res ? res.map(function(r){
+        return {
+            title: r.description,
+            url: r.html_url
+        };
+    }) : [];
+});
+map('<Space>sh', 'ogh');
+unmap('ogh');
+map('<Space>sH', 'sGH');
+unmap('sH');
+unmap('sGH');
+map('<Space>Sh', 'sgh');
+unmap('sh');
+unmap('sgh');
+// stackoverflow
+map('<Space>ss', 'os');
+unmap('os');
+map('<Space>sS', 'sS');
+unmap('sS');
+map('<Space>Ss', 'ss');
+unmap('ss');
+// youtube
+map('<Space>sy', 'oy');
+unmap('oy');
+map('<Space>sY', 'sY');
+unmap('sY');
+map('<Space>Sy', 'sy');
+unmap('sy');
+
+//// Omnibar
+map('<Space><Space>', 't');
+unmap('t');
+// [t]ab
+map('<Space>t', 'T');
+unmap('T');
+// [w]indow
+map('<Space>w', 'W');
+unmap('W');
+// [b]ookmark
+map('<Space>bb', 'b');
+unmap('b');
+// [b]ookmark [c]reate 
+map('<Space>bc', 'ab');
+unmap('ab');
+// [b]ookmark [d]elete
+map('<Space>bd', ';db');
+unmap(';db');
+// [h]istory
+map('<Space>hh', 'oh');
+unmap('oh');
+// [h]istory [t]ab
+map('<Space>ht', 'H');
+unmap('H');
+// recently closed
+map('<Space>x', 'ox');
+unmap('ox');
+// vim [m]arks
+map('<Space>m', 'om');
+unmap('om');
+
+//// Translate
+vunmap('t');
+vunmap('q');
+
+//// Navigation
+// go back history
+map('b', 'S');
+map('tb', 'S');
+unmap('S');
+// [n]ew tab
+map('tT', 'on');
+unmap('on');
+// [N]ew tab with selected link or links from clipboard
+map('tt', 'cc');
+unmap('cc');
+// go forward history
+map('tf', 'D');
+unmap('D');
+// go to first history
+map('t0', 'gt');
+unmap('gt');
+// go to last history
+map('t$', 'gT');
+unmap('gT');
+// switch frame
+map('tf', 'w');
+unmap('w');
+//
+map('ty', 'yt');
+
+//// window
+map('wcq', ';cq');
+unmap(';cq');
+map('wx$', 'gx$');
+unmap('gx$');
+map('wx0', 'gx0');
+unmap('gx0');
+map('wxr', 'gxT');
+unmap('gxT');
+map('wxl', 'gxt');
+unmap('gxt');
+map('wxp', 'gxp');
+unmap('gxp');
+map('wxx', 'gxx');
+unmap('gxx');
+
+map('<Ctrl-b>', 'B');
+unmap('B');
+map('<Ctrl-f>', 'F');
+unmap('F');
+
+map('tuu', ';U');
+unmap(';U');
+map('tuU', ';u');
+unmap(';u')
+map('tU', 'gu');
+unmap('gu');
+unmap('gU');
+
+////
+// [f]ollow link in new tab
+map('F', 'af');
+unmap('af');
+
+map('A', 'O');
+unmap('O');
+
+map('a', 'q');
+unmap('q');
+
+//
+// q f O
+//map('', '')
+
+//map('', 'S')
+//unmap('S')
+//map('', 'D')
+//unmap('D')
+
+// go to last used tab
+map('<Ctrl-r>', '<Ctrl-6>');
+unmap('<Ctrl-6>');
+
+unmap('<Ctrl-h>');
+map('<Ctrl-h>', 'E');
+unmap('E');
+map('<Ctrl-l>', 'R');
+unmap('R');
+
+//// history
+// toggle omnibar's position
+unmap('<Ctrl-j>');
+// forward in omnibar
+cmap('<Ctrl-j>', '<Tab>');
+// backward in omnibar
+cmap('<Ctrl-k>', '<Shift-Tab>');
+
 /* Theme */
 // Based on Doom One theme. https://github.com/foldex/surfingkeys-config
 api.Hints.style('border: solid 2px #282C34; color: #98be65; background: initial; background-color: #2E3440;');
