@@ -23,23 +23,17 @@ removeSearchAlias('w');
 map('<Space>sg', 'og');
 unmap('og');
 map('<Space>sG', 'sG');
-unmap('sG');
 map('<Space>Sg', 'sg');
-unmap('sg');
 // duckduckgo
 map('<Space>sd', 'od');
 unmap('od');
 map('<Space>sD', 'sD');
-unmap('sD');
 map('<Space>Sd', 'sd');
-unmap('sd');
 // wikipedia
 map('<Space>sw', 'oe');
 unmap('oe');
 map('<Space>sW', 'sE');
-unmap('sE');
 map('<Space>Sw', 'se');
-unmap('se');
 // github (default mapping `oh` conflict with `Open url from history`)
 addSearchAlias('gh', 'github', 'https://github.com/search?q=', 's', 'https://api.github.com/search/repositories?order=desc&q=', function(response) {
     var res = JSON.parse(response.text)['items'];
@@ -53,25 +47,17 @@ addSearchAlias('gh', 'github', 'https://github.com/search?q=', 's', 'https://api
 map('<Space>sh', 'ogh');
 unmap('ogh');
 map('<Space>sH', 'sGH');
-unmap('sH');
-unmap('sGH');
 map('<Space>Sh', 'sgh');
-unmap('sh');
-unmap('sgh');
 // stackoverflow
 map('<Space>ss', 'os');
 unmap('os');
 map('<Space>sS', 'sS');
-unmap('sS');
 map('<Space>Ss', 'ss');
-unmap('ss');
 // youtube
 map('<Space>sy', 'oy');
 unmap('oy');
 map('<Space>sY', 'sY');
-unmap('sY');
 map('<Space>Sy', 'sy');
-unmap('sy');
 
 //// Omnibar
 map('<Space><Space>', 't');
