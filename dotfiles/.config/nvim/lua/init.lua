@@ -1,6 +1,8 @@
 -- useful for commands like `5j` `5>>`
 vim.opt.number = true
 vim.opt.relativenumber = true
+-- enables 24-bit RGB color in the TUI
+vim.opt.termguicolors = true
 -- disable vim automatic visual mode on mouse select
 vim.opt.mouse = ""
 -- yanking/pasting on system clipboard directly
@@ -79,6 +81,9 @@ require("Comment").setup()
 
 -- auto insert matching brackets, parens, quotes
 require("nvim-autopairs").setup()
+
+-- highlight colors
+require('nvim-highlight-colors').setup()
 
 -- lightspeed.nvim: neovim's answer to the mouse
 require('leap').create_default_mappings()

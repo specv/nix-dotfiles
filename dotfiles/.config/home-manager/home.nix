@@ -340,6 +340,8 @@ in
       vim-sleuth
       # auto insert matching brackets, parens, quotes
       nvim-autopairs
+      # highlight colors
+      nvim-highlight-colors
       # Earthfile syntax highlighting for vim
       (vimPlugin "earthly/earthly.vim")
     ];
