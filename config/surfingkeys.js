@@ -66,8 +66,10 @@ unmap('t');
 map('<Space>t', 'T');
 unmap('T');
 // [w]indow
-map('<Space>w', 'W');
+map('<Space>ww', 'W');
 unmap('W');
+//map('<Space>wa', ';gw');
+unmap(';gw');
 // [b]ookmark
 map('<Space>bb', 'b');
 unmap('b');
@@ -90,102 +92,133 @@ unmap('ox');
 map('<Space>m', 'om');
 unmap('om');
 
-//// Translate
-vunmap('t');
-vunmap('q');
+//// Open
+map('ou', 'cc');
+map('oe', ';u');
 
-//// Navigation
-// go back history
-map('b', 'S');
-map('tb', 'S');
-unmap('S');
-// [n]ew tab
-map('tT', 'on');
-unmap('on');
-// [N]ew tab with selected link or links from clipboard
-map('tt', 'cc');
-unmap('cc');
-// go forward history
-map('tf', 'D');
-unmap('D');
-// go to first history
-map('t0', 'gt');
-unmap('gt');
-// go to last history
-map('t$', 'gT');
-unmap('gT');
-// switch frame
-map('tf', 'w');
-unmap('w');
-//
-map('ty', 'yt');
-
-//// window
-map('wcq', ';cq');
-unmap(';cq');
-map('wx$', 'gx$');
-unmap('gx$');
-map('wx0', 'gx0');
-unmap('gx0');
-map('wxr', 'gxT');
-unmap('gxT');
-map('wxl', 'gxt');
-unmap('gxt');
-map('wxp', 'gxp');
-unmap('gxp');
-map('wxx', 'gxx');
-unmap('gxx');
-
-map('<Ctrl-b>', 'B');
-unmap('B');
-map('<Ctrl-f>', 'F');
-unmap('F');
-
-map('tuu', ';U');
-unmap(';U');
-map('tuU', ';u');
-unmap(';u')
-map('tU', 'gu');
-unmap('gu');
-unmap('gU');
-
-////
-// [f]ollow link in new tab
-map('F', 'af');
-unmap('af');
-
-map('A', 'O');
-unmap('O');
-
-map('a', 'q');
-unmap('q');
-
-//
-// q f O
-//map('', '')
-
-//map('', 'S')
-//unmap('S')
-//map('', 'D')
-//unmap('D')
-
+//// Tab
 // go to last used tab
 map('<Ctrl-r>', '<Ctrl-6>');
 unmap('<Ctrl-6>');
-
+// go one tab left
 unmap('<Ctrl-h>');
 map('<Ctrl-h>', 'E');
 unmap('E');
+// go one tab right
 map('<Ctrl-l>', 'R');
 unmap('R');
+// go one tab history back
+map('<Ctrl-b>', 'B');
+unmap('B');
+// go one tab history forward
+map('<Ctrl-f>', 'F');
+unmap('F');
+// go back history
+map('b', 'S');
+map('thb', 'S');
+unmap('S');
+// go forward history
+unmap('B');
+map('B', 'D');
+map('thf', 'D');
+unmap('D');
+// go to first history
+map('th0', 'gt');
+unmap('gt');
+// go to last history
+map('th$', 'gT');
+unmap('gT');
+// [o]pen [n]ew tab
+map('ton', 'on');
+map('ot', 'on');
+unmap('on');
+// [o]pen tab with selected [u]rl or urls from clipboard
+map('tou', 'cc');
+unmap('cc');
+// [o]pen tab by [e]dit current url
+map('toe', ';u');
+unmap(';u')
+// go to the first tab
+map('t0', 'g0');
+unmap('g0');
+// go to the last tab
+map('t$', 'g$');
+unmap('g$');
+// switch [i]frame
+map('ti', 'w');
+unmap('w');
+// switch [s]croll
+map('ts', ';fs');
+unmap(';fs');
+// [e]dit current [u]rl and reload
+map('tue', ';U');
+unmap(';U');
+map('tU', 'gu');
+unmap('gu');
+unmap('gU');
+// open a [u]rl in current tab
+map('tuo', 'go');
+unmap('go');
+// duplicate current tab
+map('ty', 'yt');
+// [c]lear all urls in [q]ueue to be opened
+map('tcq', ';cq');
+unmap(';cq');
+// close all tabs to end
+map('tx$', 'gx$');
+unmap('gx$');
+// close all tabs to begin
+map('tx0', 'gx0');
+unmap('gx0');
+// close tab on [r]ight
+map('txr', 'gxT');
+unmap('gxT');
+// close tab on [l]eft
+map('txl', 'gxt');
+unmap('gxt');
+// close [p]laying tab
+map('txp', 'gxp');
+unmap('gxp');
+// close all tabs except current one
+map('txx', 'gxx');
+unmap('gxx');
 
-//// history
-// toggle omnibar's position
+//// Visual
+map('v', 'zv');
+unmap('zv');
+
+// Translate
+vunmap('t');
+vunmap('q');
+
+//// Click 
+// [c]lick multiple links
+map('ca', 'cf');
+unmap('cf');
+// [f]ollow link in new tab
+map('cf', 'f');
+map('cF', 'af')
+map('a', 'af');
+unmap('af');
+// [c]lick [i]mages or buttons
+map('ci', 'q');
+unmap('q');
+// [c]lick detected [u]rls
+map('cu', 'O');
+unmap('O');
+
+// disable toggle omnibar's position
 unmap('<Ctrl-j>');
 // forward in omnibar
-cmap('<Ctrl-j>', '<Tab>');
+cmap('<Ctrl-j>', '<ArrowDown>');
 // backward in omnibar
-cmap('<Ctrl-k>', '<Shift-Tab>');
+cmap('<Ctrl-k>', '<ArrowUp>');
+
+// restart: unable triggered from extension, use bookmark instead
+//mapkey(';r', 'Restart browser', function() {
+//  api.tabOpenLink("chrome://restart");
+//});
+
 
 /* Theme */
 // Based on Doom One theme. https://github.com/foldex/surfingkeys-config
