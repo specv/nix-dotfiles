@@ -536,12 +536,14 @@ in
 
   programs.zsh = {
     enable = true;
-    defaultKeymap = "viins";
+    #defaultKeymap = "viins";
+    defaultKeymap = "emacs";
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     sessionVariables = {
       EDITOR = "nvim";
-      VISUAL = "nvim";
+      # use vim for quick editing tasks as it opens faster
+      VISUAL = "vim";
 
       # locale
       # make sure check iTerm2's "Set locale variables automatically" off also
@@ -589,35 +591,36 @@ in
       ## disable terminal flow control (aka ctrl-s ctrl-q shortcuts)
       stty -ixon
 
-      bindkey -M vicmd '^K'  up-line-or-search
-      bindkey -M viins '^K'  up-line-or-search
-      bindkey -M vicmd '^J'  down-line-or-search
-      bindkey -M viins '^J'  down-line-or-search
-      bindkey -M vicmd '^F'  autosuggest-accept
-      bindkey -M viins '^F'  autosuggest-accept
-      bindkey -M vicmd '^G'  autosuggest-execute
-      bindkey -M viins '^G'  autosuggest-execute
+      bindkey '^K'  up-line-or-search
+      bindkey '^J'  down-line-or-search
+      bindkey '^F'  autosuggest-accept
+      bindkey '^G'  autosuggest-execute
 
-      bindkey -M vicmd '^A' vi-beginning-of-line
-      bindkey -M viins '^A' vi-beginning-of-line
-      bindkey -M vicmd '^E' vi-end-of-line
-      bindkey -M viins '^E' vi-end-of-line
+      bindkey '^A' vi-beginning-of-line
+      bindkey '^E' vi-end-of-line
 
-      bindkey -M vicmd '\ef' emacs-forward-word
-      bindkey -M viins '\ef' emacs-forward-word
-      bindkey -M vicmd '\eb' emacs-backward-word
-      bindkey -M viins '\eb' emacs-backward-word
-      bindkey -M vicmd '\e.' insert-last-word
-      bindkey -M viins '\e.' insert-last-word
+      bindkey '\ef' emacs-forward-word
+      bindkey '\eb' emacs-backward-word
+      bindkey '\e.' insert-last-word
+
+
+      ## Three ways to stash current command, see also: https://stackoverflow.com/questions/11670935/comments-in-command-line-zsh
+      ## 1. allow comments in command line or use `: ` instead of `#`
+      setopt interactivecomments
+      ## 2. commands buffer stack
+      bindkey '^Q' push-input
+      ## 3. ctrl-u ctrl-y
 
       ## user contrib widgets
       ## https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#index-edit_002dcommand_002dline
       autoload -U edit-command-line
       zle -N edit-command-line
-      bindkey -M vicmd '^X^E' edit-command-line
-      bindkey -M viins '^X^E' edit-command-line
-      bindkey -M vicmd '^V' edit-command-line
-      bindkey -M viins '^V' edit-command-line
+      bindkey '^X^E' edit-command-line
+      bindkey '^V' edit-command-line
+
+      ## stop backward-kill-word on directory delimiter
+      autoload -U select-word-style
+      select-word-style bash
 
       # fzf-tab
       ## accept suggestion
