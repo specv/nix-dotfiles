@@ -586,13 +586,27 @@ in
       }
 
       # bindkey
-      bindkey          '^K'  up-line-or-search
-      bindkey          '^J'  down-line-or-search
-      bindkey          '^F'  autosuggest-accept
-      bindkey          '^G'  autosuggest-execute
+      ## disable terminal flow control (aka ctrl-s ctrl-q shortcuts)
+      stty -ixon
+
+      bindkey -M vicmd '^K'  up-line-or-search
+      bindkey -M viins '^K'  up-line-or-search
+      bindkey -M vicmd '^J'  down-line-or-search
+      bindkey -M viins '^J'  down-line-or-search
+      bindkey -M vicmd '^F'  autosuggest-accept
+      bindkey -M viins '^F'  autosuggest-accept
+      bindkey -M vicmd '^G'  autosuggest-execute
+      bindkey -M viins '^G'  autosuggest-execute
+
+      bindkey -M vicmd '^A' vi-beginning-of-line
+      bindkey -M viins '^A' vi-beginning-of-line
+      bindkey -M vicmd '^E' vi-end-of-line
+      bindkey -M viins '^E' vi-end-of-line
 
       bindkey -M vicmd '\ef' emacs-forward-word
       bindkey -M viins '\ef' emacs-forward-word
+      bindkey -M vicmd '\eb' emacs-backward-word
+      bindkey -M viins '\eb' emacs-backward-word
       bindkey -M vicmd '\e.' insert-last-word
       bindkey -M viins '\e.' insert-last-word
 
@@ -600,8 +614,10 @@ in
       ## https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#index-edit_002dcommand_002dline
       autoload -U edit-command-line
       zle -N edit-command-line
-      bindkey -M vicmd '^x^e' edit-command-line
-      bindkey -M viins '^x^e' edit-command-line
+      bindkey -M vicmd '^X^E' edit-command-line
+      bindkey -M viins '^X^E' edit-command-line
+      bindkey -M vicmd '^V' edit-command-line
+      bindkey -M viins '^V' edit-command-line
 
       # fzf-tab
       ## accept suggestion
