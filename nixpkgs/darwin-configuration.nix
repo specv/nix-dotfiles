@@ -179,6 +179,7 @@
       #"mysql-shell"
       # fast, light, powerful way to run containers
       "orbstack"
+      "raycast"
     ];
   };
 }
