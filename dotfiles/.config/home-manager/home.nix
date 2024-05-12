@@ -465,9 +465,9 @@ in
             };
             regex = ''(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>"\\s{-}\\^⟨⟩`]+'';
           }
-          # copy [w]ord. like vim-easymotion
+          # move cursor to [w]ord. like vim-easymotion
           {
-            action = "Copy";
+            action = "MoveViModeCursor";
             hyperlinks = false;
             post_processing = false;
             persist = false;
@@ -478,9 +478,9 @@ in
             };
             regex = ''[\\w'-]+'';
           }
-          # copy [r]ow
+          # paste [r]ow
           {
-            action = "Copy";
+            action = "Paste";
             hyperlinks = false;
             post_processing = false;
             persist = false;
@@ -525,6 +525,8 @@ in
               ''((?-u:\\b)[a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5}(?-u:\\b))''
               # ipv4
               ''((?-u:\\b)(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}(?-u:\\b))''
+              # path
+              ''/[^\u0000-\u001F\u007F-\u009F<>"\\s{-}\\^⟨⟩`]+''
             ];
           }
         ];
