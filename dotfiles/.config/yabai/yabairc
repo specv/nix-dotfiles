@@ -34,11 +34,11 @@ yabai -m signal --add event=display_changed action="yabai -m config mouse_follow
 
 # layout
 # mission-control desktop labels
-yabai -m space 1  --label code
-yabai -m space 2  --label shell
-yabai -m space 3  --label browser
-yabai -m space 4  --label note
-yabai -m space 5  --label file
+yabai -m space 1  --label shell
+yabai -m space 2  --label code
+yabai -m space 3  --label note
+yabai -m space 4  --label file
+yabai -m space 5  --label browser
 yabai -m space 6  --label message
 yabai -m space 7  --label client
 
@@ -57,8 +57,10 @@ yabai -m config --space shell layout         bsp
 # rules
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^uTools$"             manage=off
+yabai -m rule --add app="^Raycast$"            manage=off
 yabai -m rule --add app="^PyCharm$"                        space=code 
 yabai -m rule --add app="^Visual Studio Code$"             space=code
+yabai -m rule --add app="^Zed$"                            space=code
 yabai -m rule --add app="^iTerm$"                          space=shell
 yabai -m rule --add app="^Alacritty$"                      space=shell
 yabai -m rule --add app="^Google Chrome$"                  space=browser
