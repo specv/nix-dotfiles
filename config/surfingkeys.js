@@ -222,8 +222,8 @@ cmap('<Ctrl-k>', '<ArrowUp>');
 
 /* Theme */
 // Based on Doom One theme. https://github.com/foldex/surfingkeys-config
-api.Hints.style('border: solid 2px #282C34; color: #98be65; background: initial; background-color: #2E3440;');
-api.Hints.style("div{ border: solid 2px #282C34; padding: 1px; color: #51AFEF; background: #2E3440; } div.begin{ color: #98be65; }", "text");
+api.Hints.style('div {border: solid 2px #282C34; color: #98be65; background: initial; background-color: #2E3440;} div.hint-scrollable { border: solid 2px #282C34; padding: 1px; color: #51AFEF; background: #2E3440; }');
+api.Hints.style('div { border: solid 2px #282C34; padding: 1px; color: #51AFEF; background: #2E3440; } div.begin { color: #98be65; }', 'text');
 api.Visual.style('marks', 'background-color: #98be65;');
 api.Visual.style('cursor', 'background-color: #51AFEF;');
 
