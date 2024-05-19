@@ -419,11 +419,18 @@ in
         save_to_clipboard = true;
       };
       keyboard.bindings = [
-        # workaround for inline input method, remove this after https://github.com/alacritty/alacritty/pull/5790 merged
-        # see also: [macOS: unexpected characters get deleted when using backspace in Pinyin input method](https://github.com/alacritty/alacritty/issues/1606#issuecomment-579754834)
+        # https://alacritty.org/config-alacritty-bindings.html
         {
-          key   = "Back";
-          action = "ReceiveChar";
+          action = "ToggleViMode";
+          key = "V";
+          mods = "Shift|Control";
+          mode = "~Search";
+        }
+        {
+          action = "ScrollToBottom";
+          key = "V";
+          mods = "Shift|Control";
+          mode = "Vi|~Search";
         }
         # emacs readline key bindings
         # see also: [Allow remapping modifier keys in the config](https://github.com/alacritty/alacritty/issues/62#issuecomment-347552058)
