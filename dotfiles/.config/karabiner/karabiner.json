@@ -153,25 +153,14 @@
                         ]
                     },
                     {
-                        "description": "Change ctrl-jk to arrow key in Chrome.",
+                        "description": "Change ctrl-jk to arrow key.",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.google\\.Chrome$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
-                                        ],
-                                        "optional": [
-                                            "any"
                                         ]
                                     }
                                 },
@@ -183,22 +172,11 @@
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.google\\.Chrome$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
-                                        ],
-                                        "optional": [
-                                            "any"
                                         ]
                                     }
                                 },
@@ -228,6 +206,32 @@
                                         "key_code": "left_shift",
                                         "modifiers": [
                                             "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change left_ctrl+shift+spacebar to left_ctrl+shift+left_option.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_option",
+                                        "modifiers": [
+                                            "left_control",
+                                            "shift"
                                         ]
                                     }
                                 ],
@@ -591,3 +595,4 @@
         }
     ]
 }
+
