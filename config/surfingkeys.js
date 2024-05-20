@@ -137,6 +137,8 @@ map('tou', 'cc');
 unmap('cc');
 // [o]pen tab by [e]dit current url
 map('toe', ';u');
+// open tab by [e]dit current [u]rl
+map('tue', ';u');
 unmap(';u')
 // go to the first tab
 map('t0', 'g0');
@@ -150,10 +152,10 @@ unmap('w');
 // switch [s]croll
 map('ts', ';fs');
 unmap(';fs');
-// [e]dit current [u]rl and reload
-map('tue', ';U');
+// [r]eplace current [u]rl and reload
+map('tur', ';U');
 unmap(';U');
-map('tU', 'gu');
+map('tu.', 'gu');
 unmap('gu');
 unmap('gU');
 // open a [u]rl in current tab
