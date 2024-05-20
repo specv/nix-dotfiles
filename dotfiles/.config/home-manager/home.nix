@@ -279,10 +279,13 @@ in
       scan_timeout = 50;
       command_timeout = 100;
       # [Change position of the Time module](https://github.com/starship/starship/issues/1660)
-      format = "$all$time$line_break$jobs$battery$status$os$container$shell$character";
+      format = "$all$status$time$line_break$jobs$battery$os$container$shell$character";
       status = {
-        disabled = true;
-        format = "[$int]($style) ";
+        disabled = false;
+        format = "[$symbol$common_meaning$signal_name$maybe_int]($style) ";
+        style = "bold yellow";
+        symbol = "🚨";
+        map_symbol = true;
       };
       sudo = {
         disabled = false;
