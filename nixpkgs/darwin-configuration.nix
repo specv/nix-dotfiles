@@ -158,7 +158,7 @@
       # note taking app (`Notational Velocit` alternative)
       #"nvalt"
       # desktop automation app
-      #"hammerspoon" 
+      "hammerspoon" 
       # an archive unpacker program
       "the-unarchiver"
       # git interface focused on visual interaction

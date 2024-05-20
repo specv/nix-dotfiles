@@ -143,6 +143,16 @@ in
       source = ../dotfiles/.config;
       recursive = true;
     };
+    ".hammerspoon/init.lua".source = ../dotfiles/.hammerspoon/init.lua;
+    ".hammerspoon/stackline" = {
+      source = pkgs.fetchFromGitHub {
+        owner = "AdamWagner";
+        repo = "stackline";
+        rev = "main";
+        sha256 = "sha256-x7SIgKR6rwkoVVbaAvjFr1N7wTF3atni/d6xGLBBRN4=";
+      };
+      recursive = true;
+    };
     ".fzf" = {
       source = pkgs.fetchFromGitHub {
         owner = "specv";
