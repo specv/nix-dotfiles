@@ -135,10 +135,12 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".vimrc".source = config.lib.file.mkOutOfStoreSymlink ../../.vimrc;
-    ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../../.ideavimrc;
+    #".vimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.vimrc;
+    #".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.ideavimrc;
+    ".vimrc".source = ../dotfiles/.vimrc;
+    ".ideavimrc".source = ../dotfiles/.ideavimrc;
     ".config" = {
-      source = ../../.config;
+      source = ../dotfiles/.config;
       recursive = true;
     };
     ".fzf" = {

@@ -104,7 +104,7 @@
     enableScriptingAddition = true;
     # `builtins.readFile` can't handle symbolic link, `.` == `~/.nixpkgs`
     # `.yabairc` generated from `home-manager` via `mkOutOfStoreSymlink`
-    extraConfig = builtins.readFile ~/.config/yabai/yabairc;
+    extraConfig = builtins.readFile ../config/yabairc;
   };
 
   services.skhd = {
@@ -118,14 +118,14 @@
       ## kitty
       # lcmd + ctrl - t : ${pkgs.kitty}/Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory ~ &> /dev/null
 
-      ${builtins.readFile ~/.config/skhd/skhdrc}
+      ${builtins.readFile ../config/skhdrc}
     '';
   };
 
   services.spacebar = {
     enable = false;
     package = pkgs.spacebar;
-    extraConfig = builtins.readFile ~/.config/spacebar/spacebarrc;
+    extraConfig = builtins.readFile ../config/spacebarrc;
   };
 
   # homebrew

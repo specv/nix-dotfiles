@@ -2,7 +2,7 @@ services-list:
     brew services list
 
 switch-home:
-    ln -sfn {{ absolute_path("dotfiles/.config/home-manager/home.nix") }} ~/.config/home-manager/home.nix
+    ln -sfn {{ absolute_path("nixpkgs/home.nix") }} ~/.config/home-manager/home.nix
     #NIXPKGS_ALLOW_UNFREE=1 home-manager switch
     home-manager switch
 
