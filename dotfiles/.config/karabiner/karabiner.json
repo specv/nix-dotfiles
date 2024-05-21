@@ -45,7 +45,7 @@
                         ]
                     },
                     {
-                        "description": "Change right_shift to left_ctrl+left_option+spacebar if pressed alone.",
+                        "description": "Change right_shift to left_command+left_ctrl+left_option+spacebar if pressed alone.",
                         "manipulators": [
                             {
                                 "from": {
@@ -66,6 +66,7 @@
                                     {
                                         "key_code": "spacebar",
                                         "modifiers": [
+                                            "left_command",
                                             "left_control",
                                             "left_option"
                                         ]

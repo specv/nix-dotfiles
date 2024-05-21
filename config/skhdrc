@@ -1,11 +1,3 @@
-# Shortcut
-## alacritty
-lcmd + ctrl - t : alacritty msg create-window || open -n /nix/store/9apmmwk37smzc4kza2wh3s9rr3v5753p-alacritty-0.13.2/Applications/Alacritty.app &> /dev/null
-## iterm
-# lcmd + ctrl - t : open -n /Applications/iTerm.app
-## kitty
-# lcmd + ctrl - t : /nix/store/q19483985m02sc25kszbqri2lqx9mj5h-kitty-0.34.1/Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory ~ &> /dev/null
-
 # window (leader key: lcmd + ctrl)
 ## focus window
 lcmd + ctrl - h : [[ $(yabai -m query --spaces --space | jq -re '.type') = "bsp" ]] && yabai -m window --focus west  || yabai -m window --focus stack.prev
@@ -72,21 +64,21 @@ lcmd + ctrl - d      : yabai -m space --destroy
 #lctrl + shift - 0 : yabai -m space --focus 10
 
 ## focus space (without disabling SIP) https://github.com/koekeishiya/yabai/discussions/803
-lctrl + shift - h : skhd -k "ctrl + alt - h"
-lctrl + shift - j : skhd -k "ctrl + alt - j"
-lctrl + shift - k : skhd -k "ctrl + alt - k"
-lctrl + shift - l : skhd -k "ctrl + alt - l"
-lctrl + shift - r : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space recent | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space recent | jq -r '.label | .[-1:]')"
-lctrl + shift - 1 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s1     | jq '.index') && skhd -k "ctrl + alt - 1"
-lctrl + shift - 2 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s2     | jq '.index') && skhd -k "ctrl + alt - 2"
-lctrl + shift - 3 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s3     | jq '.index') && skhd -k "ctrl + alt - 3"
-lctrl + shift - 4 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s4     | jq '.index') && skhd -k "ctrl + alt - 4"
-lctrl + shift - 5 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s5     | jq '.index') && skhd -k "ctrl + alt - 5"
-lctrl + shift - 6 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s6     | jq '.index') && skhd -k "ctrl + alt - 6"
-lctrl + shift - 7 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s7     | jq '.index') && skhd -k "ctrl + alt - 7"
-lctrl + shift - 8 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s8     | jq '.index') && skhd -k "ctrl + alt - 8"
-lctrl + shift - 9 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s9     | jq '.index') && skhd -k "ctrl + alt - 9"
-lctrl + shift - 0 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s0     | jq '.index') && skhd -k "ctrl + alt - 0"
+lctrl + shift - h : skhd -k "cmd + ctrl + alt - h"
+lctrl + shift - j : skhd -k "cmd + ctrl + alt - j"
+lctrl + shift - k : skhd -k "cmd + ctrl + alt - 1" && skhd -k "cmd + ctrl + alt - k"
+lctrl + shift - l : skhd -k "cmd + ctrl + alt - l"
+lctrl + shift - r : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space recent | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space recent | jq -r '.label | .[-1:]')"
+lctrl + shift - 1 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s1     | jq '.index') && skhd -k "cmd + ctrl + alt - 1"
+lctrl + shift - 2 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s2     | jq '.index') && skhd -k "cmd + ctrl + alt - 2"
+lctrl + shift - 3 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s3     | jq '.index') && skhd -k "cmd + ctrl + alt - 3"
+lctrl + shift - 4 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s4     | jq '.index') && skhd -k "cmd + ctrl + alt - 4"
+lctrl + shift - 5 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s5     | jq '.index') && skhd -k "cmd + ctrl + alt - 5"
+lctrl + shift - 6 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s6     | jq '.index') && skhd -k "cmd + ctrl + alt - 6"
+lctrl + shift - 7 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s7     | jq '.index') && skhd -k "cmd + ctrl + alt - 7"
+lctrl + shift - 8 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s8     | jq '.index') && skhd -k "cmd + ctrl + alt - 8"
+lctrl + shift - 9 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s9     | jq '.index') && skhd -k "cmd + ctrl + alt - 9"
+lctrl + shift - 0 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s0     | jq '.index') && skhd -k "cmd + ctrl + alt - 0"
 
 ## send window to space and follow focus (SIP)
 #rcmd + shift - r : yabai -m window --space recent && yabai -m space --focus recent
@@ -104,19 +96,19 @@ lctrl + shift - 0 : yabai -m config mouse_follows_focus on && yabai -m display -
 #rcmd + shift - 0 : yabai -m window --space 10     && yabai -m space --focus 10
 
 ## send window to space and follow focus (without disabling SIP)
-lctrl + shift + alt - r : yabai -m window --space recent && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space recent | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space recent | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - h : yabai -m window --space prev   && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space prev   | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space prev   | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - l : yabai -m window --space next   && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space next   | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space next   | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 1 : yabai -m window --space s1     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s1     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s1     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 2 : yabai -m window --space s2     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s2     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s2     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 3 : yabai -m window --space s3     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s3     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s3     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 4 : yabai -m window --space s4     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s4     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s4     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 5 : yabai -m window --space s5     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s5     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s5     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 6 : yabai -m window --space s6     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s6     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s6     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 7 : yabai -m window --space s7     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s7     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s7     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 8 : yabai -m window --space s8     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s8     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s8     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 9 : yabai -m window --space s9     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s9     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s9     | jq -r '.label | .[-1:]')"
-lctrl + shift + alt - 0 : yabai -m window --space s0     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s0     | jq '.index') && skhd -k "ctrl + alt - $(yabai -m query --spaces --space s0     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - r : yabai -m window --space recent && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space recent | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space recent | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - h : yabai -m window --space prev   && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space prev   | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space prev   | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - l : yabai -m window --space next   && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space next   | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space next   | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 1 : yabai -m window --space s1     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s1     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s1     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 2 : yabai -m window --space s2     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s2     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s2     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 3 : yabai -m window --space s3     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s3     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s3     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 4 : yabai -m window --space s4     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s4     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s4     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 5 : yabai -m window --space s5     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s5     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s5     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 6 : yabai -m window --space s6     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s6     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s6     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 7 : yabai -m window --space s7     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s7     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s7     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 8 : yabai -m window --space s8     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s8     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s8     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 9 : yabai -m window --space s9     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s9     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s9     | jq -r '.label | .[-1:]')"
+lctrl + shift + alt - 0 : yabai -m window --space s0     && yabai -m config mouse_follows_focus on && sleep 0.1 && yabai -m display --focus $(yabai -m query --displays --space s0     | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space s0     | jq -r '.label | .[-1:]')"
 
 
 # display (leader key: lcmd + ctrl)

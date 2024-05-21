@@ -508,7 +508,7 @@ in
             persist = false;
             mouse.enabled = false;
             binding = {
-              key = "R";
+              key = "Y";
               mods = "Control|Shift";
             };
             regex = ".*";
