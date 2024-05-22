@@ -1,4 +1,5 @@
 # window (leader key: lcmd + ctrl)
+lcmd - r : yabai -m config mouse_follows_focus on && yabai -m window --focus recent
 ## focus window
 lcmd + ctrl - h : [[ $(yabai -m query --spaces --space | jq -re '.type') = "bsp" ]] && yabai -m window --focus west  || yabai -m window --focus stack.prev
 lcmd + ctrl - j : [[ $(yabai -m query --spaces --space | jq -re '.type') = "bsp" ]] && yabai -m window --focus south || yabai -m window --focus stack.next
