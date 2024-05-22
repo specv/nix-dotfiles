@@ -22,18 +22,15 @@
       autohide-delay = 0.0;
       # Remove the animation when hiding/showing the Dock
       autohide-time-modifier = 0.00;
+      # Sets the speed of the Mission Control animations
+      expose-animation-duration = 0.0;
       # Don’t automatically rearrange Spaces based on most recent use
       # System Preferences > Mission Control > Automatically rearrange Spaces based on most recent use
       mru-spaces = false;
       # Don’t show recent applications in Dock
       show-recents = false;
-      # Sets the speed of the Mission Control animations
-      expose-animation-duration = 0.1;
       # Change minimize/maximize window effect
       mineffect = "scale";
-      # Speed up Mission Control animations
-      # System Preferences > Accessibility > Display > Reduce Motion
-      # TODO
     };
     finder = {
       # Allow quitting of the Finder
@@ -68,6 +65,13 @@
     #defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "NSGlobalDomain"
     defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Settings..." "@$,"
     defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Preferences..." "@$,"
+
+    # Speed up Mission Control animations
+    # System Preferences > Accessibility > Display > Reduce Motion
+    defaults write com.apple.Accessibility ReduceMotionEnabled -int 1
+    # Not working, permission denied: Could not write domain com.apple.universalaccess; exiting
+    # Should add terminal app to Privacy & Security => Full Disk Access
+    #defaults write com.apple.universalaccess reduceMotion -int 1
 
     # disable mouse acceleration
     defaults write NSGlobalDomain com.apple.mouse.linear -bool "true"
