@@ -72,6 +72,65 @@
     #defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "NSGlobalDomain"
     defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Settings..." "@$,"
     defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Preferences..." "@$,"
+
+    # Disable "Use the Caps Lock key to switch to and from ABC"
+    # Keyboard => Input Sources => Edit
+    defaults write NSGlobalDomain TISRomanSwitchState -int 0
+
+    # Keyboard => Keyboard Shortcuts => Input sources
+    ## Select the previous input source
+    ## {enabled = 1; value = { parameters = (32, 49, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+
+    # Keyboard => Keyboard Shortcuts => Mission Control
+    ## Move left a space
+    ## {enabled = 1; value = { parameters = (104, 4, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>104</integer><integer>4</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Move right a space
+    ## {enabled = 1; value = { parameters = (108, 37, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>108</integer><integer>37</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 1
+    ## {enabled = 1; value = { parameters = (49, 18, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 118 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>49</integer><integer>18</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 2
+    #{enabled = 1; value = { parameters = (50, 19, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 119 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>50</integer><integer>19</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 3
+    ## {enabled = 1; value = { parameters = (51, 20, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 120 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>51</integer><integer>20</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 4
+    ## {enabled = 1; value = { parameters = (52, 21, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 121 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>52</integer><integer>21</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 5
+    ## {enabled = 1; value = { parameters = (53, 23, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 122 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>53</integer><integer>23</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 6
+    ## {enabled = 1; value = { parameters = (54, 22, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 123 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>54</integer><integer>22</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 7
+    ## {enabled = 1; value = { parameters = (55, 26, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 124 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>55</integer><integer>26</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 8
+    ## {enabled = 1; value = { parameters = (56, 28, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 125 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>56</integer><integer>28</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 9
+    ## {enabled = 1; value = { parameters = (57, 25, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 126 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>57</integer><integer>25</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Switch to Desktop 10
+    ## {enabled = 1; value = { parameters = (48, 29, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 127 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>48</integer><integer>29</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Mission Control
+    ## {enabled = 1; value = { parameters = (107, 40, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 32 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>107</integer><integer>40</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Application windows
+    ## {enabled = 1; value = { parameters = (106, 38, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 33 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>106</integer><integer>38</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+    ## Show Nitification Center
+    ## {enabled = 1; value = { parameters = (110, 45, 1835008); type = 'standard'; }; }
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 163 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>110</integer><integer>45</integer><integer>1835008</integer></array><key>type</key><string>standard</string></dict></dict>"
+
+    # Run reactivateSettings to apply the updated settings
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
   # List packages installed in system profile. To search by name, run:
