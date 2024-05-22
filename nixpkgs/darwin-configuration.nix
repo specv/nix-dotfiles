@@ -60,10 +60,6 @@
       # Sets the speed speed of window resizing.
       NSWindowResizeTime = 0.001;
     };
-    ".GlobalPreferences" = {
-      # disable mouse acceleration
-      "com.apple.mouse.scaling" = -1.0;
-    };
   };
 
   system.activationScripts.extraUserActivation.text = ''
@@ -72,6 +68,11 @@
     #defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "NSGlobalDomain"
     defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Settings..." "@$,"
     defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Preferences..." "@$,"
+
+    # disable mouse acceleration
+    defaults write NSGlobalDomain com.apple.mouse.linear -bool "true"
+    # set mouse movement scale factor
+    defaults write NSGlobalDomain com.apple.mouse.scaling -float "1"
 
     # Disable "Use the Caps Lock key to switch to and from ABC"
     # Keyboard => Input Sources => Edit
