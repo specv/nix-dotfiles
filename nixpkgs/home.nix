@@ -86,6 +86,8 @@ in
     vivid
     ## colorize paths using LS_COLORS
     lscolors
+    ## source code highlighting tool
+    highlight
 
     # Editor / Text Processor
     ## vim text editor fork focused on extensibility and agility
@@ -157,8 +159,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "specv";
         repo = "fzf";
-        rev = "c578fc1a154bc27e36334cbc8a603dea948d2d34";
-        sha256 = "sha256-OAuBhiL7mI03FPLctP92YNimMTjm3I6fM7FjLGzCqN0=";
+        rev = "master";
+        sha256 = "sha256-tpM+ogeIVFF6oEgXLh20hhjMxqWRZa0gQoaC4kS2cNY=";
       };
       recursive = true;
     };
