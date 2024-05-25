@@ -619,6 +619,7 @@ in
       bindkey '^J'  down-line-or-search
       bindkey '^F'  autosuggest-accept
       bindkey '^G'  autosuggest-execute
+      bindkey '^U'  backward-kill-line
 
       bindkey '^A' vi-beginning-of-line
       bindkey '^E' vi-end-of-line
