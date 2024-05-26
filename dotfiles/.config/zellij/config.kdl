@@ -261,12 +261,25 @@ plugins {
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
 themes {
+    dracula-mod {
+        fg "#3c3836"
+        bg "#282a36"
+        red "#ff5555"
+        green "#50fa7a"
+        yellow "#f1fa8c"
+        blue "#6272a4"
+        magenta "#ff79c5"
+        orange "#ffb86c"
+        cyan "#8be8fd"
+        black "#000000"
+        white "#3c3836"
+    }
 }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "default"
+theme "dracula-mod"
 
 // The name of the default layout to load on startup
 // Default: "default"

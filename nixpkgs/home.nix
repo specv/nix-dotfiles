@@ -68,6 +68,8 @@ in
     ## alacritty
     ## The Z shell
     ## zsh
+    # a terminal workspace with batteries included
+    zellij
     ## a modern, maintained replacement for `ls`.
     eza
     ## the next gen `ls` command
