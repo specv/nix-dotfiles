@@ -412,7 +412,7 @@ in
       # not support fallback fonts list yet
       ## [Font Configuration](https://github.com/alacritty/alacritty/issues/957)
       font = {
-        size               = 14;
+        size               = 16;
         normal.family      = "CaskaydiaCove Nerd Font";
         normal.style       = "Regular";
         bold.family        = "CaskaydiaCove Nerd Font";
@@ -423,6 +423,7 @@ in
         bold_italic.style  = "Bold Italic";
       };
       window = {
+        option_as_alt      = "Both";
         decorations        = "None";
       };
       mouse = {
@@ -451,26 +452,26 @@ in
         }
         # emacs readline key bindings
         # see also: [Allow remapping modifier keys in the config](https://github.com/alacritty/alacritty/issues/62#issuecomment-347552058)
-        {
-          key   = "F";
-          mods  = "Alt";
-          chars = "\\u001bf";
-        }
-        {
-          key   = "B";
-          mods  = "Alt";
-          chars = "\\u001bb";
-        }
-        {
-          key   = "Period";
-          mods  = "Alt";
-          chars = "\\u001b.";
-        }
-        {
-          key   = "J";
-          mods  = "Alt";
-          chars = "\\u001bj";
-        }
+        #{
+        #  key   = "F";
+        #  mods  = "Alt";
+        #  chars = "\\u001bf";
+        #}
+        #{
+        #  key   = "B";
+        #  mods  = "Alt";
+        #  chars = "\\u001bb";
+        #}
+        #{
+        #  key   = "Period";
+        #  mods  = "Alt";
+        #  chars = "\\u001b.";
+        #}
+        #{
+        #  key   = "J";
+        #  mods  = "Alt";
+        #  chars = "\\u001bj";
+        #}
       ];
       hints = {
         enabled = [
