@@ -583,6 +583,10 @@ in
       # like `batman`, used in case like `git checkout --help`
       MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'";
     };
+    envExtra = ''
+      # skhd doesn't use an interactive shell to execute commands, so we put helper functions in .zshenv
+      ${builtins.readFile ../config/skhd.zsh}
+    '';
     initExtra = ''
       # fzf keybindings
       source ~/.fzf/shell/key-bindings.zsh

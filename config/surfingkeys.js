@@ -101,6 +101,7 @@ map('oe', ';u');
 map('<Ctrl-r>', '<Ctrl-6>');
 unmap('<Ctrl-6>');
 // go one tab left
+map(';h', '<Ctrl-h>');
 unmap('<Ctrl-h>');
 map('<Ctrl-h>', 'E');
 unmap('E');
@@ -210,6 +211,7 @@ map('cu', 'O');
 unmap('O');
 
 // disable toggle omnibar's position
+map(';j', '<Ctrl-h>');
 unmap('<Ctrl-j>');
 // forward in omnibar
 cmap('<Ctrl-j>', '<ArrowDown>');
