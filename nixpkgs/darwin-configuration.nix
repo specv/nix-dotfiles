@@ -176,7 +176,7 @@
     skhdConfig = ''
       # Shortcut
       ## alacritty
-      lcmd + ctrl - t : alacritty msg create-window || open -n ${pkgs.alacritty}/Applications/Alacritty.app &> /dev/null
+      lcmd + ctrl - t : [[ $(yabai -m query --windows --window | jq -r '.app') = "Alacritty" ]] && skhd -k "alt - n" || (alacritty msg create-window || open -n ${pkgs.alacritty}/Applications/Alacritty.app --args --command zellij &> /dev/null)
       ## iterm
       # lcmd + ctrl - t : open -n /Applications/iTerm.app
       ## kitty
