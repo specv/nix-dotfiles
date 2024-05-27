@@ -424,6 +424,10 @@ in
         bold_italic.family = "CaskaydiaCove Nerd Font";
         bold_italic.style  = "Bold Italic";
       };
+      shell = {
+        program            = "${pkgs.zsh}/bin/zsh";
+        args               = ["-c" "zellij"];
+      };
       window = {
         option_as_alt      = "Both";
         decorations        = "None";

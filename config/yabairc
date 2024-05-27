@@ -85,4 +85,4 @@ yabai -m rule --add app="^Safari$"                         space=s7
 
 
 # border (by JankyBorders)
-/opt/homebrew/bin/borders active_color=0xff50fa7a inactive_color=0x0050fa7a width=3.0 style=square hidpi=on whitelist="alacritty" &
+#/opt/homebrew/bin/borders active_color=0xff50fa7a inactive_color=0x0050fa7a width=3.0 style=square hidpi=on whitelist="alacritty" &
