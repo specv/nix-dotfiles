@@ -250,7 +250,7 @@ plugins {
 //   - true (default)
 //   - false
 //
-// pane_frames true
+pane_frames false
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -294,7 +294,7 @@ themes {
         orange "#ffb86c"
         cyan "#8be8fd"
         black "#000000"
-        white "#3c3836"
+        white "#666666"
     }
 }
 
