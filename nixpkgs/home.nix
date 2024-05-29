@@ -427,6 +427,7 @@ in
       window = {
         option_as_alt      = "Both";
         decorations        = "None";
+        startup_mode       = "Maximized";
       };
       mouse = {
         # the cursor is temporarily hidden when typing

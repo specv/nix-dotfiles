@@ -1,13 +1,20 @@
 layout {
     pane split_direction="vertical" {
-        pane
-        pane
-    }
-    pane split_direction="vertical" {
-        pane
-        pane
+        pane stacked=true {
+            pane
+            pane
+            pane
+            pane focus=true
+        }
+        pane split_direction="horizontal" {
+            pane
+            pane
+        }
     }
     pane size=1 borderless=true {
-        plugin location="zellij:compact-bar"
+        plugin location="zellij:tab-bar"
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
     }
 }
