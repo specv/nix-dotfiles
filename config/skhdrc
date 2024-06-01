@@ -66,8 +66,9 @@ lcmd + ctrl - v      : yabai -m window --toggle sticky && yabai -m window --grid
 ## focus space (leader key: lctrl + shift, without disabling SIP) https://github.com/koekeishiya/yabai/discussions/803
 lctrl + shift - h : skhd -k "cmd + ctrl + alt - h"
 lctrl + shift - j : skhd -k "cmd + ctrl + alt - j"
-lctrl + shift - k : skhd -k "cmd + ctrl + alt - 1" && skhd -k "cmd + ctrl + alt - k"
+lctrl + shift - k : skhd -k "cmd + ctrl + alt + shift - 1" && skhd -k "cmd + ctrl + alt - k" # Mission Control
 lctrl + shift - l : skhd -k "cmd + ctrl + alt - l"
+lctrl + shift - n : skhd -k "cmd + ctrl + alt - n" # Show Notification Center
 lctrl + shift - r : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space recent | jq '.index') && skhd -k "cmd + ctrl + alt - $(yabai -m query --spaces --space recent | jq -r '.label | .[-1:]')"
 lctrl + shift - 1 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s1     | jq '.index') && skhd -k "cmd + ctrl + alt - 1"
 lctrl + shift - 2 : yabai -m config mouse_follows_focus on && yabai -m display --focus $(yabai -m query --displays --space s2     | jq '.index') && skhd -k "cmd + ctrl + alt - 2"

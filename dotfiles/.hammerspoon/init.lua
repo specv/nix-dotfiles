@@ -74,7 +74,7 @@ local function moveCursor(corner)
   hs.mouse.absolutePosition(corners[corner])
 end
 
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "1", function() moveCursor("topLeft") end)
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "2", function() moveCursor("topRight") end)
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "3", function() moveCursor("bottomLeft") end)
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "4", function() moveCursor("bottomRight") end)
+hs.hotkey.bind({"cmd", "ctrl", "alt", "shift"}, "1", function() moveCursor("topLeft") end)
+hs.hotkey.bind({"cmd", "ctrl", "alt", "shift"}, "2", function() moveCursor("topRight") end)
+hs.hotkey.bind({"cmd", "ctrl", "alt", "shift"}, "3", function() moveCursor("bottomLeft") end)
+hs.hotkey.bind({"cmd", "ctrl", "alt", "shift"}, "4", function() moveCursor("bottomRight") end)
