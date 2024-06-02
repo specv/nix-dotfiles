@@ -244,7 +244,10 @@
       #"mysql-shell"
       # fast, light, powerful way to run containers
       "orbstack"
+      # your shortcut to everything
       "raycast"
+      # distribution of the Python and R programming languages for scientific computing
+      "anaconda"
     ];
   };
 }

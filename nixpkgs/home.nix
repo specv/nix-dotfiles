@@ -141,12 +141,14 @@ in
     # '';
     #".vimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.vimrc;
     #".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.ideavimrc;
-    ".vimrc".source = ../dotfiles/.vimrc;
-    ".ideavimrc".source = ../dotfiles/.ideavimrc;
     ".config" = {
       source = ../dotfiles/.config;
       recursive = true;
     };
+    ".bash_profile".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.bash_profile;
+    ".condarc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.condarc;
+    ".vimrc".source = ../dotfiles/.vimrc;
+    ".ideavimrc".source = ../dotfiles/.ideavimrc;
     ".hammerspoon/init.lua".source = ../dotfiles/.hammerspoon/init.lua;
     ".hammerspoon/stackline" = {
       source = pkgs.fetchFromGitHub {
@@ -589,6 +591,8 @@ in
       ${builtins.readFile ../config/skhd.zsh}
     '';
     initExtra = ''
+      source ~/.bash_profile
+
       # fzf keybindings
       source ~/.fzf/shell/key-bindings.zsh
 
