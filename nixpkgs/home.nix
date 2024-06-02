@@ -115,6 +115,10 @@ in
     ## terminal JSON viewer
     fx
 
+    # File Manager
+    ## the unorthodox terminal file manager
+    ## nnn
+
     # Package Manager
     ## version manager with support for Ruby, Node.js, Erlang
     asdf-vm
@@ -370,6 +374,10 @@ in
       " load ~/.config/nvim/lua/init.lua
       lua require('init')
     '';
+  };
+
+  programs.nnn = {
+    enable = true;
   };
 
   programs.alacritty = {
