@@ -378,6 +378,39 @@ in
 
   programs.nnn = {
     enable = true;
+    bookmarks = {
+      b = "~/.config/nnn/bookmarks";
+      d = "~/Downloads";
+      f = "~/Documents";
+    };
+    plugins = {
+      src = pkgs.fetchFromGitHub {
+        owner = "jarun";
+        repo = "nnn";
+        rev = "master";
+        sha256 = "sha256-Jj5HWW/0zC+DRDX1JfILHhKTBm0DjxNnSS+pMkT6aw0=";
+      } + "/plugins";
+      mappings = {
+        o = "fzcd";
+        s = "finder";
+        p = "preview-tui";
+        z = "autojump";
+        c = "cbcopy-mac";
+        v = "cbpaste-mac";
+      };
+    };
+    extraPackages = with pkgs; [
+      coreutils            # for `tac`
+      glow                 # render markdown
+      tree                 # tree structure for directory
+      mediainfo            # tag information for media file
+      ffmpegthumbnailer    # video thumbnailer
+      poppler              # pdf rendering library
+    ];
+  };
+
+  programs.ranger = {
+    enable = true;
   };
 
   programs.alacritty = {
@@ -599,6 +632,7 @@ in
       ${builtins.readFile ../config/skhd.zsh}
     '';
     initExtra = ''
+      ${builtins.readFile ../config/nnn.zsh}
       ${builtins.readFile ../config/helpers.zsh}
 
       source ~/.bash_profile
