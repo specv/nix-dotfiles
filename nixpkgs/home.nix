@@ -599,37 +599,12 @@ in
       ${builtins.readFile ../config/skhd.zsh}
     '';
     initExtra = ''
+      ${builtins.readFile ../config/helpers.zsh}
+
       source ~/.bash_profile
 
       # fzf keybindings
       source ~/.fzf/shell/key-bindings.zsh
-
-      function portgrep() {
-          {
-              echo "Port,Process ID,Process Name"
-              for port in "$@"; do
-                  pids=$(lsof -i:$port -t)
-                  for pid in $pids; do
-                      name=$(ps -p $pid -o comm=)
-                      echo "$port,$pid,$name"
-                  done
-              done
-          } | column -t -s ','
-      }
-
-      function portkill() {
-          {
-              echo "Port,Process ID,Process Name"
-              for port in "$@"; do
-                  pids=$(lsof -i:$port -t)
-                  for pid in $pids; do
-                      name=$(ps -p $pid -o comm=)
-                      echo "$port,$pid,$name"
-                      kill -15 "$pid"
-                  done
-              done
-          } | column -t -s ','
-      }
 
       # bindkey
       ## disable terminal flow control (aka ctrl-s ctrl-q shortcuts)
