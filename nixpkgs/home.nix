@@ -76,10 +76,14 @@ in
     lsd
     ## a new cd command that helps you navigate faster by learning your habits
     ## z-lua
+    ## a smarter cd command.
+    ## zoxide
     ## a command-line fuzzy finder written in Go
     ## fzf
     ## a shell extension that manages your environment
     ## direnv
+    ## draw images on terminals
+    ueberzugpp
 
     # Theme
     ## a minimal, blazing fast, and extremely customizable prompt for any shell
@@ -280,8 +284,13 @@ in
     };
   };
 
-  programs.z-lua = {
+  programs.zoxide = {
+    # database path at ~/Library/Application\ Support/zoxide/db.zo
     enable = true;
+  };
+
+  programs.z-lua = {
+    enable = false;
     options = [ "enhanced" "once" "fzf" "echo" ];
     enableAliases = true;
   };
@@ -417,6 +426,75 @@ in
 
   programs.yazi = {
     enable = true;
+    settings = {
+      manager = {
+        show_hidden = true;
+        show_symlink = true;
+        sort_by = "natural";
+        linemode = "none";
+        sort_dir_first = true;
+      };
+      plugin = {
+        prepend_previewers = [
+          { name = "*/"; run = "eza-preview"; }
+        ];
+      };
+    };
+    keymap = {
+      manager.prepend_keymap = [
+        # builtins
+        { on = [ "<C-c>" ]; run = "close"; desc = "Close the current tab, or quit if it is last tab"; }
+
+        { on = [ "!" ]; run = ''shell "$SHELL" --block --confirm''; desc = "Open shell here"; }
+
+        # plugins
+        { on = [ "1" ]; run = "plugin --sync auto-tab --args=0"; }
+        { on = [ "2" ]; run = "plugin --sync auto-tab --args=1"; }
+        { on = [ "3" ]; run = "plugin --sync auto-tab --args=2"; }
+        { on = [ "4" ]; run = "plugin --sync auto-tab --args=3"; }
+        { on = [ "5" ]; run = "plugin --sync auto-tab --args=4"; }
+        { on = [ "6" ]; run = "plugin --sync auto-tab --args=5"; }
+        { on = [ "7" ]; run = "plugin --sync auto-tab --args=6"; }
+        { on = [ "8" ]; run = "plugin --sync auto-tab --args=7"; }
+        { on = [ "9" ]; run = "plugin --sync auto-tab --args=8"; }
+        { on = [ "l" ]; run = "plugin --sync smart-enter"; desc = "Enter the child directory, or open the file"; }
+        { on = [ "k" ]; run = "plugin --sync arrow --args=-1"; desc = "File navigation wraparound"; }
+        { on = [ "j" ]; run = "plugin --sync arrow --args=1"; desc = "File navigation wraparound"; }
+        { on = [ "K" ]; run = "plugin --sync parent-arrow --args=-1"; desc = "Navigation in the parent directory without leaving the CWD"; }
+        { on = [ "J" ]; run = "plugin --sync parent-arrow --args=1"; desc = "Navigation in the parent directory without leaving the CWD"; }
+        { on = [ "p" ]; run = "plugin --sync smart-paste"; desc = "Paste into the hovered directory or CWD"; }
+        { on = [ "i" ]; run = "plugin keyjump --args='global once'"; desc = "Keyjump (Once Global Mode)"; }
+        { on = [ "t" "t" ]; run = "plugin eza-preview"; desc = "Toggle tree/list dir preview"; }
+        { on = [ "t" "m" ]; run = "plugin --sync max-preview"; desc = "Maximize preview pane"; }
+        { on = [ "t" "h" ]; run = "plugin --sync hide-preview"; desc = "Hide preview pane"; }
+        { on = [ "t" "." ]; run = "hidden toggle"; desc = "Toggle the visibility of hidden files"; }
+      ];
+    };
+    initLua = ../config/yazi/init.lua;
+    plugins = {
+      "smart-paste.yazi" = ../config/yazi/plugins/smart-paste.yazi;
+      "auto-tab.yazi" = ../config/yazi/plugins/auto-tab.yazi;
+      "folder-rules.yazi" = ../config/yazi/plugins/folder-rules.yazi;
+      "smart-enter.yazi" = ../config/yazi/plugins/smart-enter.yazi;
+      "max-preview.yazi" = ../config/yazi/plugins/max-preview.yazi;
+      "hide-preview.yazi" = ../config/yazi/plugins/hide-preview.yazi;
+      "arrow.yazi" = ../config/yazi/plugins/arrow.yazi;
+      "parent-arrow.yazi" = ../config/yazi/plugins/parent-arrow.yazi;
+      "keyjump.yazi" = pkgs.fetchFromGitHub {
+        owner = "DreamMaoMao";
+        repo = "keyjump.yazi";
+        rev = "main";
+        sha256 = "sha256-WAjNhpGman9qRe52iXb0lDF37FEs4IFqobV6SJT9WCs=";
+      };
+      "eza-preview.yazi" = pkgs.fetchFromGitHub {
+        owner = "sharklasers996";
+        repo = "eza-preview.yazi";
+        rev = "master";
+        sha256 = "sha256-Ue58aT37FW7kRIUhbkt41J4wTYcYFQaRmdJgbthbSDA=";
+      };
+    };
+  };
+
   };
 
   programs.alacritty = {
@@ -638,8 +716,8 @@ in
       ${builtins.readFile ../config/skhd.zsh}
     '';
     initExtra = ''
-      ${builtins.readFile ../config/yazi.zsh}
-      ${# builtins.readFile ../config/nnn.zsh}
+      # $${builtins.readFile ../config/nnn.zsh}
+      ${builtins.readFile ../config/yazi/helpers.zsh}
       ${builtins.readFile ../config/helpers.zsh}
 
       source ~/.bash_profile
