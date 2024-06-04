@@ -118,6 +118,8 @@ in
     # File Manager
     ## the unorthodox terminal file manager
     ## nnn
+    ## blazing fast terminal file manager written in Rust, based on async I/O
+    ## yazi 
 
     # Package Manager
     ## version manager with support for Ruby, Node.js, Erlang
@@ -377,7 +379,7 @@ in
   };
 
   programs.nnn = {
-    enable = true;
+    enable = false;
     bookmarks = {
       b = "~/.config/nnn/bookmarks";
       d = "~/Downloads";
@@ -410,6 +412,10 @@ in
   };
 
   programs.ranger = {
+    enable = true;
+  };
+
+  programs.yazi = {
     enable = true;
   };
 
@@ -632,7 +638,8 @@ in
       ${builtins.readFile ../config/skhd.zsh}
     '';
     initExtra = ''
-      ${builtins.readFile ../config/nnn.zsh}
+      ${builtins.readFile ../config/yazi.zsh}
+      ${# builtins.readFile ../config/nnn.zsh}
       ${builtins.readFile ../config/helpers.zsh}
 
       source ~/.bash_profile
