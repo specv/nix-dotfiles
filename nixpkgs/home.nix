@@ -158,6 +158,7 @@ in
       recursive = true;
     };
     ".config/kitty/kitty.app.png".source = ../config/kitty.app.png;
+    ".config/yazi/theme.toml".source = ../config/yazi/theme.toml;
     ".bash_profile".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.bash_profile;
     ".condarc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.condarc;
     ".vimrc".source = ../dotfiles/.vimrc;
@@ -430,6 +431,7 @@ in
 
   programs.yazi = {
     enable = true;
+    initLua = ../config/yazi/init.lua;
     settings = {
       manager = {
         show_hidden = true;
@@ -474,7 +476,27 @@ in
         { on = [ "t" "." ]; run = "hidden toggle"; desc = "Toggle the visibility of hidden files"; }
       ];
     };
-    initLua = ../config/yazi/init.lua;
+    flavors = {
+      "catppuccin-mocha.yazi" = pkgs.fetchFromGitHub {
+        owner = "yazi-rs";
+        repo = "flavors";
+        rev = "main";
+        sha256 = "sha256-gT3aMiBspYypkMdx1TDVwElK7aotolE1JJuJtkC9RRc";
+      } + "/catppuccin-mocha.yazi";
+      "onedark.yazi" = pkgs.fetchFromGitHub {
+        owner = "BennyOe";
+        repo = "onedark.yazi";
+        rev = "main";
+        sha256 = "sha256-SJdkLjF2i5/G0H/x9kTPXv/ozzMO1WhddWMjZi6+x3A=";
+      };
+      "tokyo-night.yazi" = pkgs.fetchFromGitHub {
+        owner = "BennyOe";
+        repo = "tokyo-night.yazi";
+        rev = "main";
+        sha256 = "sha256-IhCwP5v0qbuanjfMRbk/Uatu31rPNVChJn5Y9c5KWYQ";
+      };
+    };
+
     plugins = {
       "smart-paste.yazi" = ../config/yazi/plugins/smart-paste.yazi;
       "auto-tab.yazi" = ../config/yazi/plugins/auto-tab.yazi;
@@ -737,9 +759,6 @@ in
       LC_ALL = "en_US.UTF-8";
       LANG = "en_US.UTF-8";
 
-      # vivid is a themeable LS_COLORS generator
-      LS_COLORS = "$(~/.nix-profile/bin/vivid generate molokai)";
-
       # like `batman`, used in case like `git checkout --help`
       MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'";
     };
@@ -751,6 +770,18 @@ in
       # $${builtins.readFile ../config/nnn.zsh}
       ${builtins.readFile ../config/yazi/helpers.zsh}
       ${builtins.readFile ../config/helpers.zsh}
+
+      # vivid is a themeable LS_COLORS generator
+      # export LS_COLORS="$(~/.nix-profile/bin/vivid generate one-dark)";
+
+      # use the same LS_COLORS as the yazi theme: https://github.com/Mellbourn/ls-colors.yazi
+      # LS_COLORS by trapd00r contains unique colors from over 300 different file types
+      source ${pkgs.fetchFromGitHub {
+        owner = "trapd00r";
+        repo = "LS_COLORS";
+        rev = "master";
+        sha256 = "sha256-DT9WmtyJ/wngoiOTXMcnstVbGh3BaFWrr8Zxm4g4b6U=";
+      } + "/lscolors.sh"}
 
       source ~/.bash_profile
 
