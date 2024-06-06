@@ -221,6 +221,13 @@ plugins {
     }
 }
 
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name false
+    }
+}
+
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
 // eg. when terminal window with an active zellij session is closed
 // Options:
@@ -250,7 +257,7 @@ plugins {
 //   - true (default)
 //   - false
 //
-pane_frames true
+pane_frames false
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
