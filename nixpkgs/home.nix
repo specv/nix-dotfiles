@@ -157,8 +157,6 @@ in
       source = ../dotfiles/.config;
       recursive = true;
     };
-    ".config/kitty/kitty.app.png".source = ../config/kitty.app.png;
-    ".config/yazi/theme.toml".source = ../config/yazi/theme.toml;
     ".bash_profile".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.bash_profile;
     ".condarc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.condarc;
     ".vimrc".source = ../dotfiles/.vimrc;
@@ -431,7 +429,6 @@ in
 
   programs.yazi = {
     enable = true;
-    initLua = ../config/yazi/init.lua;
     settings = {
       manager = {
         show_hidden = true;
@@ -498,14 +495,6 @@ in
     };
 
     plugins = {
-      "smart-paste.yazi" = ../config/yazi/plugins/smart-paste.yazi;
-      "auto-tab.yazi" = ../config/yazi/plugins/auto-tab.yazi;
-      "folder-rules.yazi" = ../config/yazi/plugins/folder-rules.yazi;
-      "smart-enter.yazi" = ../config/yazi/plugins/smart-enter.yazi;
-      "max-preview.yazi" = ../config/yazi/plugins/max-preview.yazi;
-      "hide-preview.yazi" = ../config/yazi/plugins/hide-preview.yazi;
-      "arrow.yazi" = ../config/yazi/plugins/arrow.yazi;
-      "parent-arrow.yazi" = ../config/yazi/plugins/parent-arrow.yazi;
       "keyjump.yazi" = pkgs.fetchFromGitHub {
         owner = "DreamMaoMao";
         repo = "keyjump.yazi";
@@ -768,7 +757,7 @@ in
     '';
     initExtra = ''
       # $${builtins.readFile ../config/nnn.zsh}
-      ${builtins.readFile ../config/yazi/helpers.zsh}
+      ${builtins.readFile ../config/yazi.zsh}
       ${builtins.readFile ../config/helpers.zsh}
 
       # vivid is a themeable LS_COLORS generator
