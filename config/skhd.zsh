@@ -1,9 +1,8 @@
 function in_zellij() {
-  local window=$(yabai -m query --windows --window)
-  local app=$(echo "$window" | jq -r '.app')
-  local title=$(echo "$window" | jq -r '.title')
+  local window_info=$(yabai -m query --windows --window)
+  IFS=',' read -r app title pid <<< $(echo $window_info | jq -r '[.app, .title, .pid] | join(",")')
 
-  if [[ "$app" == "Alacritty" && "$title" == "Zellij"* ]]; then
+  if [[ "$app" == "kitty" ]] && ([[ "$title" == "Zellij"* ]] || (ps -p $pid | grep -q "zellij")); then
     return 0
   else
     return 1
