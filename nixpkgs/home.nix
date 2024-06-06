@@ -540,40 +540,31 @@ in
   programs.alacritty = {
     enable = true;
     settings = {
-      # base on Smoooooth (iTerm 2) color theme
-      # https://github.com/eendroroy/alacritty-theme/blob/master/themes/smoooooth.yml
+      # One Dark: https://github.com/alacritty/alacritty-theme/blob/master/themes/one_dark.toml
       colors = {
         primary = {
-          foreground = "0xdbdbdb";
-          background = "0x000000";
+          foreground = "#abb2bf";
+          background = "#282c34";
         };
         normal = {
-          black      = "0x14191e";
-          red        = "0xf92672";
-          green      = "0x00c200";
-          yellow     = "0xc7c400";
-          blue       = "0x2743c7";
-          magenta    = "0xbf3fbd";
-          cyan       = "0x00c5c7";
-          white      = "0xc7c7c7";
+          black      = "#1e2127";
+          red        = "#e06c75";
+          green      = "#98c379";
+          yellow     = "#d19a66";
+          blue       = "#61afef";
+          magenta    = "#c678dd";
+          cyan       = "#56b6c2";
+          white      = "#abb2bf";
         };
         bright = {
-          black      = "0x676767";
-          red        = "0xfc92b8";
-          green      = "0x57e690";
-          yellow     = "0xece100";
-          blue       = "0xa6aaf1";
-          magenta    = "0xe07de0";
-          cyan       = "0x5ffdff";
-          white      = "0xfeffff";
-        };
-        cursor = {
-          text       = "0x000000";
-          cursor     = "0xfefffe";
-        };
-        selection = {
-          text       = "0x000000";
-          background = "0xb3d7ff";
+          black      = "#5c6370";
+          red        = "#e06c75";
+          green      = "#98c379";
+          yellow     = "#d19a66";
+          blue       = "#61afef";
+          magenta    = "#c678dd";
+          cyan       = "#56b6c2";
+          white      = "#ffffff";
         };
       };
       # not support ligatures yet
