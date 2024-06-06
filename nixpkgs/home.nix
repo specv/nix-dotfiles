@@ -66,6 +66,8 @@ in
     # Terminal
     ## a cross-platform, GPU-accelerated terminal emulator
     ## alacritty
+    ## A modern, hackable, featureful, OpenGL based terminal emulator
+    ## kitty
     ## The Z shell
     ## zsh
     # a terminal workspace with batteries included
@@ -155,6 +157,7 @@ in
       source = ../dotfiles/.config;
       recursive = true;
     };
+    ".config/kitty/kitty.app.png".source = ../config/kitty.app.png;
     ".bash_profile".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.bash_profile;
     ".condarc".source = config.lib.file.mkOutOfStoreSymlink ../dotfiles/.condarc;
     ".vimrc".source = ../dotfiles/.vimrc;
@@ -495,6 +498,43 @@ in
     };
   };
 
+  programs.kitty = {
+    enable = true;
+    # file location: `~/.config/kitty/macos-launch-services-cmdline`
+    darwinLaunchOptions = [
+      "--single-instance"
+      "--directory ~"
+    ];
+    environment = {
+      TERM = "xterm-256color";
+    };
+    theme = "One Dark";
+    settings = {
+      # font
+      font_size        = 16;
+      ## List available fonts: `kitty +list-fonts --psnames`
+      font_family      = "CaskaydiaCove Nerd Font Mono Regular";
+      bold_font        = "CaskaydiaCove Nerd Font Mono Bold";
+      italic_font      = "CaskaydiaCove Nerd Font Mono Italic";
+      bold_italic_font = "CaskaydiaCove Nerd Font Mono Bold Italic";
+
+      # shell
+      shell_integration = "enabled";
+      macos_quit_when_last_window_closed = true;
+      copy_on_select = true;
+
+      # window
+      ## with Shell integration enabled, using negative values means windows sitting at a shell prompt are not counted
+      confirm_os_window_close = 0;
+      hide_window_decorations = true;
+      macos_option_as_alt = "both";
+    };
+    keybindings = {
+      # [Scrollback search](https://github.com/kovidgoyal/kitty/issues/893)
+      "cmd+f"            = "show_scrollback";
+      "shift+cmd+n"      = "new_os_window_with_cwd";
+      "shift+ctrl+cmd+n" = "new_window_with_cwd";
+    };
   };
 
   programs.alacritty = {
@@ -542,13 +582,13 @@ in
       ## [Font Configuration](https://github.com/alacritty/alacritty/issues/957)
       font = {
         size               = 16;
-        normal.family      = "CaskaydiaCove Nerd Font";
+        normal.family      = "CaskaydiaCove Nerd Font Mono";
         normal.style       = "Regular";
-        bold.family        = "CaskaydiaCove Nerd Font";
+        bold.family        = "CaskaydiaCove Nerd Font Mono";
         bold.style         = "Bold";
-        italic.family      = "CaskaydiaCove Nerd Font";
+        italic.family      = "CaskaydiaCove Nerd Font Mono";
         italic.style       = "Italic";
-        bold_italic.family = "CaskaydiaCove Nerd Font";
+        bold_italic.family = "CaskaydiaCove Nerd Font Mono";
         bold_italic.style  = "Bold Italic";
       };
       window = {
