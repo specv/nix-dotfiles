@@ -383,6 +383,8 @@ in
       nvim-highlight-colors
       # Earthfile syntax highlighting for vim
       (vimPlugin "earthly/earthly.vim")
+      # open your Kitty scrollback buffer with Neovim
+      (vimPlugin "mikesmithgh/kitty-scrollback.nvim")
     ];
     extraConfig = ''
       " load ~/.config/nvim/lua/init.lua
@@ -515,7 +517,7 @@ in
     # file location: `~/.config/kitty/macos-launch-services-cmdline`
     darwinLaunchOptions = [
       "--single-instance"
-      "--directory ~"
+      "--directory ~/Dev"
     ];
     environment = {
       TERM = "xterm-256color";
@@ -535,17 +537,68 @@ in
       macos_quit_when_last_window_closed = true;
       copy_on_select = true;
 
+      allow_remote_control = "socket-only";
+      listen_on = "unix:/tmp/kitty";
+
       # window
       ## with Shell integration enabled, using negative values means windows sitting at a shell prompt are not counted
-      confirm_os_window_close = 0;
+      confirm_os_window_close = -1;
       hide_window_decorations = true;
       macos_option_as_alt = "both";
+      startup_session = builtins.toString(pkgs.writeText "startup_session" ''
+        new_tab
+        launch zsh --login
+        launch zsh --login
+        launch zsh --login
+        launch zsh --login
+      '');
+      enabled_layouts = "grid, tall, fat, stack";
+      scrollback_pager_history_size = 100;
     };
+    extraConfig = ''
+      # kitty-scrollback.nvim Kitten alias
+      action_alias kitty_scrollback_nvim kitten ${ vimPlugin "mikesmithgh/kitty-scrollback.nvim" }/python/kitty_scrollback_nvim.py
+    '';
     keybindings = {
-      # [Scrollback search](https://github.com/kovidgoyal/kitty/issues/893)
-      "cmd+f"            = "show_scrollback";
-      "shift+cmd+n"      = "new_os_window_with_cwd";
-      "shift+ctrl+cmd+n" = "new_window_with_cwd";
+      "ctrl+shift+v"     = "kitty_scrollback_nvim";
+      "cmd+t"            = "new_os_window_with_cwd";
+
+      "ctrl+shift+p>i"   = kitten hints --program "launch --type=overlay kitty +kitten icat --hold" --type regex --regex "(?i)\S+[.](?:jpg|jpeg|gif|png|tiff|bmp)"
+
+      "alt+n"            = "new_window_with_cwd";
+      "alt+f"            = "toggle_layout stack";
+      "alt+v"            = "focus_visible_window";
+      "alt+h"            = "neighboring_window left";
+      "alt+l"            = "neighboring_window right";
+      "alt+j"            = "neighboring_window down";
+      "alt+k"            = "neighboring_window up";
+      "alt+shift+h"      = "start_resizing_window";
+      "alt+shift+l"      = "start_resizing_window";
+      "alt+shift+j"      = "start_resizing_window";
+      "alt+shift+k"      = "start_resizing_window";
+      "alt+left"         = "move_window left";
+      "alt+right"        = "move_window right";
+      "alt+down"         = "move_window down";
+      "alt+up"           = "move_window up";
+
+      "alt+t"            = "new_tab";
+      "alt+1"            = "goto_tab 1";
+      "alt+2"            = "goto_tab 2";
+      "alt+3"            = "goto_tab 3";
+      "alt+4"            = "goto_tab 4";
+      "alt+5"            = "goto_tab 5";
+      "alt+6"            = "goto_tab 6";
+      "alt+7"            = "goto_tab 7";
+      "alt+8"            = "goto_tab 8";
+      "alt+9"            = "goto_tab 9";
+      "alt+0"            = "goto_tab -1";
+      "alt+,"            = "previous_tab";
+      "alt+."            = "next_tab";
+
+      "alt+["            = "last_used_layout";
+      "alt+]"            = "next_layout";
+      "alt+r"            = "nth_window -1";
+      "alt+o"            = "toggle_maximized";
     };
   };
 
