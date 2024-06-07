@@ -176,11 +176,11 @@
     skhdConfig = ''
       # Shortcut
       ## alacritty
-      # lcmd + ctrl - t : in_zellij && skhd -k "alt - n" || (alacritty msg create-window || open -n ${pkgs.alacritty}/Applications/Alacritty.app --args --command zsh --login -ic "zellij attach -c --index 0" &> /dev/null)
+      # lcmd + ctrl - t : paneable && skhd -k "alt - n" || (alacritty msg create-window || open -n ${pkgs.alacritty}/Applications/Alacritty.app --args --command zsh --login -ic "zellij attach -c --index 0" &> /dev/null)
       ## iterm
       # lcmd + ctrl - t : open -n /Applications/iTerm.app
       ## kitty
-      lcmd + ctrl - t : in_zellij && skhd -k "alt - n" || open -n ${pkgs.kitty}/Applications/kitty.app --args --single-instance zsh --login -ic "zellij attach -c --index 0" &> /dev/null
+      lcmd + ctrl - t : paneable && skhd -k "alt - n" || open -n ${pkgs.kitty}/Applications/kitty.app
 
       ${builtins.readFile ../config/skhdrc}
     '';
