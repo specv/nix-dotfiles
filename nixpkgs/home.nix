@@ -72,7 +72,7 @@ in
     ## zsh
     # a terminal workspace with batteries included
     zellij
-    ## a modern, maintained replacement for `ls`.
+    ## a modern, maintained replacement for `ls`, formerly known as `exa`
     eza
     ## the next gen `ls` command
     lsd
@@ -120,6 +120,26 @@ in
     jc
     ## terminal JSON viewer
     fx
+
+    # Multi-media (for `yazi` previewer)
+    ## a complete, cross-platform solution to record, convert and stream audio and video
+    ffmpeg
+    ## a software suite to create, edit, compose, or convert bitmap images
+    imagemagick
+    ## a tool to read, write and edit EXIF meta information
+    exiftool
+    ## render markdown on the CLI, with pizzazz!
+    glow
+    ## sort for data formats such as CSV, TSV, JSON, JSON Lines
+    miller # mlr
+    ## conversion between documentation formats
+    pandoc
+    ## convert xlsx to csv
+    xlsx2csv
+    ## converting jupyter notebooks
+    python312Packages.nbconvert
+    ## a fast, easy and free BitTorrent client
+    transmission_4
 
     # File Manager
     ## the unorthodox terminal file manager
@@ -425,10 +445,6 @@ in
     ];
   };
 
-  programs.ranger = {
-    enable = true;
-  };
-
   programs.yazi = {
     enable = true;
     settings = {
@@ -439,9 +455,48 @@ in
         linemode = "none";
         sort_dir_first = true;
       };
+      preview = {
+        max_width = 2000;
+        max_height = 2000;
+      };
       plugin = {
         prepend_previewers = [
-          { name = "*/"; run = "eza-preview"; }
+          { name = "*/";         run = "eza-preview"; }
+          { name = "*.mp3";      run = "preview"; }
+          { name = "*.flac";     run = "preview"; }
+          { name = "*.wav";      run = "preview"; }
+          { name = "*.m4a";      run = "preview"; }
+          { name = "*.json";     run = "preview"; }
+          { name = "*.md";       run = "preview"; }
+          { name = "*.ipynb";    run = "preview"; }
+          { name = "*.dex";      run = "preview"; }
+          { name = "*.apk";      run = "preview"; }
+          { name = "*.csv";      run = "preview"; }
+          { name = "*.tsv";      run = "preview"; }
+          { name = "*.sqlite3";  run = "preview"; }
+          { name = "*.sqlite";   run = "preview"; }
+          { name = "*.so";       run = "preview"; }
+          { name = "*.dylib";    run = "preview"; }
+          { name = "*.torrent";  run = "preview"; }
+          { name = "*.doc";      run = "preview"; }
+          { name = "*.docx";     run = "preview"; }
+          { name = "*.htm";      run = "preview"; }
+          { name = "*.html";     run = "preview"; }
+          { name = "*.xhtml";    run = "preview"; }
+          { name = "*.rtf";      run = "preview"; }
+          { name = "*.xlsx";     run = "preview"; }
+          { name = "*.svg";      run = "preview"; }
+          { name = "*.epub";     run = "preview"; }
+          { name = "*.plist";    run = "preview"; }
+          { name = "*.icns";     run = "preview"; }
+          { name = "*.ipa";      run = "preview"; }
+          { name = "*.dmg";      run = "preview"; }
+          { name = "*.ttf";      run = "preview"; }
+          { name = "*.ttc";      run = "preview"; }
+          { name = "*.otf";      run = "preview"; }
+          { name = "*.woff";     run = "preview"; }
+          { name = "*.woff2";    run = "preview"; }
+          { name = "*.cast";     run = "preview"; }
         ];
       };
     };
@@ -449,6 +504,8 @@ in
       manager.prepend_keymap = [
         # builtins
         { on = [ "<C-c>" ]; run = "close"; desc = "Close the current tab, or quit if it is last tab"; }
+        { on = [ "<C-j>" ]; run = "seek 5"; desc = "Seek up 5 units in the preview"; }
+        { on = [ "<C-k>" ]; run = "seek -5"; desc = "Seek down 5 units in the preview"; }
 
         { on = [ "!" ]; run = ''shell "$SHELL" --block --confirm''; desc = "Open shell here"; }
 
@@ -468,10 +525,14 @@ in
         { on = [ "K" ]; run = "plugin --sync parent-arrow --args=-1"; desc = "Navigation in the parent directory without leaving the CWD"; }
         { on = [ "J" ]; run = "plugin --sync parent-arrow --args=1"; desc = "Navigation in the parent directory without leaving the CWD"; }
         { on = [ "p" ]; run = "plugin --sync smart-paste"; desc = "Paste into the hovered directory or CWD"; }
-        { on = [ "i" ]; run = "plugin keyjump --args='global once'"; desc = "Keyjump (Once Global Mode)"; }
+        { on = [ "i" ]; run = "plugin searchjump"; desc = "Search jump mode"; }
+        { on = [ "I" ]; run = "plugin keyjump --args='global once'"; desc = "Keyjump (Once Global Mode)"; }
+        { on = [ "<C-t>" ]; run = "plugin fg --args='rg'"; desc = "Find file by content (ripgrep match)"; }
+        { on = [ "<C-o>" ]; run = "plugin fg --args='fzf'"; desc = "Find file by filename"; }
+        { on = [ "<C-s>" ]; run = "plugin fg"; desc = "Find file by filename"; }
         { on = [ "t" "t" ]; run = "plugin eza-preview"; desc = "Toggle tree/list dir preview"; }
         { on = [ "t" "m" ]; run = "plugin --sync max-preview"; desc = "Maximize preview pane"; }
-        { on = [ "t" "h" ]; run = "plugin --sync hide-preview"; desc = "Hide preview pane"; }
+        { on = [ "t" "p" ]; run = "plugin --sync hide-preview"; desc = "Hide preview pane"; }
         { on = [ "t" "." ]; run = "hidden toggle"; desc = "Toggle the visibility of hidden files"; }
       ];
     };
@@ -503,11 +564,29 @@ in
         rev = "main";
         sha256 = "sha256-WAjNhpGman9qRe52iXb0lDF37FEs4IFqobV6SJT9WCs=";
       };
+      "searchjump.yazi" = pkgs.fetchFromGitHub {
+        owner = "DreamMaoMao";
+        repo = "searchjump.yazi";
+        rev = "main";
+        sha256 = "sha256-XH7DQMl0TjzIS90H3jP0q56cPjXy+umDiAHR0zVjGRY=";
+      };
+      "fg.yazi" = pkgs.fetchFromGitHub {
+        owner = "DreamMaoMao";
+        repo = "fg.yazi";
+        rev = "main";
+        sha256 = "sha256-6LpnyXB7mri6aVEfnv6aG2mWlzpvaD8SiMqwUS+jJr0=";
+      };
       "eza-preview.yazi" = pkgs.fetchFromGitHub {
         owner = "sharklasers996";
         repo = "eza-preview.yazi";
         rev = "master";
         sha256 = "sha256-Ue58aT37FW7kRIUhbkt41J4wTYcYFQaRmdJgbthbSDA=";
+      };
+      "preview.yazi" = pkgs.fetchFromGitHub {
+        owner = "Urie96";
+        repo = "preview.yazi";
+        rev = "main";
+        sha256 = "sha256-WhAZyME8IVEmGQTAIxUSMDXPf0xqqAHixYfT8lXBtIQ=";
       };
     };
   };
@@ -562,8 +641,6 @@ in
     keybindings = {
       "ctrl+shift+v"     = "kitty_scrollback_nvim";
       "cmd+t"            = "new_os_window_with_cwd";
-
-      "ctrl+shift+p>i"   = kitten hints --program "launch --type=overlay kitty +kitten icat --hold" --type regex --regex "(?i)\S+[.](?:jpg|jpeg|gif|png|tiff|bmp)"
 
       "alt+n"            = "new_window_with_cwd";
       "alt+f"            = "toggle_layout stack";
