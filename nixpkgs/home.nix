@@ -501,15 +501,27 @@ in
       };
     };
     keymap = {
+      tasks.prepend_keymap = [
+        { on = [ "<C-l>" ]; run = "close"; desc = "Hide the task manager"; }
+      ];
+      input.prepend_keymap = [
+        { on = [ "<C-l>" ]; run = "close"; desc = "Cancel input"; }
+      ];
+      select.prepend_keymap = [
+        { on = [ "<C-l>" ]; run = "close"; desc = "Cancel selection"; }
+      ];
       manager.prepend_keymap = [
-        # builtins
+        # remapping
+        { on = [ "<C-l>" ]; run = ["unyank" "escape"]; desc = "Close the current tab, or quit if it is last tab"; }
         { on = [ "<C-c>" ]; run = "close"; desc = "Close the current tab, or quit if it is last tab"; }
-        { on = [ "<C-j>" ]; run = "seek 5"; desc = "Seek up 5 units in the preview"; }
-        { on = [ "<C-k>" ]; run = "seek -5"; desc = "Seek down 5 units in the preview"; }
+        { on = [ "<C-d>" ]; run = "seek 5"; desc = "Seek up 5 units in the preview"; }
+        { on = [ "<C-u>" ]; run = "seek -5"; desc = "Seek down 5 units in the preview"; }
+        { on = [ "<C-Backspace>" ]; run = "remove --permanently"; desc = "Permanently delete the files"; }
+        { on = [ "<Backspace>" ]; run = "remove"; desc = "Move the files to the trash"; }
+        { on = [ "d" ]; run = "arrow 50%"; desc = "Move cursor down half page"; }
+        { on = [ "e" ]; run = "arrow -50%"; desc = "Move cursor up half page"; }
 
         { on = [ "!" ]; run = ''shell "$SHELL" --block --confirm''; desc = "Open shell here"; }
-
-        # plugins
         { on = [ "1" ]; run = "plugin --sync auto-tab --args=0"; }
         { on = [ "2" ]; run = "plugin --sync auto-tab --args=1"; }
         { on = [ "3" ]; run = "plugin --sync auto-tab --args=2"; }
