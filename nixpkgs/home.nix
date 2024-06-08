@@ -902,6 +902,10 @@ in
       ${builtins.readFile ../config/yazi.zsh}
       ${builtins.readFile ../config/helpers.zsh}
 
+      function pbadd() {
+        osascript ${ builtins.path { path = ../config/pbadd.scpt; name = "pbadd.scpt"; } } "$@"
+      }
+
       # vivid is a themeable LS_COLORS generator
       # export LS_COLORS="$(~/.nix-profile/bin/vivid generate one-dark)";
 
