@@ -1003,8 +1003,12 @@ in
       man     = "batman";
       diff    = "batdiff";
 
-      # etc
+      # git
       g       = "git";
+      gu      = "git fetch && git rebase";
+      gs      = "git status";
+      gc      = "git commit -v";
+      gca     = "git commit -v -a";
       lg      = "lazygit";
     };
     plugins = with pkgs; [
