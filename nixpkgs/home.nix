@@ -647,6 +647,8 @@ in
       '');
       enabled_layouts = "grid, tall, fat, stack";
       scrollback_pager_history_size = 100;
+      active_border_color = "#e86671";
+      inactive_border_color = "#000000";
     };
     extraConfig = ''
       # kitty-scrollback.nvim Kitten alias
