@@ -140,8 +140,7 @@ in
     python312Packages.nbconvert
     ## a fast, easy and free BitTorrent client
     transmission_4
-    ## an application that lets you drag and drop files from and to the terminal
-    ripdrag
+
     # File Manager
     ## the unorthodox terminal file manager
     ## nnn
@@ -470,7 +469,6 @@ in
         { on = [ "e" ]; run = "arrow -50%"; desc = "Move cursor up half page"; }
 
         { on = [ "c" "s" ]; run = '' shell --confirm 'osascript ${ builtins.path { path = ../config/pbadd.scpt; name = "pbadd.scpt"; } } "$@"' ''; desc = "Copy the files to system clipboard"; }
-        { on = [ "c" "g" ]; run = '' shell --confirm 'ripdrag "$@" -x 2>/dev/null &' ''; }
 
         { on = [ "!" ]; run = ''shell "$SHELL" --block --confirm''; desc = "Open shell here"; }
         { on = [ "1" ]; run = "plugin --sync auto-tab --args=0"; }
