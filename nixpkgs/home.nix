@@ -76,6 +76,10 @@ in
     eza
     ## the next gen `ls` command
     lsd
+    ## a better 'df' alternative
+    duf
+    ## a more intuitive version of `du` in rust
+    du-dust
     ## a new cd command that helps you navigate faster by learning your habits
     ## z-lua
     ## a smarter cd command.
@@ -107,7 +111,7 @@ in
     bat-extras.batwatch
     bat-extras.batdiff
     bat-extras.prettybat
-    #bat-extras.batpipe
+    bat-extras.batpipe
     ## a utility that combines the usability of The Silver Searcher with the raw speed of `grep`
     ripgrep
     ## ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc
