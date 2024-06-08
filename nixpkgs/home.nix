@@ -447,6 +447,56 @@ in
 
   programs.yazi = {
     enable = true;
+    keymap = {
+      tasks.prepend_keymap = [
+        { on = [ "<C-l>" ]; run = "close"; desc = "Hide the task manager"; }
+      ];
+      input.prepend_keymap = [
+        { on = [ "<C-l>" ]; run = "close"; desc = "Cancel input"; }
+      ];
+      select.prepend_keymap = [
+        { on = [ "<C-l>" ]; run = "close"; desc = "Cancel selection"; }
+      ];
+      manager.prepend_keymap = [
+        # remapping
+        { on = [ "<C-l>" ]; run = [ "unyank" "escape" ]; desc = "Close the current tab, or quit if it is last tab"; }
+        { on = [ "<C-c>" ]; run = "close"; desc = "Close the current tab, or quit if it is last tab"; }
+        { on = [ "<C-d>" ]; run = "seek 5"; desc = "Seek up 5 units in the preview"; }
+        { on = [ "<C-u>" ]; run = "seek -5"; desc = "Seek down 5 units in the preview"; }
+        { on = [ "<C-Backspace>" ]; run = "remove --permanently"; desc = "Permanently delete the files"; }
+        { on = [ "<Backspace>" ]; run = "remove"; desc = "Move the files to the trash"; }
+        { on = [ "d" ]; run = "arrow 50%"; desc = "Move cursor down half page"; }
+        { on = [ "e" ]; run = "arrow -50%"; desc = "Move cursor up half page"; }
+
+        { on = [ "c" "s" ]; run = '' shell --confirm 'osascript ${ builtins.path { path = ../config/pbadd.scpt; name = "pbadd.scpt"; } } "$@"' ''; desc = "Copy the files to system clipboard"; }
+
+        { on = [ "!" ]; run = ''shell "$SHELL" --block --confirm''; desc = "Open shell here"; }
+        { on = [ "1" ]; run = "plugin --sync auto-tab --args=0"; }
+        { on = [ "2" ]; run = "plugin --sync auto-tab --args=1"; }
+        { on = [ "3" ]; run = "plugin --sync auto-tab --args=2"; }
+        { on = [ "4" ]; run = "plugin --sync auto-tab --args=3"; }
+        { on = [ "5" ]; run = "plugin --sync auto-tab --args=4"; }
+        { on = [ "6" ]; run = "plugin --sync auto-tab --args=5"; }
+        { on = [ "7" ]; run = "plugin --sync auto-tab --args=6"; }
+        { on = [ "8" ]; run = "plugin --sync auto-tab --args=7"; }
+        { on = [ "9" ]; run = "plugin --sync auto-tab --args=8"; }
+        { on = [ "l" ]; run = "plugin --sync smart-enter"; desc = "Enter the child directory, or open the file"; }
+        { on = [ "k" ]; run = "plugin --sync arrow --args=-1"; desc = "File navigation wraparound"; }
+        { on = [ "j" ]; run = "plugin --sync arrow --args=1"; desc = "File navigation wraparound"; }
+        { on = [ "K" ]; run = "plugin --sync parent-arrow --args=-1"; desc = "Navigation in the parent directory without leaving the CWD"; }
+        { on = [ "J" ]; run = "plugin --sync parent-arrow --args=1"; desc = "Navigation in the parent directory without leaving the CWD"; }
+        { on = [ "p" ]; run = "plugin --sync smart-paste"; desc = "Paste into the hovered directory or CWD"; }
+        { on = [ "i" ]; run = "plugin searchjump"; desc = "Search jump mode"; }
+        { on = [ "I" ]; run = "plugin keyjump --args='global once'"; desc = "Keyjump (Once Global Mode)"; }
+        { on = [ "<C-t>" ]; run = "plugin fg --args='rg'"; desc = "Find file by content (ripgrep match)"; }
+        { on = [ "<C-o>" ]; run = "plugin fg --args='fzf'"; desc = "Find file by filename"; }
+        { on = [ "<C-s>" ]; run = "plugin fg"; desc = "Find file by filename"; }
+        { on = [ "t" "t" ]; run = "plugin eza-preview"; desc = "Toggle tree/list dir preview"; }
+        { on = [ "t" "m" ]; run = "plugin --sync max-preview"; desc = "Maximize preview pane"; }
+        { on = [ "t" "p" ]; run = "plugin --sync hide-preview"; desc = "Hide preview pane"; }
+        { on = [ "t" "." ]; run = "hidden toggle"; desc = "Toggle the visibility of hidden files"; }
+      ];
+    };
     settings = {
       manager = {
         show_hidden = true;
@@ -499,54 +549,6 @@ in
           { name = "*.cast";     run = "preview"; }
         ];
       };
-    };
-    keymap = {
-      tasks.prepend_keymap = [
-        { on = [ "<C-l>" ]; run = "close"; desc = "Hide the task manager"; }
-      ];
-      input.prepend_keymap = [
-        { on = [ "<C-l>" ]; run = "close"; desc = "Cancel input"; }
-      ];
-      select.prepend_keymap = [
-        { on = [ "<C-l>" ]; run = "close"; desc = "Cancel selection"; }
-      ];
-      manager.prepend_keymap = [
-        # remapping
-        { on = [ "<C-l>" ]; run = ["unyank" "escape"]; desc = "Close the current tab, or quit if it is last tab"; }
-        { on = [ "<C-c>" ]; run = "close"; desc = "Close the current tab, or quit if it is last tab"; }
-        { on = [ "<C-d>" ]; run = "seek 5"; desc = "Seek up 5 units in the preview"; }
-        { on = [ "<C-u>" ]; run = "seek -5"; desc = "Seek down 5 units in the preview"; }
-        { on = [ "<C-Backspace>" ]; run = "remove --permanently"; desc = "Permanently delete the files"; }
-        { on = [ "<Backspace>" ]; run = "remove"; desc = "Move the files to the trash"; }
-        { on = [ "d" ]; run = "arrow 50%"; desc = "Move cursor down half page"; }
-        { on = [ "e" ]; run = "arrow -50%"; desc = "Move cursor up half page"; }
-
-        { on = [ "!" ]; run = ''shell "$SHELL" --block --confirm''; desc = "Open shell here"; }
-        { on = [ "1" ]; run = "plugin --sync auto-tab --args=0"; }
-        { on = [ "2" ]; run = "plugin --sync auto-tab --args=1"; }
-        { on = [ "3" ]; run = "plugin --sync auto-tab --args=2"; }
-        { on = [ "4" ]; run = "plugin --sync auto-tab --args=3"; }
-        { on = [ "5" ]; run = "plugin --sync auto-tab --args=4"; }
-        { on = [ "6" ]; run = "plugin --sync auto-tab --args=5"; }
-        { on = [ "7" ]; run = "plugin --sync auto-tab --args=6"; }
-        { on = [ "8" ]; run = "plugin --sync auto-tab --args=7"; }
-        { on = [ "9" ]; run = "plugin --sync auto-tab --args=8"; }
-        { on = [ "l" ]; run = "plugin --sync smart-enter"; desc = "Enter the child directory, or open the file"; }
-        { on = [ "k" ]; run = "plugin --sync arrow --args=-1"; desc = "File navigation wraparound"; }
-        { on = [ "j" ]; run = "plugin --sync arrow --args=1"; desc = "File navigation wraparound"; }
-        { on = [ "K" ]; run = "plugin --sync parent-arrow --args=-1"; desc = "Navigation in the parent directory without leaving the CWD"; }
-        { on = [ "J" ]; run = "plugin --sync parent-arrow --args=1"; desc = "Navigation in the parent directory without leaving the CWD"; }
-        { on = [ "p" ]; run = "plugin --sync smart-paste"; desc = "Paste into the hovered directory or CWD"; }
-        { on = [ "i" ]; run = "plugin searchjump"; desc = "Search jump mode"; }
-        { on = [ "I" ]; run = "plugin keyjump --args='global once'"; desc = "Keyjump (Once Global Mode)"; }
-        { on = [ "<C-t>" ]; run = "plugin fg --args='rg'"; desc = "Find file by content (ripgrep match)"; }
-        { on = [ "<C-o>" ]; run = "plugin fg --args='fzf'"; desc = "Find file by filename"; }
-        { on = [ "<C-s>" ]; run = "plugin fg"; desc = "Find file by filename"; }
-        { on = [ "t" "t" ]; run = "plugin eza-preview"; desc = "Toggle tree/list dir preview"; }
-        { on = [ "t" "m" ]; run = "plugin --sync max-preview"; desc = "Maximize preview pane"; }
-        { on = [ "t" "p" ]; run = "plugin --sync hide-preview"; desc = "Hide preview pane"; }
-        { on = [ "t" "." ]; run = "hidden toggle"; desc = "Toggle the visibility of hidden files"; }
-      ];
     };
     flavors = {
       "catppuccin-mocha.yazi" = pkgs.fetchFromGitHub {
