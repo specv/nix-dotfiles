@@ -660,6 +660,27 @@ in
     '';
     keybindings = {
       "ctrl+shift+v"     = "kitty_scrollback_nvim";
+      "ctrl+shift+u"     = "kitten hints --type path --program @";
+      "ctrl+shift+s"     = "kitten hints --program @ --alphabet ,fdsagjklhtrewqyuiopvcxzbnm; --type regex --regex " + "\"(" + lib.strings.concatStringsSep "|" [
+        # email
+        ''(\\b[^@ ]+?@[^@ ]+?\\.[^@ ]{2,3}\\b)''
+        # uuid
+        ''(\\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\b)''
+        # sha256
+        ''(\\b(?=.*[0-9])(?=.*[a-fA-F])[a-fA-F0-9]{64}\\b)''
+        # sha256 base64 encoded
+        ''(sha256-[A-Za-z0-9+/]{43}=)''
+        # md5
+        ''(\\b(?=.*[0-9])(?=.*[a-fA-F])[a-fA-F0-9]{32}\\b)''
+        # git long hash
+        ''(\\b(?=.*[0-9])(?=.*[a-f])[a-f0-9]{40}\\b)''
+        # git short hash
+        ''(\\b(?=.*[0-9])(?=.*[a-f])[a-f0-9]{7,8}\\b)''
+        # mac address
+        ''(\\b[a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5}\\b)''
+        # ipv4
+        ''(\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3})\\b)''
+      ] + "\")";
       "cmd+t"            = "new_os_window_with_cwd";
 
       "alt+n"            = "new_window_with_cwd";
@@ -685,9 +706,9 @@ in
       "alt+4"            = "goto_tab 4";
       "alt+5"            = "goto_tab 5";
       "alt+6"            = "goto_tab 6";
-      "alt+7"            = "goto_tab 7";
-      "alt+8"            = "goto_tab 8";
-      "alt+9"            = "goto_tab 9";
+      "alt+7"            = "goto_tab 1";
+      "alt+8"            = "goto_tab 2";
+      "alt+9"            = "goto_tab 3";
       "alt+0"            = "goto_tab -1";
       "alt+,"            = "previous_tab";
       "alt+."            = "next_tab";
