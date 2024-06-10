@@ -670,7 +670,7 @@ in
     };
     extraConfig = ''
       # kitty-scrollback.nvim Kitten alias
-      action_alias kitty_scrollback_nvim kitten ${ vimPlugin "mikesmithgh/kitty-scrollback.nvim" }/python/kitty_scrollback_nvim.py
+      action_alias kitty_scrollback_nvim kitten ${ vimPlugin "mikesmithgh/kitty-scrollback.nvim" }/python/kitty_scrollback_nvim.py --nvim-args -n -u ${ builtins.path { path = ../config/kitty-scrollback.lua; name = "kitty-scrollback.lua"; } }
     '';
     keybindings = {
       "ctrl+shift+v"     = "kitty_scrollback_nvim";

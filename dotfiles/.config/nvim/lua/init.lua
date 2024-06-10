@@ -16,6 +16,8 @@ vim.opt.ignorecase = true
 -- mixed-case search. lower case for case-insensitive, upper case for case-sensitive
 -- use \C to force the pattern to be case-sensitive. \C can go anywhere in the search. e.g. `/\Cinclude` `/include\C`
 vim.opt.smartcase = true
+-- number of screen lines to use for the command-line
+vim.opt.cmdheight = 0
 -- highlight current line
 vim.opt.cursorline = true
 -- disable netrw(builtin file explorer)
@@ -98,9 +100,6 @@ require("nvim-treesitter.configs").setup {
     enable = true
   },
 }
-
--- open your Kitty scrollback buffer with Neovim
-require('kitty-scrollback').setup()
 
 -- smart and powerful comment plugin for neovim
 require("Comment").setup()
