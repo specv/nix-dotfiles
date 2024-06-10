@@ -62,6 +62,25 @@ require("tokyonight").setup {
 }
 vim.cmd("colorscheme tokyonight")
 
+-- navigate your code with search labels, enhanced character motions and Treesitter integration
+require("flash").setup {
+  jump = {
+    autojump = false,
+  },
+  modes = {
+    -- a regular search with `/` or `?`
+    search = {
+      enabled = true
+    },
+    -- `f`, `F`, `t`, `T`, `;` and `,` motions
+    char = {
+      enabled = true,
+      jump_labels = false
+    }
+  },
+}
+vim.keymap.set({ "n","o","x" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+
 -- blazing fast and easy to configure Neovim statusline written in Lua
 require("lualine").setup {
   options = {
@@ -91,9 +110,6 @@ require("nvim-autopairs").setup()
 
 -- highlight colors
 require('nvim-highlight-colors').setup()
-
--- lightspeed.nvim: neovim's answer to the mouse
-require('leap').create_default_mappings()
 
 -- a file manager for Neovim which lets you edit your filesystem like you edit text
 require("dirbuf").setup {

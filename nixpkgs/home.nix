@@ -406,8 +406,8 @@ in
       lualine-nvim
       # smart and powerful comment plugin for neovim
       comment-nvim
-      # neovim's answer to the mouse
-      leap-nvim
+      # navigate your code with search labels, enhanced character motions and Treesitter integration
+      flash-nvim
       # `vidir` alternative
       # a file manager for Neovim which lets you edit your filesystem like you edit text
       dirbuf-nvim
