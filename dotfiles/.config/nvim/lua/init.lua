@@ -56,14 +56,18 @@ require("ibl").setup {
   },
 }
 
--- onedark color theme
-require("onedark").setup {
-  style = "dark"
+-- tokyonight color theme
+require("tokyonight").setup {
+  style = "moon"
 }
-require("onedark").load()
+vim.cmd("colorscheme tokyonight")
 
 -- blazing fast and easy to configure Neovim statusline written in Lua
-require("lualine").setup()
+require("lualine").setup {
+  options = {
+    theme = "tokyonight"
+  }
+}
 
 require("nvim-treesitter.configs").setup {
   -- consistent syntax highlighting
