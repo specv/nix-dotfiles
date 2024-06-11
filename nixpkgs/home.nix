@@ -1054,6 +1054,8 @@ in
       gc      = "git commit -v";
       gca     = "git commit -v -a";
       lg      = "lazygit";
+
+      lazyvim = "NVIM_APPNAME=lazyvim nvim";
     };
     plugins = with pkgs; [
       #{

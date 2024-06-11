@@ -182,6 +182,9 @@
       ## kitty
       lcmd + ctrl - t : paneable && skhd -k "alt - n" || open -n ${pkgs.kitty}/Applications/kitty.app
 
+      ## lazyvim
+      lcmd + ctrl - i : open -n ${pkgs.alacritty}/Applications/Alacritty.app --args --command zsh --login -ic "lazyvim ~/Dev" &> /dev/null
+
       ${builtins.readFile ../config/skhdrc}
     '';
   };
