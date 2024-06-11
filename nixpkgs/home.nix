@@ -292,10 +292,23 @@ in
       # [Skip "press enter to return to lazygit"](https://github.com/jesseduffield/lazygit/discussions/1462)
       promptToReturnFromSubprocess = false;
       gui = {
-        theme.selectedLineBgColor = [ "reverse" ];
         scrollHeight = 10;
         showFileTree = false;
         expandFocusedSidePanel = false;
+        theme = {
+          nerdFontsVersion = "3";
+          activeBorderColor = [ "#ff966c" "bold" ];
+          inactiveBorderColor = [ "#589ed7" ];
+          searchingActiveBorderColor = [ "#ff966c" "bold" ];
+          optionsTextColor = [ "#82aaff" ];
+          selectedLineBgColor = [ "#2d3f76" ];
+          cherryPickedCommitFgColor = [ "#82aaff" ];
+          cherryPickedCommitBgColor = [ "#c099ff" ];
+          markedBaseCommitFgColor = [ "#82aaff" ];
+          markedBaseCommitBgColor = [ "#ffc777" ];
+          unstagedChangesColor = [ "#c53b53" ];
+          defaultFgColor = [ "#c8d3f5" ];
+        };
       };
       git = {
         paging = {
@@ -354,8 +367,8 @@ in
       };
       time = {
         disabled = false;
-        format = "at [$time]($style) ";
-        style = "dimmed bold green";
+        format = "[at $time]($style) ";
+        style = "#282c34";
       };
       line_break = {
         disabled = false;

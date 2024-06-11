@@ -26,11 +26,11 @@ vim.g.loaded_netrw = 1
 -- hide status line
 vim.opt.laststatus = 0
 
--- tokyonight color theme
-require("tokyonight").setup {
-  style = "moon"
+-- onedark color theme
+require("onedark").setup {
+  style = "dark"
 }
-vim.cmd("colorscheme tokyonight")
+require("onedark").load()
 
 -- navigate your code with search labels, enhanced character motions and Treesitter integration
 require("flash").setup {
@@ -50,6 +50,10 @@ require("flash").setup {
   },
 }
 vim.keymap.set({ "n","o","x" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#ff007c", fg = "#c8d3f5", bold = true })
+vim.api.nvim_set_hl(0, "FlashMatch", { bg = "#2e7de9", fg = "#c8d3f5", bold = true })
+vim.api.nvim_set_hl(0, "FlashCurrent", { bg = "#ff966c", fg = "#ffffff", bold = true })
+vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = "#545c7e", bold = true })
 
 -- open your Kitty scrollback buffer with Neovim
 require('kitty-scrollback').setup {

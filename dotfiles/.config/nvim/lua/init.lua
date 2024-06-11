@@ -72,7 +72,7 @@ require("flash").setup {
   modes = {
     -- a regular search with `/` or `?`
     search = {
-      enabled = true
+      enabled = false
     },
     -- `f`, `F`, `t`, `T`, `;` and `,` motions
     char = {
@@ -82,6 +82,10 @@ require("flash").setup {
   },
 }
 vim.keymap.set({ "n","o","x" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#ff007c", fg = "#c8d3f5", bold = true })
+vim.api.nvim_set_hl(0, "FlashMatch", { bg = "#2e7de9", fg = "#c8d3f5", bold = true })
+vim.api.nvim_set_hl(0, "FlashCurrent", { bg = "#ff966c", fg = "#ffffff", bold = true })
+vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = "#545c7e", bold = true })
 
 -- blazing fast and easy to configure Neovim statusline written in Lua
 require("lualine").setup()
