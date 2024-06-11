@@ -966,6 +966,9 @@ in
       # fzf keybindings
       source ~/.fzf/shell/key-bindings.zsh
 
+      # asdf
+      source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
+
       # bindkey
       ## disable terminal flow control (aka ctrl-s ctrl-q shortcuts)
       stty -ixon
