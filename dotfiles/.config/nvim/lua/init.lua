@@ -58,11 +58,11 @@ require("ibl").setup {
   },
 }
 
--- tokyonight color theme
-require("tokyonight").setup {
-  style = "moon"
+-- onedark color theme
+require("onedark").setup {
+  style = "dark"
 }
-vim.cmd("colorscheme tokyonight")
+require("onedark").load()
 
 -- navigate your code with search labels, enhanced character motions and Treesitter integration
 require("flash").setup {
@@ -84,11 +84,7 @@ require("flash").setup {
 vim.keymap.set({ "n","o","x" }, "s", function() require("flash").jump() end, { desc = "Flash" })
 
 -- blazing fast and easy to configure Neovim statusline written in Lua
-require("lualine").setup {
-  options = {
-    theme = "tokyonight"
-  }
-}
+require("lualine").setup()
 
 require("nvim-treesitter.configs").setup {
   -- consistent syntax highlighting

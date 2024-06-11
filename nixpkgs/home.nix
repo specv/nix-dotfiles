@@ -292,24 +292,10 @@ in
       # [Skip "press enter to return to lazygit"](https://github.com/jesseduffield/lazygit/discussions/1462)
       promptToReturnFromSubprocess = false;
       gui = {
+        theme.selectedLineBgColor = [ "reverse" ];
         scrollHeight = 10;
         showFileTree = false;
         expandFocusedSidePanel = false;
-        # tokyonight: https://github.com/folke/tokyonight.nvim/blob/main/extras/lazygit/tokyonight_moon.conf
-        theme = {
-          nerdFontsVersion = "3";
-          activeBorderColor = [ "#ff966c" "bold" ];
-          inactiveBorderColor = [ "#589ed7" ];
-          searchingActiveBorderColor = [ "#ff966c" "bold" ];
-          optionsTextColor = [ "#82aaff" ];
-          selectedLineBgColor = [ "#2d3f76" ];
-          cherryPickedCommitFgColor = [ "#82aaff" ];
-          cherryPickedCommitBgColor = [ "#c099ff" ];
-          markedBaseCommitFgColor = [ "#82aaff" ];
-          markedBaseCommitBgColor = [ "#ffc777" ];
-          unstagedChangesColor = [ "#c53b53" ];
-          defaultFgColor = [ "#c8d3f5" ];
-        };
       };
       git = {
         paging = {
@@ -368,8 +354,8 @@ in
       };
       time = {
         disabled = false;
-        format = "[at $time]($style) ";
-        style = "#292e42";
+        format = "at [$time]($style) ";
+        style = "dimmed bold green";
       };
       line_break = {
         disabled = false;
@@ -400,8 +386,8 @@ in
       indent-blankline-nvim
       # rainbow delimiters for Neovim with Tree-sitter
       rainbow-delimiters-nvim
-      # tokyonight-nvim color scheme
-      tokyonight-nvim
+      # onedark color scheme
+      onedark-nvim
       # blazing fast and easy to configure Neovim statusline written in Lua
       lualine-nvim
       # smart and powerful comment plugin for neovim
@@ -633,7 +619,7 @@ in
     environment = {
       TERM = "xterm-256color";
     };
-    theme = "Tokyo Night Moon";
+    theme = "One Dark";
     settings = {
       # font
       font_size        = 16;
