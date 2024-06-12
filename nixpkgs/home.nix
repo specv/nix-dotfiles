@@ -408,8 +408,10 @@ in
       # navigate your code with search labels, enhanced character motions and Treesitter integration
       flash-nvim
       # `vidir` alternative
-      # a file manager for Neovim which lets you edit your filesystem like you edit text
-      dirbuf-nvim
+      # a file explorer that lets you edit your filesystem like a normal Neovim buffer
+      oil-nvim
+      # file icons for `oil-nvim`
+      nvim-web-devicons
       # syntax highlighting for Justfiles
       vim-just
       # automatically adjusts indent ('shiftwidth' and 'expandtab')

@@ -110,13 +110,8 @@ require("nvim-autopairs").setup()
 -- highlight colors
 require('nvim-highlight-colors').setup()
 
--- a file manager for Neovim which lets you edit your filesystem like you edit text
-require("dirbuf").setup {
-  hash_padding = 2,
-  show_hidden = true,
-  sort_order = "default",
-  write_cmd = "DirbufSync",
-}
+-- a file explorer that lets you edit your filesystem like a normal Neovim buffer
+require("oil").setup()
 
 -- a file explorer tree for neovim written in lua
 require("nvim-tree").setup {
