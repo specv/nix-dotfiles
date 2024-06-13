@@ -422,6 +422,8 @@ in
       nvim-autopairs
       # highlight colors
       nvim-highlight-colors
+      # find, filter, preview, pick
+      telescope-nvim
       # Earthfile syntax highlighting for vim
       (vimPlugin "earthly/earthly.vim")
       # open your Kitty scrollback buffer with Neovim

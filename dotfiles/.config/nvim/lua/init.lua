@@ -112,10 +112,25 @@ require("Comment").setup()
 require("nvim-autopairs").setup()
 
 -- highlight colors
-require('nvim-highlight-colors').setup()
+require("nvim-highlight-colors").setup()
 
 -- a file explorer that lets you edit your filesystem like a normal Neovim buffer
 require("oil").setup()
+
+-- find, filter, preview, pick
+require("telescope").setup {
+  defaults = {
+    -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
+    mappings = {
+      i = {
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+        ["<C-h>"] = require("telescope.actions").preview_scrolling_left,
+        ["<C-l>"] = require("telescope.actions").preview_scrolling_right,
+      }
+    }
+  }
+}
 
 -- displays a popup with possible keybindings of the command you started typing
 require("which-key").setup {
@@ -126,28 +141,63 @@ require("which-key").setup {
 }
 require("which-key").register({
   w = {
-    name  = "windows",
-    d     = { "<C-W>c", "Delete Window" },
-    w     = { "<C-W>p", "Other Window" },
-    h     = { "<C-W>h", "Go to Left Window" },
-    j     = { "<C-W>j", "Go to Lower Window" },
-    k     = { "<C-W>k", "Go to Upper Window" },
-    l     = { "<C-W>l", "Go to Right Window" },
-    ["-"] = { "<C-W>s", "Split Window Below" },
-    ["|"] = { "<C-W>v", "Split Window Right" },
+    name      = "windows",
+    d         = { "<C-W>c", "Delete Window" },
+    w         = { "<C-W>p", "Other Window" },
+    h         = { "<C-W>h", "Go to Left Window" },
+    j         = { "<C-W>j", "Go to Lower Window" },
+    k         = { "<C-W>k", "Go to Upper Window" },
+    l         = { "<C-W>l", "Go to Right Window" },
+    ["-"]     = { "<C-W>s", "Split Window Below" },
+    ["|"]     = { "<C-W>v", "Split Window Right" },
   },
   t = {
-    name  = "tabs",
-    n     = { "<cmd>tabnew<cr>", "New Tab" },
-    d     = { "<cmd>tabclose<cr>", "Close Tab" },
-    o     = { "<cmd>tabonly<cr>", "Close Other Tabs" },
-    h     = { "<cmd>tabprevious<cr>", "Previous Tab" },
-    l     = { "<cmd>tabnext<cr>", "Next Tab" },
-    ["0"] = { "<cmd>tabfirst<cr>", "First Tab" },
-    ["$"] = { "<cmd>tablast<cr>", "Last Tab" },
+    name      = "tabs",
+    n         = { "<cmd>tabnew<cr>", "New Tab" },
+    d         = { "<cmd>tabclose<cr>", "Close Tab" },
+    o         = { "<cmd>tabonly<cr>", "Close Other Tabs" },
+    h         = { "<cmd>tabprevious<cr>", "Previous Tab" },
+    l         = { "<cmd>tabnext<cr>", "Next Tab" },
+    ["0"]     = { "<cmd>tabfirst<cr>", "First Tab" },
+    ["$"]     = { "<cmd>tablast<cr>", "Last Tab" },
   },
+  b = {
+    name      = "buffers",
+    b         = {"<cmd>Telescope buffers<cr>", "Buffers"},
+    s         = {"<cmd>:ls<cr>", "List Buffers"},
+    d         = {"<cmd>:bd<cr>", "Delete Buffer"},
+    h         = {"<cmd>bprevious<cr>", "Prev Buffer"},
+    l         = {"<cmd>bnext<cr>", "Next Buffer"},
+    ['<Tab>'] = {"<cmd>e #<cr>", "Switch to Other Buffer"},
+  },
+  f = {
+    name      = "files",
+    f         = {"<cmd>Telescope find_files<cr>", "Find files"},
+  },
+  s = {
+    name      = "search",
+    ['"']     = {"<cmd>Telescope registers<cr>", "Registers"},
+    a         = {"<cmd>Telescope autocommands<cr>", "Auto Commands"},
+    b         = {"<cmd>Telescope buffers<cr>", "Buffers"},
+    c         = {"<cmd>Telescope command_history<cr>", "Command History"},
+    C         = {"<cmd>Telescope commands<cr>", "Commands"},
+    d         = {"<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics"},
+    D         = {"<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics"},
+    f         = {"<cmd>Telescope find_files<cr>", "Find files"},
+    g         = {"<cmd>Telescope live_grep<cr>", "Live Grep"},
+    h         = {"<cmd>Telescope help_tags<cr>", "Help Pages"},
+    H         = {"<cmd>Telescope highlights<cr>", "Search Highlight Groups"},
+    j         = {"<cmd>Telescope jumplist<cr>", "Jumplist"},
+    k         = {"<cmd>Telescope keymaps<cr>", "Key Maps"},
+    l         = {"<cmd>Telescope loclist<cr>", "Location List"},
+    M         = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
+    m         = {"<cmd>Telescope marks<cr>", "Jump to Mark"},
+    o         = {"<cmd>Telescope vim_options<cr>", "Options"},
+    q         = {"<cmd>Telescope quickfix<cr>", "Quickfix List"},
+    R         = {"<cmd>Telescope resume<cr>", "Resume"},
+    s         = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy Find Current Buffer"},
+  }
 }, { prefix = "<leader>" })
-
 
 -- a file explorer tree for neovim written in lua
 require("nvim-tree").setup {
