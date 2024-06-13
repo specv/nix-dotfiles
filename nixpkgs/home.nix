@@ -424,6 +424,10 @@ in
       nvim-highlight-colors
       # find, filter, preview, pick
       telescope-nvim
+      # provide `:Telescope windows`
+      (vimPlugin "kyoh86/telescope-windows.nvim")
+      # provide `:Telescope telescope-tabs list_tabs`
+      (vimPlugin "LukasPietzschmann/telescope-tabs")
       # Earthfile syntax highlighting for vim
       (vimPlugin "earthly/earthly.vim")
       # open your Kitty scrollback buffer with Neovim
