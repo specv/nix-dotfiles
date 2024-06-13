@@ -410,6 +410,8 @@ in
       # `vidir` alternative
       # a file explorer that lets you edit your filesystem like a normal Neovim buffer
       oil-nvim
+      # displays a popup with possible keybindings of the command you started typing
+      which-key-nvim
       # file icons for `oil-nvim`
       nvim-web-devicons
       # syntax highlighting for Justfiles

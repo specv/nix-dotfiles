@@ -23,6 +23,10 @@ vim.opt.cursorline = true
 -- disable netrw(builtin file explorer)
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
+-- for `which-key`
+vim.opt.timeoutlen = 300
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Indent Blankline: adds indentation guides to all lines (including empty lines)
 -- rainbow-delimiters.nvim integration
@@ -112,6 +116,38 @@ require('nvim-highlight-colors').setup()
 
 -- a file explorer that lets you edit your filesystem like a normal Neovim buffer
 require("oil").setup()
+
+-- displays a popup with possible keybindings of the command you started typing
+require("which-key").setup {
+  triggers_nowait = {
+    -- spelling
+    "z=",
+  },
+}
+require("which-key").register({
+  w = {
+    name  = "windows",
+    d     = { "<C-W>c", "Delete Window" },
+    w     = { "<C-W>p", "Other Window" },
+    h     = { "<C-W>h", "Go to Left Window" },
+    j     = { "<C-W>j", "Go to Lower Window" },
+    k     = { "<C-W>k", "Go to Upper Window" },
+    l     = { "<C-W>l", "Go to Right Window" },
+    ["-"] = { "<C-W>s", "Split Window Below" },
+    ["|"] = { "<C-W>v", "Split Window Right" },
+  },
+  t = {
+    name  = "tabs",
+    n     = { "<cmd>tabnew<cr>", "New Tab" },
+    d     = { "<cmd>tabclose<cr>", "Close Tab" },
+    o     = { "<cmd>tabonly<cr>", "Close Other Tabs" },
+    h     = { "<cmd>tabprevious<cr>", "Previous Tab" },
+    l     = { "<cmd>tabnext<cr>", "Next Tab" },
+    ["0"] = { "<cmd>tabfirst<cr>", "First Tab" },
+    ["$"] = { "<cmd>tablast<cr>", "Last Tab" },
+  },
+}, { prefix = "<leader>" })
+
 
 -- a file explorer tree for neovim written in lua
 require("nvim-tree").setup {
