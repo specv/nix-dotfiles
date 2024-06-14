@@ -180,10 +180,10 @@
       ## iterm
       # lcmd + ctrl - t : open -n /Applications/iTerm.app
       ## kitty
-      lcmd + ctrl - t : paneable && skhd -k "alt - n" || open -n ${pkgs.kitty}/Applications/kitty.app
+      lcmd + ctrl - t : (paneable && skhd -k "alt - n" || open -n ${pkgs.kitty}/Applications/kitty.app) && skhd -k "ctrl + shift - 1"
 
       ## lazyvim
-      lcmd + ctrl - i : open -n ${pkgs.alacritty}/Applications/Alacritty.app --args --command zsh --login -ic "lazyvim ~/Dev" &> /dev/null
+      lcmd + ctrl - i : (open -n ${pkgs.alacritty}/Applications/Alacritty.app --args --command zsh --login -ic "lazyvim -c 'cd ~/Dev'" &> /dev/null) && skhd -k "ctrl + shift - 2"
 
       ${builtins.readFile ../config/skhdrc}
     '';

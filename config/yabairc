@@ -64,22 +64,22 @@ yabai -m config --space s9 layout            stack    window_gap 50 top_padding 
 yabai -m config --space s0 layout            stack    window_gap 50 top_padding 100 right_padding 100 bottom_padding 100 left_padding 100
 
 
-# rules
+# rules (space=^<SPACE_SEL> requires SIP disabled to follow focus)
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^uTools$"             manage=off
 yabai -m rule --add app="^Raycast$"            manage=off
-yabai -m rule --add app="^iTerm$"                          space=s1
-yabai -m rule --add app="^kitty$"                          space=s1
-yabai -m rule --add app="^Alacritty$"                      space=s2
-yabai -m rule --add app="^PyCharm$"                        space=s3
-yabai -m rule --add app="^Visual Studio Code$"             space=s3
-yabai -m rule --add app="^Zed$"                            space=s3
-yabai -m rule --add app="^Notes$"                          space=s4
-yabai -m rule --add app="^Logseq$"                         space=s4
-yabai -m rule --add app="^Joplin$"                         space=s4
-yabai -m rule --add app="^WeChat$"                         space=s4
-yabai -m rule --add app="^Google Chrome$"                  space=s7
-yabai -m rule --add app="^Safari$"                         space=s7
+yabai -m rule --add app="^iTerm$"                          space="^s1"
+yabai -m rule --add app="^kitty$"                          space="^s1"
+yabai -m rule --add app="^Alacritty$"                      space="^s2"
+yabai -m rule --add app="^PyCharm$"                        space="^s3"
+yabai -m rule --add app="^Visual Studio Code$"             space="^s3"
+yabai -m rule --add app="^Zed$"                            space="^s3"
+yabai -m rule --add app="^Notes$"                          space="^s4"
+yabai -m rule --add app="^Logseq$"                         space="^s4"
+yabai -m rule --add app="^Joplin$"                         space="^s4"
+yabai -m rule --add app="^WeChat$"                         space="^s4"
+yabai -m rule --add app="^Google Chrome$"                  space="^s7"
+yabai -m rule --add app="^Safari$"                         space="^s7"
 
 
 # border (by JankyBorders)
