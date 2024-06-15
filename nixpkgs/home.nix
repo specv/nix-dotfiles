@@ -124,6 +124,8 @@ in
     jc
     ## terminal JSON viewer
     fx
+    ## a Node.js style checker and lint tool for Markdown/CommonMark files (for `lazyvim` linter)
+    markdownlint-cli
 
     # Multi-media (for `yazi` previewer)
     ## a complete, cross-platform solution to record, convert and stream audio and video
