@@ -669,15 +669,17 @@ in
       macos_option_as_alt = "both";
       startup_session = builtins.toString(pkgs.writeText "startup_session" ''
         new_tab
-        launch zsh --login
-        launch zsh --login
-        launch zsh --login
-        launch zsh --login
+        launch zsh --login -i
+        launch zsh --login -i
+        launch zsh --login -i
+        launch zsh --login -i
       '');
       enabled_layouts = "grid, tall, fat, stack";
       scrollback_pager_history_size = 100;
-      active_border_color = "#e86671";
+      active_border_color = "none";
       inactive_border_color = "#000000";
+      inactive_text_alpha = "0.2";
+      mouse_hide_wait = -1;
     };
     extraConfig = ''
       # kitty-scrollback.nvim Kitten alias
