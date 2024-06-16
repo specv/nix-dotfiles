@@ -70,6 +70,7 @@ yabai -m rule --add app="^uTools$"             manage=off
 yabai -m rule --add app="^Raycast$"            manage=off
 yabai -m rule --add app="^iTerm$"                          space="^s1"
 yabai -m rule --add app="^kitty$"                          space="^s1"
+yabai -m rule --add app="^WezTerm$"                        space="^s2"
 yabai -m rule --add app="^Alacritty$"                      space="^s2"
 yabai -m rule --add app="^PyCharm$"                        space="^s3"
 yabai -m rule --add app="^Visual Studio Code$"             space="^s3"
