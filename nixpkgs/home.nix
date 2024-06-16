@@ -634,6 +634,42 @@ in
     };
   };
 
+  programs.wezterm = {
+    enable = true;
+    extraConfig = ''
+      return {
+        font = wezterm.font("CaskaydiaCove Nerd Font Mono"),
+        font_size = 16.0,
+        hide_tab_bar_if_only_one_tab = true,
+        window_decorations = "RESIZE",
+        send_composed_key_when_left_alt_is_pressed = false,
+        send_composed_key_when_right_alt_is_pressed = false,
+        color_scheme = "OneHalfDark",
+        colors = {
+          cursor_fg = "#111111",
+          cursor_bg = "#52ad70",
+          cursor_border = "#52ad70",
+        },
+        window_frame = {
+          border_left_width = "0cell",
+          border_right_width = "0cell",
+          border_bottom_height = "0cell",
+          border_top_height = "0cell",
+          border_left_color = "purple",
+          border_right_color = "purple",
+          border_bottom_color = "purple",
+          border_top_color = "purple",
+        },
+        window_padding = {
+            left = 0,
+            right = 0,
+            top = 0,
+            bottom = 0
+        }
+      }
+    '';
+  };
+
   programs.kitty = {
     enable = true;
     # file location: `~/.config/kitty/macos-launch-services-cmdline`
@@ -679,6 +715,8 @@ in
       active_border_color = "none";
       inactive_border_color = "#000000";
       inactive_text_alpha = "0.2";
+      cursor = "#52ad70";
+      cursor_text_color = "#111111";
       mouse_hide_wait = -1;
     };
     extraConfig = ''
