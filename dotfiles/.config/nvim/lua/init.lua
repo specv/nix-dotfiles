@@ -175,6 +175,15 @@ require("which-key").register({
     l         = { "<cmd>tabnext<cr>", "Next Tab" },
     ["0"]     = { "<cmd>tabfirst<cr>", "First Tab" },
     ["$"]     = { "<cmd>tablast<cr>", "Last Tab" },
+    ["1"]     = { "1gt", "Go to Tab 1" },
+    ["2"]     = { "2gt", "Go to Tab 2" },
+    ["3"]     = { "3gt", "Go to Tab 3" },
+    ["4"]     = { "4gt", "Go to Tab 4" },
+    ["5"]     = { "5gt", "Go to Tab 5" },
+    ["6"]     = { "6gt", "Go to Tab 6" },
+    ["7"]     = { "7gt", "Go to Tab 7" },
+    ["8"]     = { "8gt", "Go to Tab 8" },
+    ["9"]     = { "9gt", "Go to Tab 9" },
   },
   f = {
     name      = "files",
@@ -203,6 +212,8 @@ require("which-key").register({
     s         = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy Find Current Buffer" },
   }
 }, { prefix = "<leader>" })
+vim.keymap.set({ "n", "i" }, "<C-s>", "<esc>:w<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "i" }, "<C-x>", "<esc>:q<CR>", { noremap = true, silent = true })
 
 -- a file explorer tree for neovim written in lua
 require("nvim-tree").setup {
