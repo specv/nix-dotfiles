@@ -1008,6 +1008,7 @@ in
       LC_ALL = "en_US.UTF-8";
       LANG = "en_US.UTF-8";
 
+      BAT_THEME="gruvbox-dark";
       # like `batman`, used in case like `git checkout --help`
       MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'";
     };
