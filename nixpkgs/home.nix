@@ -370,7 +370,7 @@ in
       time = {
         disabled = false;
         format = "[at $time]($style) ";
-        style = "#282c34";
+        style = "bold blue";
       };
       line_break = {
         disabled = false;
@@ -401,8 +401,8 @@ in
       indent-blankline-nvim
       # rainbow delimiters for Neovim with Tree-sitter
       rainbow-delimiters-nvim
-      # onedark color scheme
-      onedark-nvim
+      # soothing pastel theme for (Neo)vim
+      catppuccin-nvim
       # blazing fast and easy to configure Neovim statusline written in Lua
       lualine-nvim
       # smart and powerful comment plugin for neovim
@@ -664,12 +664,17 @@ in
       return {
         font = wezterm.font("CaskaydiaCove Nerd Font Mono"),
         font_size = 16.0,
-        hide_tab_bar_if_only_one_tab = true,
+        underline_thickness = 3,
+        underline_position = -3,
+        macos_window_background_blur = 0,
+        window_background_opacity = 0.7,
         window_decorations = "RESIZE",
+        hide_tab_bar_if_only_one_tab = true,
         send_composed_key_when_left_alt_is_pressed = false,
         send_composed_key_when_right_alt_is_pressed = false,
-        color_scheme = "OneHalfDark",
+        color_scheme = "Gruvbox Material (Gogh)",
         colors = {
+          background = "black",
           cursor_fg = "#111111",
           cursor_bg = "#52ad70",
           cursor_border = "#52ad70",
@@ -704,7 +709,7 @@ in
     environment = {
       TERM = "xterm-256color";
     };
-    theme = "One Dark";
+    theme = "Gruvbox Material Dark Hard";
     settings = {
       # font
       font_size        = 16;
@@ -736,9 +741,12 @@ in
       '');
       enabled_layouts = "grid, tall, fat, stack";
       scrollback_pager_history_size = 100;
+      window_border_width = 0;
       active_border_color = "none";
       inactive_border_color = "#000000";
       inactive_text_alpha = "0.2";
+      background = "#000000";
+      background_opacity = "0.7";
       cursor = "#52ad70";
       cursor_text_color = "#111111";
       mouse_hide_wait = -1;

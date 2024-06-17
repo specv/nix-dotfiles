@@ -62,11 +62,12 @@ require("ibl").setup {
   },
 }
 
--- onedark color theme
-require("onedark").setup {
-  style = "dark"
+-- soothing pastel theme for (Neo)vim
+require("catppuccin").setup {
+  flavour = "frappe",
+  transparent_background = true,
 }
-require("onedark").load()
+vim.cmd.colorscheme "catppuccin"
 
 -- navigate your code with search labels, enhanced character motions and Treesitter integration
 require("flash").setup {
@@ -92,7 +93,11 @@ vim.api.nvim_set_hl(0, "FlashCurrent", { bg = "#ff966c", fg = "#ffffff", bold = 
 vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = "#545c7e", bold = true })
 
 -- blazing fast and easy to configure Neovim statusline written in Lua
-require("lualine").setup()
+require("lualine").setup {
+  options = {
+    theme = "catppuccin"
+  }
+}
 
 require("nvim-treesitter.configs").setup {
   -- consistent syntax highlighting

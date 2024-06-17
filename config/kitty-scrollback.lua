@@ -26,11 +26,12 @@ vim.g.loaded_netrw = 1
 -- hide status line
 vim.opt.laststatus = 0
 
--- onedark color theme
-require("onedark").setup {
-  style = "dark"
-}
-require("onedark").load()
+-- soothing pastel theme for (Neo)vim
+require("catppuccin").setup({
+  flavour = "frappe",
+  transparent_background = true,
+})
+vim.cmd.colorscheme "catppuccin"
 
 -- navigate your code with search labels, enhanced character motions and Treesitter integration
 require("flash").setup {
