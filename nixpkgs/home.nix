@@ -124,8 +124,6 @@ in
     jc
     ## terminal JSON viewer
     fx
-    ## a Node.js style checker and lint tool for Markdown/CommonMark files (for `lazyvim` linter)
-    markdownlint-cli
 
     # Multi-media (for `yazi` previewer)
     ## a complete, cross-platform solution to record, convert and stream audio and video
@@ -156,6 +154,8 @@ in
     # Package Manager
     ## version manager with support for Ruby, Node.js, Erlang
     asdf-vm
+    ## npm: package manager for JavaScript
+    nodejs_22
 
     # Command Runner
     ## a command runner and partial replacement for `make`
