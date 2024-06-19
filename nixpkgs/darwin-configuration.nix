@@ -82,6 +82,11 @@
     # Keyboard => Input Sources => Edit
     defaults write NSGlobalDomain TISRomanSwitchState -int 0
 
+    # Change screenshot location
+    # Cmd + Shift + 5 => Options => Other Location
+    mkdir -p ~/Documents/Screenshots
+    defaults write com.apple.screencapture location ~/Documents/Screenshots
+
     # Keyboard => Keyboard Shortcuts => Input sources
     ## Select the previous input source
     ## {enabled = 1; value = { parameters = (32, 49, 1835008); type = 'standard'; }; }
