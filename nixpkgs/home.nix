@@ -13,6 +13,13 @@ let
 
   pkgsUnstable = import <nixpkgs-unstable> {};
 
+  # [Issues on macos if gnused isn't installed as "gsed"](https://github.com/nvim-pack/nvim-spectre/issues/101)
+  gnused = pkgs.gnused.overrideAttrs (oldAttrs: {
+    postInstall = oldAttrs.postInstall or "" + ''
+      mv $out/bin/sed $out/bin/gsed
+    '';
+  });
+
 in
 
 {
@@ -124,6 +131,8 @@ in
     jc
     ## terminal JSON viewer
     fx
+    ## GNU sed, a batch stream editor
+    gnused
 
     # Multi-media (for `yazi` previewer)
     ## a complete, cross-platform solution to record, convert and stream audio and video
