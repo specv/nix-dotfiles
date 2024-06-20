@@ -34,7 +34,8 @@
     };
     finder = {
       # Allow quitting of the Finder
-      QuitMenuItem = true;
+      # Yabai need Finder exists to auto focus space, so we don't quit finder
+      QuitMenuItem = false;
       # Show path bar
       ShowPathbar = true;
       # Show status bar
