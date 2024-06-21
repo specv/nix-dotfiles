@@ -539,7 +539,7 @@ in
     };
     settings = {
       manager = {
-        show_hidden = true;
+        show_hidden = false;
         show_symlink = true;
         sort_by = "natural";
         linemode = "none";
@@ -704,7 +704,19 @@ in
             left = 0,
             right = 0,
             top = 0,
-            bottom = 0
+            bottom = 0,
+        },
+        keys = {
+          {
+            key = "=",
+            mods = "CTRL",
+            action = wezterm.action.DisableDefaultAssignment,
+          },
+          {
+            key = "-",
+            mods = "CTRL",
+            action = wezterm.action.DisableDefaultAssignment,
+          },
         }
       }
     '';
@@ -798,10 +810,10 @@ in
       "alt+l"            = "neighboring_window right";
       "alt+j"            = "neighboring_window down";
       "alt+k"            = "neighboring_window up";
-      "alt+shift+h"      = "start_resizing_window";
-      "alt+shift+l"      = "start_resizing_window";
-      "alt+shift+j"      = "start_resizing_window";
-      "alt+shift+k"      = "start_resizing_window";
+      "ctrl+left"        = "start_resizing_window";
+      "ctrl+right"       = "start_resizing_window";
+      "ctrl+down"        = "start_resizing_window";
+      "ctrl+up"          = "start_resizing_window";
       "alt+left"         = "move_window left";
       "alt+right"        = "move_window right";
       "alt+down"         = "move_window down";
@@ -1146,11 +1158,14 @@ in
       g       = "git";
       gu      = "git fetch && git rebase";
       gs      = "git status";
+      gr      = "git reset";
       gc      = "git commit -v";
-      gca     = "git commit -v -a";
+      gcm     = "git commit -m";
+      gca     = "git commit -v --amend";
       lg      = "lazygit";
 
       lazyvim = "NVIM_APPNAME=lazyvim nvim";
+      vv      = "lazyvim";
     };
     plugins = with pkgs; [
       #{

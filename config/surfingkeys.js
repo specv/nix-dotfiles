@@ -94,6 +94,7 @@ unmap('om');
 
 //// Open
 map('ou', 'cc');
+map('tup', 'cc');
 map('oe', ';u');
 
 //// Tab
@@ -157,6 +158,8 @@ unmap(';fs');
 map('tur', ';U');
 unmap(';U');
 map('tu.', 'gu');
+map('t..', 'gu');
+map('g..', 'gu');
 unmap('gu');
 unmap('gU');
 // open a [u]rl in current tab

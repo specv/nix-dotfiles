@@ -53,7 +53,7 @@ yabai -m config right_padding                0
 yabai -m config window_gap                   0
 yabai -m config external_bar                 off:26:0
 yabai -m config --space s1 layout            bsp
-yabai -m config --space s2 layout            stack
+yabai -m config --space s2 layout            bsp
 yabai -m config --space s3 layout            bsp
 yabai -m config --space s4 layout            stack    window_gap 50 top_padding 100 right_padding 100 bottom_padding 100 left_padding 100
 yabai -m config --space s5 layout            stack    window_gap 50 top_padding 100 right_padding 100 bottom_padding 100 left_padding 100
