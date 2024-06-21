@@ -165,6 +165,8 @@ in
     asdf-vm
     ## npm: package manager for JavaScript
     nodejs_22
+    ## a secure runtime for JavaScript and TypeScript
+    deno
 
     # Command Runner
     ## a command runner and partial replacement for `make`
