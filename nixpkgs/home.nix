@@ -365,7 +365,7 @@ in
       scan_timeout = 50;
       command_timeout = 100;
       # [Change position of the Time module](https://github.com/starship/starship/issues/1660)
-      format = "$all$status$time$line_break$jobs$battery$os$container$shell$character";
+      format = "$all$status$time$line_break$jobs$battery$os$container$shell\${custom.yazi}$character";
       status = {
         disabled = false;
         format = "[$symbol$common_meaning$signal_name$maybe_int]($style) ";
@@ -385,6 +385,12 @@ in
       };
       line_break = {
         disabled = false;
+      };
+      # https://github.com/Sonico98/yazi-prompt.sh
+      custom.yazi = {
+        description = "Indicate when the shell was launched by `yazi`";
+        symbol = "🦆 ";
+        when = '' test -n "$YAZI_LEVEL" '';
       };
     };
   };
