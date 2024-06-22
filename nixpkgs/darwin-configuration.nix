@@ -34,8 +34,7 @@
     };
     finder = {
       # Allow quitting of the Finder
-      # Yabai need Finder exists to auto focus space, so we don't quit finder
-      QuitMenuItem = false;
+      QuitMenuItem = true;
       # Show path bar
       ShowPathbar = true;
       # Show status bar
@@ -186,11 +185,11 @@
       ## iterm
       # lcmd + ctrl - t : open -n /Applications/iTerm.app
       ## kitty
-      lcmd + ctrl - t : (paneable && skhd -k "alt - n" || open -n ${pkgs.kitty}/Applications/kitty.app) && skhd -k "ctrl + shift - 1"
+      lcmd + ctrl - t : (paneable && skhd -k "alt - n" || open -n ${pkgs.kitty}/Applications/kitty.app) && sleep 0.1 && skhd -k "ctrl + shift - 1"
 
       ## lazyvim
-      #lcmd + ctrl - i : (open -n ${pkgs.alacritty}/Applications/Alacritty.app --args --command zsh --login -ic "lazyvim -c 'cd ~/Dev'" &> /dev/null) && skhd -k "ctrl + shift - 2"
-      lcmd + ctrl - i : (open -n ${pkgs.wezterm}/Applications/WezTerm.app --args start zsh --login -ic "lazyvim -c 'cd ~/Dev'" &> /dev/null) && skhd -k "ctrl + shift - 2"
+      #lcmd + ctrl - i : (open -n ${pkgs.alacritty}/Applications/Alacritty.app --args --command zsh --login -ic "lazyvim -c 'cd ~/Dev'" &> /dev/null) && sleep 0.1 && skhd -k "ctrl + shift - 2"
+      lcmd + ctrl - i : (open -n ${pkgs.wezterm}/Applications/WezTerm.app --args start zsh --login -ic "lazyvim -c 'cd ~/Dev'" &> /dev/null) && sleep 0.1 && skhd -k "ctrl + shift - 2"
 
       ${builtins.readFile ../config/skhdrc}
     '';
