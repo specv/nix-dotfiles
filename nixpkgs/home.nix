@@ -1062,6 +1062,10 @@ in
         osascript ${ builtins.path { path = ../config/pbadd.scpt; name = "pbadd.scpt"; } } "$@"
       }
 
+      function lazyvim_wezterm() {
+        open -n ${pkgs.wezterm}/Applications/WezTerm.app --args start --cwd $PWD zsh --login -ic "lazyvim $(printf "%q " "$@")" &> /dev/null
+      }
+
       # vivid is a themeable LS_COLORS generator
       # export LS_COLORS="$(~/.nix-profile/bin/vivid generate one-dark)";
 
@@ -1171,7 +1175,7 @@ in
       lg      = "lazygit";
 
       lazyvim = "NVIM_APPNAME=lazyvim nvim";
-      vv      = "lazyvim";
+      vv      = "lazyvim_wezterm";
     };
     plugins = with pkgs; [
       #{
