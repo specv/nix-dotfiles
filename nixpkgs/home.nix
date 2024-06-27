@@ -167,6 +167,8 @@ in
     nodejs_22
     ## a secure runtime for JavaScript and TypeScript
     deno
+    ## fast, reliable, and secure dependency management for javascript
+    yarn
 
     # Command Runner
     ## a command runner and partial replacement for `make`
