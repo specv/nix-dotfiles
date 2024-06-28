@@ -54,6 +54,7 @@ in
     ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
     ## https://nixos.wiki/wiki/Fonts
     (nerdfonts.override { fonts = [ "CascadiaCode"]; })
+    lxgw-wenkai
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -681,7 +682,7 @@ in
       end)
 
       return {
-        font = wezterm.font("CaskaydiaCove Nerd Font Mono"),
+        font = wezterm.font_with_fallback { "CaskaydiaCove Nerd Font Mono", "LXGW WenKai" },
         font_size = 16.0,
         underline_thickness = 3,
         underline_position = -3,
@@ -749,6 +750,7 @@ in
       bold_font        = "CaskaydiaCove Nerd Font Mono Bold";
       italic_font      = "CaskaydiaCove Nerd Font Mono Italic";
       bold_italic_font = "CaskaydiaCove Nerd Font Mono Bold Italic";
+      symbol_map       = "U+4E00-U+9FFF,U+3400-U+4DBF,U+20000-U+2A6DF,U+2A700-U+2B73F,U+2B740-U+2B81F,U+2B820-U+2CEAF,U+2CEB0-U+2EBEF,U+30000-U+3134F,U+31350-U+323AF LXGW WenKai";
 
       # shell
       shell_integration = "enabled";
