@@ -216,6 +216,8 @@
       "homebrew/services"
       # JankyBorders
       "FelixKratz/formulae"
+      # im-select
+      "daipeihust/tap"
     ];
     extraConfig = ''
     '';
@@ -224,6 +226,8 @@
       "postgresql@14"
       # JankyBorders: A lightweight window border system for macOS
       "borders"
+      # switch your input method through terminal
+      "im-select"
       # daemonless container engine for developing, managing, and running OCI Containers
       #"podman"
     ];
