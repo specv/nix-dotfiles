@@ -517,7 +517,8 @@ in
         { on = [ "d" ]; run = "arrow 50%"; desc = "Move cursor down half page"; }
         { on = [ "e" ]; run = "arrow -50%"; desc = "Move cursor up half page"; }
 
-        { on = [ "c" "s" ]; run = '' shell --confirm 'osascript ${ builtins.path { path = ../config/pbadd.scpt; name = "pbadd.scpt"; } } "$@"' ''; desc = "Copy the files to system clipboard"; }
+        { on = [ "c" "s" ]; run = '' shell --confirm 'osascript ${ builtins.path { path = ../config/pbadd.scpt; name = "pbadd.scpt"; } } "$@"' ''; desc = "Copy the files to clipboard"; }
+        { on = [ "c" "o" ]; run = '' shell --confirm 'open -b me.damir.dropover-mac "$@"' ''; desc = "Copy the files to Dropover"; }
 
         { on = [ "!" ]; run = ''shell "$SHELL" --block --confirm''; desc = "Open shell here"; }
         { on = [ "1" ]; run = "plugin --sync auto-tab --args=0"; }
