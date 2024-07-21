@@ -172,6 +172,8 @@ in
     deno
     ## fast, reliable, and secure dependency management for javascript
     yarn
+    ## python dependency management and packaging made easy
+    poetry
 
     # Command Runner
     ## a command runner and partial replacement for `make`
