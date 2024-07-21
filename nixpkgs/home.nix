@@ -134,6 +134,8 @@ in
     fx
     ## GNU sed, a batch stream editor
     gnused
+    ## a high performance code minimap render (for `minimap.vim`)
+    code-minimap
 
     # Multi-media (for `yazi` previewer)
     ## a complete, cross-platform solution to record, convert and stream audio and video
