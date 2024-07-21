@@ -154,6 +154,8 @@ in
     python312Packages.nbconvert
     ## a fast, easy and free BitTorrent client
     transmission_4
+    ## download videos from YouTube.com and other sites (youtube-dl fork)
+    yt-dlp
 
     # File Manager
     ## the unorthodox terminal file manager
