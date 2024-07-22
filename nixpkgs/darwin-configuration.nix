@@ -259,6 +259,8 @@
       "orbstack"
       # your shortcut to everything
       "raycast"
+      # manipulate macOS masterfully, minus the mouse
+      "shortcat"
       # distribution of the Python and R programming languages for scientific computing
       "anaconda"
     ];
