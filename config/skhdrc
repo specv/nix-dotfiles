@@ -129,12 +129,12 @@ lctrl + shift - 8 : yabai -m config mouse_follows_focus on && yabai -m display -
 lctrl + shift - 9 : yabai -m config mouse_follows_focus on && yabai -m display --focus 3
 
 ## send window to display and follow focus
-lctrl + ctrl + alt - r : yabai -m config mouse_follows_focus on && yabai -m window --display recent && sleep 0.1  && yabai -m display --focus recent
-lctrl + ctrl + alt - p : yabai -m config mouse_follows_focus on && yabai -m window --display prev   && sleep 0.1  && yabai -m display --focus prev
-lctrl + ctrl + alt - n : yabai -m config mouse_follows_focus on && yabai -m window --display next   && sleep 0.1  && yabai -m display --focus next
-lctrl + ctrl + alt - 1 : yabai -m config mouse_follows_focus on && yabai -m window --display 1      && sleep 0.1  && yabai -m display --focus 1
-lctrl + ctrl + alt - 2 : yabai -m config mouse_follows_focus on && yabai -m window --display 2      && sleep 0.1  && yabai -m display --focus 2
-lctrl + ctrl + alt - 3 : yabai -m config mouse_follows_focus on && yabai -m window --display 3      && sleep 0.1  && yabai -m display --focus 3
-lctrl + ctrl + alt - 7 : yabai -m config mouse_follows_focus on && yabai -m window --display 1      && sleep 0.1  && yabai -m display --focus 1
-lctrl + ctrl + alt - 8 : yabai -m config mouse_follows_focus on && yabai -m window --display 2      && sleep 0.1  && yabai -m display --focus 2
-lctrl + ctrl + alt - 9 : yabai -m config mouse_follows_focus on && yabai -m window --display 3      && sleep 0.1  && yabai -m display --focus 3
+lctrl + shift + alt - r : yabai -m config mouse_follows_focus on && yabai -m window --display recent && sleep 0.1  && yabai -m display --focus recent
+lctrl + shift + alt - p : yabai -m config mouse_follows_focus on && yabai -m window --display prev   && sleep 0.1  && yabai -m display --focus prev
+lctrl + shift + alt - n : yabai -m config mouse_follows_focus on && yabai -m window --display next   && sleep 0.1  && yabai -m display --focus next
+lctrl + shift + alt - 1 : yabai -m config mouse_follows_focus on && yabai -m window --display 1      && sleep 0.1  && yabai -m display --focus 1
+lctrl + shift + alt - 2 : yabai -m config mouse_follows_focus on && yabai -m window --display 2      && sleep 0.1  && yabai -m display --focus 2
+lctrl + shift + alt - 3 : yabai -m config mouse_follows_focus on && yabai -m window --display 3      && sleep 0.1  && yabai -m display --focus 3
+lctrl + shift + alt - 7 : yabai -m config mouse_follows_focus on && yabai -m window --display 1      && sleep 0.1  && yabai -m display --focus 1
+lctrl + shift + alt - 8 : yabai -m config mouse_follows_focus on && yabai -m window --display 2      && sleep 0.1  && yabai -m display --focus 2
+lctrl + shift + alt - 9 : yabai -m config mouse_follows_focus on && yabai -m window --display 3      && sleep 0.1  && yabai -m display --focus 3
