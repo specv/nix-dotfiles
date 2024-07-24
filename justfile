@@ -57,3 +57,8 @@ skhd-stop:
 
 skhd-restart: skhd-stop skhd-start
 
+fetch-repos:
+    git clone https://github.com/specv/lazyvim "~/.config/lazyvim" 2>/dev/null
+    git clone https://github.com/specv/clash "~/.config/clash" 2>/dev/null
+    git clone https://github.com/specv/logseq "~/Dev/github/logseq" 2>/dev/null
+    git clone https://github.com/specv/Anki2 "~/Library/Application Support/Anki2" 2>/dev/null
