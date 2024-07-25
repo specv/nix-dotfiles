@@ -139,8 +139,8 @@ map('tou', 'cc');
 unmap('cc');
 // [o]pen tab by [e]dit current url
 map('toe', ';u');
-// open tab by [e]dit current [u]rl
-map('tue', ';u');
+// [o]pen tab by edit current [u]rl
+map('tuo', ';u');
 unmap(';u')
 // go to the first tab
 map('t0', 'g0');
@@ -154,16 +154,16 @@ unmap('w');
 // switch [s]croll
 map('ts', ';fs');
 unmap(';fs');
-// [r]eplace current [u]rl and reload
-map('tur', ';U');
+// [e]dit current [u]rl
+map('tue', ';U');
 unmap(';U');
 map('tu.', 'gu');
 map('t..', 'gu');
 map('g..', 'gu');
 unmap('gu');
 unmap('gU');
-// open a [u]rl in current tab
-map('tuo', 'go');
+// [r]eplace current [u]rl
+map('tur', 'go');
 unmap('go');
 // duplicate current tab
 map('ty', 'yt');
