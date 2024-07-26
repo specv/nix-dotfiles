@@ -363,6 +363,9 @@ in
 
   programs.direnv = {
     enable = true;
+    nix-direnv = {
+      enable = true;
+    };
   };
 
   # The conda module shows the current Conda (opens new window)environment, if $CONDA_DEFAULT_ENV is set.
