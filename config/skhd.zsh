@@ -9,25 +9,23 @@ function paneable() {
   fi
 }
 
-function current_app_next_space() {
+function focus_window_of_app() {
+  local direction=$1
   local current_window=$(yabai -m query --windows --window)
   local current_app=$(echo $current_window | jq -r '.app')
-  local current_space=$(echo $current_window | jq -r '.space')
-  local app_spaces=(${(f)"$(yabai -m query --windows | jq -r ".[] | select(.app==\"$current_app\") | .space" | sort -n | uniq)"})
+  local current_id=$(echo $current_window | jq -r '.id')
+  local app_window_ids=(${(f)"$(yabai -m query --windows | jq -r ".[] | select(.app==\"$current_app\") | .id" | sort -n)"})
 
-  if [[ ${#app_spaces} -le 1 ]]; then
-    local next_space=$current_space
-  else
-    local current_index=${app_spaces[(i)$current_space]}
-
-    if [[ $current_index -gt ${#app_spaces} ]]; then
-      local next_space=$app_spaces[1]
-    else
-      local next_index=$(( (current_index % ${#app_spaces}) + 1 ))
-      local next_space=$app_spaces[$next_index]
-    fi
+  if [[ ${#app_window_ids} -le 1 ]]; then
+    return
   fi
 
-  local next_space_label=$(yabai -m query --spaces --space $next_space | jq -r '.label | .[-1:]')
-  echo $next_space_label
+  local current_index=${app_window_ids[(i)$current_id]}
+  if [[ $direction == "next" ]]; then
+    local next_index=$(( (current_index % ${#app_window_ids}) + 1 ))
+  else
+    local next_index=$(( ((current_index - 2 + ${#app_window_ids}) % ${#app_window_ids}) + 1 ))
+  fi
+
+  yabai -m window --focus ${app_window_ids[$next_index]}
 }
