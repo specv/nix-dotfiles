@@ -610,19 +610,19 @@ in
       };
     };
     flavors = {
-      "catppuccin-mocha.yazi" = pkgs.fetchFromGitHub {
+      "catppuccin-mocha" = pkgs.fetchFromGitHub {
         owner = "yazi-rs";
         repo = "flavors";
         rev = "main";
         sha256 = "sha256-gT3aMiBspYypkMdx1TDVwElK7aotolE1JJuJtkC9RRc";
       } + "/catppuccin-mocha.yazi";
-      "onedark.yazi" = pkgs.fetchFromGitHub {
+      "onedark" = pkgs.fetchFromGitHub {
         owner = "BennyOe";
         repo = "onedark.yazi";
         rev = "main";
         sha256 = "sha256-SJdkLjF2i5/G0H/x9kTPXv/ozzMO1WhddWMjZi6+x3A=";
       };
-      "tokyo-night.yazi" = pkgs.fetchFromGitHub {
+      "tokyo-night" = pkgs.fetchFromGitHub {
         owner = "BennyOe";
         repo = "tokyo-night.yazi";
         rev = "main";
@@ -631,31 +631,31 @@ in
     };
 
     plugins = {
-      "keyjump.yazi" = pkgs.fetchFromGitHub {
+      "keyjump" = pkgs.fetchFromGitHub {
         owner = "DreamMaoMao";
         repo = "keyjump.yazi";
         rev = "main";
         sha256 = "sha256-WAjNhpGman9qRe52iXb0lDF37FEs4IFqobV6SJT9WCs=";
       };
-      "searchjump.yazi" = pkgs.fetchFromGitHub {
+      "searchjump" = pkgs.fetchFromGitHub {
         owner = "DreamMaoMao";
         repo = "searchjump.yazi";
         rev = "main";
         sha256 = "sha256-XH7DQMl0TjzIS90H3jP0q56cPjXy+umDiAHR0zVjGRY=";
       };
-      "fg.yazi" = pkgs.fetchFromGitHub {
+      "fg" = pkgs.fetchFromGitHub {
         owner = "DreamMaoMao";
         repo = "fg.yazi";
         rev = "main";
         sha256 = "sha256-6LpnyXB7mri6aVEfnv6aG2mWlzpvaD8SiMqwUS+jJr0=";
       };
-      "eza-preview.yazi" = pkgs.fetchFromGitHub {
+      "eza-preview" = pkgs.fetchFromGitHub {
         owner = "sharklasers996";
         repo = "eza-preview.yazi";
         rev = "master";
         sha256 = "sha256-Ue58aT37FW7kRIUhbkt41J4wTYcYFQaRmdJgbthbSDA=";
       };
-      "preview.yazi" = pkgs.fetchFromGitHub {
+      "preview" = pkgs.fetchFromGitHub {
         owner = "Urie96";
         repo = "preview.yazi";
         rev = "main";
