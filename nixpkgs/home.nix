@@ -110,6 +110,8 @@ in
     highlight
 
     # Editor / Text Processor
+    ## the most popular clone of the VI editor
+    ## vim
     ## vim text editor fork focused on extensibility and agility
     ## neovim
     ## cat clone
@@ -405,6 +407,20 @@ in
         when = '' test -n "$YAZI_LEVEL" '';
       };
     };
+  };
+
+  programs.vim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-sneak
+    ];
+    extraConfig = ''
+      ${builtins.readFile ../dotfiles/.vimrc}
+
+      " sneak.vim label-mode
+      let g:sneak#label = 1
+      highlight SneakLabel guifg=#c8d3f5 guibg=#ff007c gui=bold ctermfg=189 ctermbg=198 cterm=bold
+    '';
   };
 
   programs.neovim = {
