@@ -67,15 +67,49 @@
                         ]
                     },
                     {
-                        "description": "Change right_command+hjkl to arrow keys.",
+                        "description": "Change ctrl-jk to arrow key for Chrome.",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.Chrome$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [{ "key_code": "down_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.Chrome$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [{ "key_code": "up_arrow" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change control+shift+hjkl to arrow keys.",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
+                                    "modifiers": { "mandatory": ["control", "shift"] }
                                 },
                                 "to": [{ "key_code": "left_arrow" }],
                                 "type": "basic"
@@ -83,10 +117,7 @@
                             {
                                 "from": {
                                     "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
+                                    "modifiers": { "mandatory": ["control", "shift"] }
                                 },
                                 "to": [{ "key_code": "down_arrow" }],
                                 "type": "basic"
@@ -94,10 +125,7 @@
                             {
                                 "from": {
                                     "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
+                                    "modifiers": { "mandatory": ["control", "shift"] }
                                 },
                                 "to": [{ "key_code": "up_arrow" }],
                                 "type": "basic"
@@ -105,10 +133,7 @@
                             {
                                 "from": {
                                     "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
+                                    "modifiers": { "mandatory": ["control", "shift"] }
                                 },
                                 "to": [{ "key_code": "right_arrow" }],
                                 "type": "basic"
@@ -116,60 +141,23 @@
                         ]
                     },
                     {
-                        "description": "Change ctrl-jk to arrow key.",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.google\\.Chrome$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": { "mandatory": ["control"] }
-                                },
-                                "to": [{ "key_code": "down_arrow" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.google\\.Chrome$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": { "mandatory": ["control"] }
-                                },
-                                "to": [{ "key_code": "up_arrow" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change left_control+spacebar to left_control+left_shift.",
+                        "description": "Change control+spacebar to control+left_shift.",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["left_control"] }
+                                    "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
                                     {
                                         "key_code": "left_shift",
-                                        "modifiers": ["left_control"]
+                                        "modifiers": ["control"]
                                     }
                                 ],
                                 "to_if_alone": [
                                     {
                                         "key_code": "spacebar",
-                                        "modifiers": ["left_control"]
+                                        "modifiers": ["control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -177,17 +165,17 @@
                         ]
                     },
                     {
-                        "description": "Change left_control+shift+spacebar to left_control+shift+left_option.",
+                        "description": "Change control+shift+spacebar to control+shift+left_option.",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["left_control", "shift"] }
+                                    "modifiers": { "mandatory": ["control", "shift"] }
                                 },
                                 "to": [
                                     {
                                         "key_code": "left_option",
-                                        "modifiers": ["left_control", "shift"]
+                                        "modifiers": ["control", "shift"]
                                     }
                                 ],
                                 "type": "basic"
