@@ -228,6 +228,8 @@
       "borders"
       # switch your input method through terminal
       "im-select"
+      # cross-platform C++ GUI toolkit, for erlang's `:observer.start()` installed by `asdf`
+      "wxwidgets"
       # daemonless container engine for developing, managing, and running OCI Containers
       #"podman"
     ];
