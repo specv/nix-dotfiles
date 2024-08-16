@@ -215,7 +215,7 @@
       # "homebrew/core"
       "homebrew/services"
       # JankyBorders
-      "FelixKratz/formulae"
+      # "FelixKratz/formulae"
       # im-select
       "daipeihust/tap"
     ];
@@ -225,7 +225,7 @@
       "redis"
       "postgresql@14"
       # JankyBorders: A lightweight window border system for macOS
-      "borders"
+      # "borders"
       # switch your input method through terminal
       "im-select"
       # cross-platform C++ GUI toolkit, for erlang's `:observer.start()` installed by `asdf`
