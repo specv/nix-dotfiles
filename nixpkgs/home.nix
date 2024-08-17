@@ -419,6 +419,9 @@ in
     extraConfig = ''
       ${builtins.readFile ../dotfiles/.vimrc}
 
+      " restore default clipboard settings
+      set clipboard&
+
       " sneak.vim label-mode
       let g:sneak#label = 1
       highlight SneakLabel guifg=#c8d3f5 guibg=#ff007c gui=bold ctermfg=189 ctermbg=198 cterm=bold
