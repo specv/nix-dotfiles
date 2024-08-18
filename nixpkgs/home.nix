@@ -1113,7 +1113,7 @@ in
         sha256 = "sha256-DT9WmtyJ/wngoiOTXMcnstVbGh3BaFWrr8Zxm4g4b6U=";
       } + "/lscolors.sh"}
 
-      source ~/.bash_profile
+      emulate bash -c 'source ~/.bash_profile'
 
       if [ -f ~/.env ]; then
         source ~/.env
