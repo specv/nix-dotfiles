@@ -1115,6 +1115,10 @@ in
 
       source ~/.bash_profile
 
+      if [ -f ~/.env ]; then
+        source ~/.env
+      fi
+
       # fzf keybindings
       source ~/.fzf/shell/key-bindings.zsh
 
