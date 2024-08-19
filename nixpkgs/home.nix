@@ -178,6 +178,8 @@ in
     yarn
     ## python dependency management and packaging made easy
     poetry
+    ## an extremely fast Python package installer and resolver, written in Rust
+    uv
     ## fast, declarative, reproducible, and composable developer environments
     devenv
 
