@@ -53,7 +53,7 @@ in
     # Font
     ## Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
     ## https://nixos.wiki/wiki/Fonts
-    (nerdfonts.override { fonts = [ "CascadiaCode"]; })
+    nerd-fonts.caskaydia-cove
     lxgw-wenkai
 
     # # You can also create simple shell scripts directly inside your
