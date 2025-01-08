@@ -774,7 +774,7 @@ in
     environment = {
       TERM = "xterm-256color";
     };
-    theme = "Gruvbox Material Dark Hard";
+    themeFile = "GruvboxMaterialDarkHard";
     settings = {
       # font
       font_size        = 16;
