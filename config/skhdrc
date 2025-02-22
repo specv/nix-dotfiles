@@ -119,7 +119,6 @@ cmd + ctrl + shift - 0 : yabai -m window --space s0     && yabai -m config mouse
 ## You need to add `yabai -m signal --add event=display_changed action="yabai -m config mouse_follows_focus off"` in `yabairc` for coordinated use.
 ## Because if you directly add yabai -m config mouse_follows_focus off to the end of the command, there is a chance that the mouse will not follow.
 cmd - r          : yabai -m config mouse_follows_focus on && yabai -m display --focus recent
-ctrl + shift - r : yabai -m config mouse_follows_focus on && yabai -m display --focus recent
 ctrl + shift - p : yabai -m config mouse_follows_focus on && yabai -m display --focus prev
 ctrl + shift - n : yabai -m config mouse_follows_focus on && yabai -m display --focus next
 ctrl + shift - 1 : yabai -m config mouse_follows_focus on && yabai -m display --focus 1
