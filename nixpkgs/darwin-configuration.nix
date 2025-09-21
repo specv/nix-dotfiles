@@ -232,6 +232,8 @@
       "wxwidgets"
       # daemonless container engine for developing, managing, and running OCI Containers
       #"podman"
+      # 7-Zip is a file archiver with a high compression ratio
+      "sevenzip"
     ];
     casks = [
       # note taking app (`Notational Velocit` alternative)
