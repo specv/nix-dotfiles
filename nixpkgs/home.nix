@@ -55,6 +55,7 @@ in
     ## https://nixos.wiki/wiki/Fonts
     nerd-fonts.caskaydia-cove
     lxgw-wenkai
+    maple-mono
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
